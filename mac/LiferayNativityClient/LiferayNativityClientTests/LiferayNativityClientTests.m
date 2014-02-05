@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "LiferayNativityClient.h"
 
 @interface LiferayNativityClientTests : XCTestCase
 
