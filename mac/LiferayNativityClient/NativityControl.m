@@ -42,6 +42,114 @@ static NativityControl* _sharedInstance = nil;
     return _sharedInstance;
 }
 
++ (NSAppleEventDescriptor*)executeScript:(NSString*)scriptName error:(NSError**)error
+{
+    NSBundle* bundle = [NSBundle bundleForClass:self];
+    NSURL* scriptURL = [bundle URLForResource:scriptName withExtension:@"scpt"];
+    if (scriptURL == nil)
+    {
+        if (error != NULL)
+        {
+            *error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                         code:NSFileNoSuchFileError
+                                     userInfo:nil];
+        }
+        
+        return nil;
+    }
+    
+    NSDictionary* errorDict;
+    NSAppleScript* script = [[[NSAppleScript alloc] initWithContentsOfURL:scriptURL error:&errorDict] autorelease];
+    if (script == nil)
+    {
+        if (error != NULL)
+        {
+            NSMutableDictionary* userInfo = [NSMutableDictionary dictionaryWithDictionary:errorDict];
+            userInfo[NSLocalizedDescriptionKey] = userInfo[NSAppleScriptErrorMessage];
+            *error = [NSError errorWithDomain:@""
+                                         code:[errorDict[NSAppleScriptErrorNumber] intValue]
+                                     userInfo:userInfo
+                      ];
+        }
+        
+        return nil;
+    }
+    
+    
+    NSAppleEventDescriptor* aeDesc = [script executeAndReturnError:&errorDict];
+    if (aeDesc == nil)
+    {
+        if (error != NULL)
+        {
+            NSMutableDictionary* userInfo = [NSMutableDictionary dictionaryWithDictionary:errorDict];
+            userInfo[NSLocalizedDescriptionKey] = userInfo[NSAppleScriptErrorMessage];
+            *error = [NSError errorWithDomain:@""
+                                         code:[errorDict[NSAppleScriptErrorNumber] intValue]
+                                     userInfo:userInfo
+                      ];
+        }
+        
+        return nil;
+    }
+    
+    return aeDesc;
+}
 
+- (id)init
+{
+    self = [super init];
+    if (self != nil)
+    {
+    }
+    return self;
+}
+
+- (BOOL)load
+{
+    NSError* error;
+    NSAppleEventDescriptor* aeDesc = [self.class executeScript:@"load" error:&error];
+    
+    if (aeDesc == nil)
+    {
+        DDLogError(@"Error loading Nativity: %@", [error localizedDescription]);
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
+- (BOOL)unload
+{
+    NSError* error;
+    NSAppleEventDescriptor* aeDesc = [self.class executeScript:@"unload" error:&error];
+    
+    if (aeDesc == nil)
+    {
+        DDLogError(@"Error unloading Nativity: %@", [error localizedDescription]);
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
+- (BOOL)isLoaded
+{
+    NSError* error;
+    NSAppleEventDescriptor* aeDesc = [self.class executeScript:@"loaded" error:&error];
+    
+    if (aeDesc == nil)
+    {
+        DDLogError(@"Error checking Nativity load state: %@", [error localizedDescription]);
+        return NO;
+    }
+    else
+    {
+        return (aeDesc.int32Value == 0);
+    }
+}
 
 @end

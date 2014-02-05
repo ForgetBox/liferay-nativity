@@ -17,7 +17,7 @@
 		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60DE18A256F00011A0C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3218A24CB300203322 /* Security.framework */; };
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
-		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; };
+		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDDED18A2749B0073FD9B /* NativityControl.m */; };
 		9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDE1B18A27C5E0073FD9B /* DDASLLogger.h */; };
 		9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE1C18A27C5E0073FD9B /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
