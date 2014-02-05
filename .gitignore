@@ -30,3 +30,5 @@ windows/LiferayNativityShellExtensions/NativityTest/Debug
 windows/LiferayNativityShellExtensions/NativityTest/Release
 
 .DS_Store
+
+DerivedData
