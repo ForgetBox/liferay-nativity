@@ -23,7 +23,19 @@
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
 
+#import "GCDAsyncSocket.h"
+
+static const int _commandSocketPort = 33001;
+static const int _callbackSocketPort = 33002;
+
 @implementation NativityControl
+{
+    dispatch_queue_t _commandQueue;
+    GCDAsyncSocket* _commandSocket;
+    
+    dispatch_queue_t _callbackQueue;
+    GCDAsyncSocket* _callbackSocket;
+}
 
 static NativityControl* _sharedInstance = nil;
 
@@ -100,8 +112,80 @@ static NativityControl* _sharedInstance = nil;
     self = [super init];
     if (self != nil)
     {
+        _commandQueue = dispatch_queue_create("command queue", NULL);
+        _commandSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_commandQueue];
+        
+        _callbackQueue = dispatch_queue_create("callback queue", NULL);
+        _callbackSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_callbackQueue];
+        
+        _connected = NO;
     }
     return self;
+}
+
+- (void)dealloc
+{
+	[_commandSocket setDelegate:nil delegateQueue:NULL];
+	[_commandSocket disconnect];
+    [_commandSocket release];
+    dispatch_release(_commandQueue);
+    
+	[_callbackSocket setDelegate:nil delegateQueue:NULL];
+	[_callbackSocket disconnect];
+    [_callbackSocket release];
+    dispatch_release(_callbackQueue);
+    
+    [super dealloc];
+}
+
+- (BOOL)connect
+{
+    NSError* error;
+    
+    BOOL ret = [_commandSocket connectToHost:@"localhost"
+                                      onPort:_commandSocketPort
+                                       error:&error];
+    if (ret)
+    {
+        DDLogDebug(@"Successfully connected to command socket: %d", _commandSocketPort);
+        
+        ret = [_callbackSocket connectToHost:@"localhost"
+                                      onPort:_callbackSocketPort
+                                       error:&error];
+    }
+    
+    if (ret)
+    {
+        DDLogDebug(@"Successfully connected to callback socket: %d", _callbackSocketPort);
+    }
+    
+    if (ret)
+    {
+        _connected = YES;
+        return YES;
+    }
+    else
+    {
+        DDLogError(@"Error connecting to Nativity service: %@", [error localizedDescription]);
+        
+        [self disconnect];
+        
+        _connected = NO;
+        return NO;
+    }
+}
+
+- (BOOL)disconnect
+{
+    [_commandSocket disconnect];
+    
+    [_callbackSocket disconnect];
+    
+    DDLogDebug(@"Successfully disconnected");
+    
+    _connected = NO;
+    
+    return YES;
 }
 
 - (BOOL)load
@@ -136,7 +220,7 @@ static NativityControl* _sharedInstance = nil;
     }
 }
 
-- (BOOL)isLoaded
+- (BOOL)loaded
 {
     NSError* error;
     NSAppleEventDescriptor* aeDesc = [self.class executeScript:@"loaded" error:&error];
@@ -151,5 +235,10 @@ static NativityControl* _sharedInstance = nil;
         return (aeDesc.int32Value == 0);
     }
 }
+
+#pragma mark
+#pragma mark GCDAsyncSocketDelegate methods
+
+
 
 @end

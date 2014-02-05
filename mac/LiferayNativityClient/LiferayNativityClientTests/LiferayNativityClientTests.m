@@ -19,13 +19,18 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    [[NativityControl sharedInstance] load];
-    XCTAssert([[NativityControl sharedInstance] isLoaded]);
+    NativityControl* nativityControl = [NativityControl sharedInstance];
+    XCTAssert([nativityControl load], @"Could not load Nativity");
+    XCTAssert([nativityControl loaded], @"Nativity not loaded during setup");
+    XCTAssert([nativityControl connect], @"Could not connect to Nativity");
 }
 
 - (void)tearDown
 {
-    [[NativityControl sharedInstance] unload];
+    NativityControl* nativityControl = [NativityControl sharedInstance];
+    XCTAssert([nativityControl loaded], @"Nativity not loaded during teardown");
+    [nativityControl disconnect];
+    XCTAssert([nativityControl unload], @"Could not unload Nativity");
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }

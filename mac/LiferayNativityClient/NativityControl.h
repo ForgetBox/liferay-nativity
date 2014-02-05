@@ -23,7 +23,8 @@
 
 @interface NativityControl : NSObject <GCDAsyncSocketDelegate>
 
-@property (nonatomic, readonly) BOOL isLoaded;
+@property (nonatomic, readonly) BOOL loaded;
+@property (nonatomic, readonly) BOOL connected;
 
 + (id)sharedInstance;
 
