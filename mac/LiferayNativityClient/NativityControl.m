@@ -190,12 +190,14 @@ static NativityControl* _sharedInstance = nil;
 
 - (BOOL)load
 {
+    DDLogVerbose(@"Loading Liferay Nativity");
+    
     NSError* error;
     NSAppleEventDescriptor* aeDesc = [self.class executeScript:@"load" error:&error];
     
     if (aeDesc == nil)
     {
-        DDLogError(@"Error loading Nativity: %@", [error localizedDescription]);
+        DDLogError(@"Error loading Liferay Nativity: %@", [error localizedDescription]);
         return NO;
     }
     else
@@ -206,12 +208,14 @@ static NativityControl* _sharedInstance = nil;
 
 - (BOOL)unload
 {
+    DDLogVerbose(@"Unloading Liferay Nativity");
+    
     NSError* error;
     NSAppleEventDescriptor* aeDesc = [self.class executeScript:@"unload" error:&error];
     
     if (aeDesc == nil)
     {
-        DDLogError(@"Error unloading Nativity: %@", [error localizedDescription]);
+        DDLogError(@"Error unloading Liferay Nativity: %@", [error localizedDescription]);
         return NO;
     }
     else
@@ -227,7 +231,7 @@ static NativityControl* _sharedInstance = nil;
     
     if (aeDesc == nil)
     {
-        DDLogError(@"Error checking Nativity load state: %@", [error localizedDescription]);
+        DDLogError(@"Error checking Liferay Nativity load state: %@", [error localizedDescription]);
         return NO;
     }
     else
@@ -240,5 +244,19 @@ static NativityControl* _sharedInstance = nil;
 #pragma mark GCDAsyncSocketDelegate methods
 
 
+- (void)socket:(GCDAsyncSocket*)socket didConnectToHost:(NSString*)host port:(UInt16)port
+{
+	[socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+}
+
+- (void)socket:(GCDAsyncSocket*)socket didReadData:(NSData*)data withTag:(long)tag
+{
+	[socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+}
+
+- (NSTimeInterval)socket:(GCDAsyncSocket*)socket shouldTimeoutReadWithTag:(long)tag elapsed:(NSTimeInterval)elapsed bytesDone:(NSUInteger)length
+{
+	return 0.0;
+}
 
 @end
