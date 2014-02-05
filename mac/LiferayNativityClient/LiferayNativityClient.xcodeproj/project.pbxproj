@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A574D3918A302D2003CF108 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
 		9A8D60C518A250FE0011A0C0 /* LiferayNativityClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiferayNativityClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8D60C918A250FE0011A0C0 /* LiferayNativityClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LiferayNativityClientTests-Info.plist"; sourceTree = "<group>"; };
 		9A8D60CB18A250FE0011A0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 				9AC87A0A18A2487300203322 /* LiferayNativityClient.h */,
 				9ADBDDEC18A2749B0073FD9B /* NativityControl.h */,
 				9ADBDDED18A2749B0073FD9B /* NativityControl.m */,
+				9A574D3918A302D2003CF108 /* Constants.h */,
 			);
 			name = Source;
 			path = LiferayNativityClient;

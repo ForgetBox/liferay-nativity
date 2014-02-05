@@ -19,11 +19,15 @@
 
 #import "NativityControl.h"
 
+#import "Constants.h"
+
 #import "DDLog.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
 
 #import "GCDAsyncSocket.h"
+
+#import "JSONKit.h"
 
 static const int _commandSocketPort = 33001;
 static const int _callbackSocketPort = 33002;
@@ -188,6 +192,22 @@ static NativityControl* _sharedInstance = nil;
     return YES;
 }
 
+- (NSData*)sendData:(NSData*)data
+{
+    [_commandSocket writeData:data withTimeout:-1 tag:0];
+    
+    return nil;
+}
+
+- (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
+{
+    NSDictionary* messageDictionary = @{@"command" : command, @"value" : value};
+    NSMutableData* messageData = [NSMutableData dataWithData:[messageDictionary JSONData]];
+    [messageData appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    return [self sendData:messageData];
+}
+
 - (BOOL)load
 {
     DDLogVerbose(@"Loading Liferay Nativity");
@@ -238,6 +258,11 @@ static NativityControl* _sharedInstance = nil;
     {
         return (aeDesc.int32Value == 0);
     }
+}
+
+- (void)setFilterPath:(NSString *)filterPath
+{
+    [self sendMessageWithCommand:SET_FILTER_PATH andValue:filterPath];
 }
 
 #pragma mark

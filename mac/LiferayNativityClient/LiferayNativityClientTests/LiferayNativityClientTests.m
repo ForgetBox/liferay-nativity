@@ -35,8 +35,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testSetFilterPath
 {
+    NativityControl* nativityControl = [NativityControl sharedInstance];
+    [nativityControl setFilterPath:@"/Users/chrales"];
 }
 
 @end

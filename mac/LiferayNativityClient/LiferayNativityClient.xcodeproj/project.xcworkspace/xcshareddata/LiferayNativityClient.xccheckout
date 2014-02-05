@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>194D3A8F-8CF8-4504-8489-4291DD1670D7</string>
+	<string>64DC5BBB-3EAA-4C75-A256-E6B364CA94BA</string>
 	<key>IDESourceControlProjectName</key>
-	<string>LiferayNativity</string>
+	<string>LiferayNativityClient</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F06D890C-02F9-44CB-A5B8-AD5F25835A4D</key>
 		<string>ssh://github.com/liferay/liferay-nativity.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>mac/LiferayNativity.xcworkspace</string>
+	<string>mac/LiferayNativityClient/LiferayNativityClient.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F06D890C-02F9-44CB-A5B8-AD5F25835A4D</key>
-		<string>../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/liferay/liferay-nativity.git</string>

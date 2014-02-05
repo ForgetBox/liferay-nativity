@@ -30,10 +30,12 @@
 
 - (BOOL)connect;
 - (BOOL)disconnect;
+- (NSData*)sendData:(NSData*)data;
+- (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
 
 - (BOOL)load;
 - (BOOL)unload;
 
-- (void)setFilterFolder:(NSString*)filterFolder;
+- (void)setFilterPath:(NSString*)filterPath;
 
 @end
