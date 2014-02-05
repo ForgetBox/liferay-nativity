@@ -12,7 +12,7 @@
 		9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */; };
 		9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1818A24ACD00203322 /* JSONKit.h */; };
 		9A8D60D618A251150011A0C0 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1918A24ACD00203322 /* JSONKit.m */; };
-		9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1418A24AC400203322 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1418A24AC400203322 /* GCDAsyncSocket.h */; };
 		9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1518A24AC400203322 /* GCDAsyncSocket.m */; };
 		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60DA18A251150011A0C0 /* LiferayNativityClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A0B18A2487300203322 /* LiferayNativityClient.m */; };
@@ -167,8 +167,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
-				9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
+				9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
