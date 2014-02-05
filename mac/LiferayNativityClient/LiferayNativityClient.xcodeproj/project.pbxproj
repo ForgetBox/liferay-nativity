@@ -15,9 +15,23 @@
 		9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1418A24AC400203322 /* GCDAsyncSocket.h */; };
 		9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1518A24AC400203322 /* GCDAsyncSocket.m */; };
 		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A8D60DA18A251150011A0C0 /* LiferayNativityClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A0B18A2487300203322 /* LiferayNativityClient.m */; };
 		9A8D60DE18A256F00011A0C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3218A24CB300203322 /* Security.framework */; };
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
+		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; };
+		9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDDED18A2749B0073FD9B /* NativityControl.m */; };
+		9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDE1B18A27C5E0073FD9B /* DDASLLogger.h */; };
+		9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE1C18A27C5E0073FD9B /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDE1D18A27C5E0073FD9B /* DDLog.h */; };
+		9ADBDE2418A27C5E0073FD9B /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE1E18A27C5E0073FD9B /* DDLog.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDE1F18A27C5E0073FD9B /* DDTTYLogger.h */; };
+		9ADBDE2618A27C5E0073FD9B /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE2018A27C5E0073FD9B /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9ADBDE2F18A284DF0073FD9B /* LiferayNativityClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3918A24F3E00203322 /* LiferayNativityClient.framework */; };
+		9ADBDE3718A287F60073FD9B /* getbundleversion.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE3118A287F60073FD9B /* getbundleversion.applescript */; };
+		9ADBDE3818A287F60073FD9B /* installscripts.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE3218A287F60073FD9B /* installscripts.applescript */; };
+		9ADBDE3918A287F60073FD9B /* load.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE3318A287F60073FD9B /* load.applescript */; };
+		9ADBDE3A18A287F60073FD9B /* loaded.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE3418A287F60073FD9B /* loaded.applescript */; };
+		9ADBDE3B18A287F60073FD9B /* reloadscripts.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE3518A287F60073FD9B /* reloadscripts.applescript */; };
+		9ADBDE3C18A287F60073FD9B /* unload.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDE3618A287F60073FD9B /* unload.applescript */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +54,6 @@
 		9AC879E318A247F700203322 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC879E618A247F700203322 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AC87A0A18A2487300203322 /* LiferayNativityClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiferayNativityClient.h; sourceTree = SOURCE_ROOT; };
-		9AC87A0B18A2487300203322 /* LiferayNativityClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiferayNativityClient.m; sourceTree = SOURCE_ROOT; };
 		9AC87A1418A24AC400203322 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		9AC87A1518A24AC400203322 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		9AC87A1818A24ACD00203322 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = SOURCE_ROOT; };
@@ -48,6 +61,20 @@
 		9AC87A2218A24B5900203322 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9AC87A3218A24CB300203322 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9AC87A3918A24F3E00203322 /* LiferayNativityClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiferayNativityClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ADBDDEC18A2749B0073FD9B /* NativityControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativityControl.h; sourceTree = SOURCE_ROOT; };
+		9ADBDDED18A2749B0073FD9B /* NativityControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativityControl.m; sourceTree = SOURCE_ROOT; };
+		9ADBDE1B18A27C5E0073FD9B /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = SOURCE_ROOT; };
+		9ADBDE1C18A27C5E0073FD9B /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = SOURCE_ROOT; };
+		9ADBDE1D18A27C5E0073FD9B /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = SOURCE_ROOT; };
+		9ADBDE1E18A27C5E0073FD9B /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = SOURCE_ROOT; };
+		9ADBDE1F18A27C5E0073FD9B /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = SOURCE_ROOT; };
+		9ADBDE2018A27C5E0073FD9B /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = SOURCE_ROOT; };
+		9ADBDE3118A287F60073FD9B /* getbundleversion.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = getbundleversion.applescript; sourceTree = "<group>"; };
+		9ADBDE3218A287F60073FD9B /* installscripts.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = installscripts.applescript; sourceTree = "<group>"; };
+		9ADBDE3318A287F60073FD9B /* load.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = load.applescript; sourceTree = "<group>"; };
+		9ADBDE3418A287F60073FD9B /* loaded.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = loaded.applescript; sourceTree = "<group>"; };
+		9ADBDE3518A287F60073FD9B /* reloadscripts.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = reloadscripts.applescript; sourceTree = "<group>"; };
+		9ADBDE3618A287F60073FD9B /* unload.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = unload.applescript; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ADBDE2F18A284DF0073FD9B /* LiferayNativityClient.framework in Frameworks */,
 				9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +121,7 @@
 		9A8D60DB18A251D00011A0C0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9ADBDE3018A287F60073FD9B /* osax */,
 				9A8D60DC18A251E00011A0C0 /* Info.plist */,
 			);
 			name = Resources;
@@ -134,8 +163,10 @@
 			children = (
 				9AC87A0F18A24A8D00203322 /* JSONKit */,
 				9AC87A0E18A24A8300203322 /* GCDAsyncSocket */,
+				9ADBDDF018A27BA10073FD9B /* Lumberjack */,
 				9AC87A0A18A2487300203322 /* LiferayNativityClient.h */,
-				9AC87A0B18A2487300203322 /* LiferayNativityClient.m */,
+				9ADBDDEC18A2749B0073FD9B /* NativityControl.h */,
+				9ADBDDED18A2749B0073FD9B /* NativityControl.m */,
 			);
 			name = Source;
 			path = LiferayNativityClient;
@@ -159,6 +190,32 @@
 			name = JSONKit;
 			sourceTree = "<group>";
 		};
+		9ADBDDF018A27BA10073FD9B /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				9ADBDE1B18A27C5E0073FD9B /* DDASLLogger.h */,
+				9ADBDE1C18A27C5E0073FD9B /* DDASLLogger.m */,
+				9ADBDE1D18A27C5E0073FD9B /* DDLog.h */,
+				9ADBDE1E18A27C5E0073FD9B /* DDLog.m */,
+				9ADBDE1F18A27C5E0073FD9B /* DDTTYLogger.h */,
+				9ADBDE2018A27C5E0073FD9B /* DDTTYLogger.m */,
+			);
+			path = Lumberjack;
+			sourceTree = SOURCE_ROOT;
+		};
+		9ADBDE3018A287F60073FD9B /* osax */ = {
+			isa = PBXGroup;
+			children = (
+				9ADBDE3118A287F60073FD9B /* getbundleversion.applescript */,
+				9ADBDE3218A287F60073FD9B /* installscripts.applescript */,
+				9ADBDE3318A287F60073FD9B /* load.applescript */,
+				9ADBDE3418A287F60073FD9B /* loaded.applescript */,
+				9ADBDE3518A287F60073FD9B /* reloadscripts.applescript */,
+				9ADBDE3618A287F60073FD9B /* unload.applescript */,
+			);
+			path = osax;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -166,9 +223,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
+				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
+				9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */,
 				9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */,
+				9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +279,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Charles Francoise";
+				ORGANIZATIONNAME = Forgetbox;
 				TargetAttributes = {
 					9A8D60C418A250FE0011A0C0 = {
 						TestTargetID = 9AC87A3818A24F3E00203322;
@@ -274,8 +335,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ADBDE2418A27C5E0073FD9B /* DDLog.m in Sources */,
+				9ADBDE3718A287F60073FD9B /* getbundleversion.applescript in Sources */,
+				9ADBDE3A18A287F60073FD9B /* loaded.applescript in Sources */,
+				9ADBDE3918A287F60073FD9B /* load.applescript in Sources */,
+				9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */,
+				9ADBDE2618A27C5E0073FD9B /* DDTTYLogger.m in Sources */,
+				9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */,
 				9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */,
-				9A8D60DA18A251150011A0C0 /* LiferayNativityClient.m in Sources */,
+				9ADBDE3818A287F60073FD9B /* installscripts.applescript in Sources */,
+				9ADBDE3B18A287F60073FD9B /* reloadscripts.applescript in Sources */,
+				9ADBDE3C18A287F60073FD9B /* unload.applescript in Sources */,
 				9A8D60D618A251150011A0C0 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,10 +381,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiferayNativityClientTests/LiferayNativityClientTests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = "LiferayNativityClientTests/LiferayNativityClientTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -358,7 +424,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"$(inherited)",
+					"LOG_LEVEL_DEF=LOG_LEVEL_DEBUG",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -393,6 +459,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "LOG_LEVEL_DEF=LOG_LEVEL_INFO";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -411,10 +478,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -444,6 +507,7 @@
 				9A8D60D418A250FE0011A0C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AC879DB18A247F700203322 /* Build configuration list for PBXProject "LiferayNativityClient" */ = {
 			isa = XCConfigurationList;

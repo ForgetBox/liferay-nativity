@@ -1,10 +1,8 @@
 //
-//  LiferayNativityClient.m
+//  NativityControl.m
 //  LiferayNativityClient
 //
 //  Created by Charles Francoise on 05/02/14.
-//  Copyright (c) 2014 Charles Francoise. All rights reserved.
-//
 /**
  * Copyright (c) 2014 Forgetbox. All rights reserved.
  *
@@ -19,8 +17,31 @@
  * details.
  */
 
-#import "LiferayNativityClient.h"
+#import "NativityControl.h"
 
-@implementation LiferayNativityClient
+#import "DDLog.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+
+@implementation NativityControl
+
+static NativityControl* _sharedInstance = nil;
+
++ (id)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (_sharedInstance == nil)
+        {
+            _sharedInstance = [[self alloc] init];
+            
+            [DDLog addLogger:[DDASLLogger sharedInstance]];
+            [DDLog addLogger:[DDTTYLogger sharedInstance]];
+        }
+    });
+    return _sharedInstance;
+}
+
+
 
 @end

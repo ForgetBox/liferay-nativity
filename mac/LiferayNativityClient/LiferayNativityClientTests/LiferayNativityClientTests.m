@@ -19,6 +19,8 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    NativityControl* nativityControl = [NativityControl sharedInstance];
 }
 
 - (void)tearDown
@@ -29,7 +31,6 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  LiferayNativityClient.h
+//  NativityControl.h
 //  LiferayNativityClient
 //
 //  Created by Charles Francoise on 05/02/14.
@@ -17,4 +17,22 @@
  * details.
  */
 
-#import "NativityControl.h"
+#import <Foundation/Foundation.h>
+
+#import "GCDAsyncSocket.h"
+
+@interface NativityControl : NSObject <GCDAsyncSocketDelegate>
+
+@property (nonatomic, readonly) BOOL isLoaded;
+
++ (id)sharedInstance;
+
+- (BOOL)connect;
+- (BOOL)disconnect;
+
+- (BOOL)load;
+- (BOOL)unload;
+
+- (void)setFilterFolder:(NSString*)filterFolder;
+
+@end
