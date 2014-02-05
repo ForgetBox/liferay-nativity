@@ -7,31 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AC879E418A247F700203322 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
-		9AC87A0C18A2487300203322 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; };
-		9AC87A0D18A2487300203322 /* LiferayNativityClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A0B18A2487300203322 /* LiferayNativityClient.m */; };
-		9AC87A1618A24AC400203322 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1418A24AC400203322 /* GCDAsyncSocket.h */; };
-		9AC87A1718A24AC400203322 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1518A24AC400203322 /* GCDAsyncSocket.m */; };
-		9AC87A1A18A24ACD00203322 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1818A24ACD00203322 /* JSONKit.h */; };
-		9AC87A1B18A24ACD00203322 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1918A24ACD00203322 /* JSONKit.m */; };
-		9AC87A2318A24B5900203322 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A2218A24B5900203322 /* XCTest.framework */; };
-		9AC87A2918A24B5900203322 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC87A2718A24B5900203322 /* InfoPlist.strings */; };
-		9AC87A2B18A24B5900203322 /* LiferayNativityClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A2A18A24B5900203322 /* LiferayNativityClientTests.m */; };
-		9AC87A3318A24CB300203322 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3218A24CB300203322 /* Security.framework */; };
+		9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A2218A24B5900203322 /* XCTest.framework */; };
+		9A8D60CC18A250FE0011A0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */; };
+		9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */; };
+		9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1818A24ACD00203322 /* JSONKit.h */; };
+		9A8D60D618A251150011A0C0 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1918A24ACD00203322 /* JSONKit.m */; };
+		9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A1418A24AC400203322 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A1518A24AC400203322 /* GCDAsyncSocket.m */; };
+		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A8D60DA18A251150011A0C0 /* LiferayNativityClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC87A0B18A2487300203322 /* LiferayNativityClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9AC87A2D18A24B5900203322 /* PBXContainerItemProxy */ = {
+		9A8D60D018A250FE0011A0C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9AC879D818A247F700203322 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9AC879DF18A247F700203322;
+			remoteGlobalIDString = 9AC87A3818A24F3E00203322;
 			remoteInfo = LiferayNativityClient;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9AC879E018A247F700203322 /* LiferayNativityClient.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = LiferayNativityClient.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A8D60C518A250FE0011A0C0 /* LiferayNativityClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiferayNativityClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A8D60C918A250FE0011A0C0 /* LiferayNativityClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LiferayNativityClientTests-Info.plist"; sourceTree = "<group>"; };
+		9A8D60CB18A250FE0011A0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiferayNativityClientTests.m; sourceTree = "<group>"; };
+		9A8D60CF18A250FE0011A0C0 /* LiferayNativityClientTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiferayNativityClientTests-Prefix.pch"; sourceTree = "<group>"; };
+		9A8D60DC18A251E00011A0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AC879E318A247F700203322 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC879E618A247F700203322 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AC87A0A18A2487300203322 /* LiferayNativityClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiferayNativityClient.h; sourceTree = SOURCE_ROOT; };
@@ -40,43 +43,64 @@
 		9AC87A1518A24AC400203322 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		9AC87A1818A24ACD00203322 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = SOURCE_ROOT; };
 		9AC87A1918A24ACD00203322 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = SOURCE_ROOT; };
-		9AC87A2018A24B5900203322 /* LiferayNativityClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiferayNativityClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC87A2218A24B5900203322 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9AC87A2618A24B5900203322 /* LiferayNativityClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LiferayNativityClientTests-Info.plist"; sourceTree = "<group>"; };
-		9AC87A2818A24B5900203322 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9AC87A2A18A24B5900203322 /* LiferayNativityClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiferayNativityClientTests.m; sourceTree = "<group>"; };
-		9AC87A2C18A24B5900203322 /* LiferayNativityClientTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiferayNativityClientTests-Prefix.pch"; sourceTree = "<group>"; };
 		9AC87A3218A24CB300203322 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9AC87A3918A24F3E00203322 /* LiferayNativityClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiferayNativityClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9AC879DD18A247F700203322 /* Frameworks */ = {
+		9A8D60C218A250FE0011A0C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC87A3318A24CB300203322 /* Security.framework in Frameworks */,
-				9AC879E418A247F700203322 /* Cocoa.framework in Frameworks */,
+				9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AC87A1D18A24B5900203322 /* Frameworks */ = {
+		9AC87A3518A24F3E00203322 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC87A2318A24B5900203322 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A8D60C718A250FE0011A0C0 /* LiferayNativityClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */,
+				9A8D60C818A250FE0011A0C0 /* Supporting Files */,
+			);
+			path = LiferayNativityClientTests;
+			sourceTree = "<group>";
+		};
+		9A8D60C818A250FE0011A0C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D60C918A250FE0011A0C0 /* LiferayNativityClientTests-Info.plist */,
+				9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */,
+				9A8D60CF18A250FE0011A0C0 /* LiferayNativityClientTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A8D60DB18A251D00011A0C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D60DC18A251E00011A0C0 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		9AC879D718A247F700203322 = {
 			isa = PBXGroup;
 			children = (
-				9AC879E918A247F700203322 /* LiferayNativityClient */,
+				9AC879E918A247F700203322 /* Source */,
 				9AC879E218A247F700203322 /* External Frameworks And Libraries */,
-				9AC87A2418A24B5900203322 /* LiferayNativityClientTests */,
-				9AC87A2118A24B5900203322 /* Frameworks */,
+				9A8D60C718A250FE0011A0C0 /* LiferayNativityClientTests */,
+				9A8D60DB18A251D00011A0C0 /* Resources */,
 				9AC879E118A247F700203322 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,8 +108,8 @@
 		9AC879E118A247F700203322 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AC879E018A247F700203322 /* LiferayNativityClient.dylib */,
-				9AC87A2018A24B5900203322 /* LiferayNativityClientTests.xctest */,
+				9AC87A3918A24F3E00203322 /* LiferayNativityClient.framework */,
+				9A8D60C518A250FE0011A0C0 /* LiferayNativityClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,11 +119,13 @@
 			children = (
 				9AC879E618A247F700203322 /* Foundation.framework */,
 				9AC879E318A247F700203322 /* Cocoa.framework */,
+				9AC87A3218A24CB300203322 /* Security.framework */,
+				9AC87A2218A24B5900203322 /* XCTest.framework */,
 			);
 			name = "External Frameworks And Libraries";
 			sourceTree = "<group>";
 		};
-		9AC879E918A247F700203322 /* LiferayNativityClient */ = {
+		9AC879E918A247F700203322 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				9AC87A0F18A24A8D00203322 /* JSONKit */,
@@ -107,6 +133,7 @@
 				9AC87A0A18A2487300203322 /* LiferayNativityClient.h */,
 				9AC87A0B18A2487300203322 /* LiferayNativityClient.m */,
 			);
+			name = Source;
 			path = LiferayNativityClient;
 			sourceTree = "<group>";
 		};
@@ -128,57 +155,48 @@
 			name = JSONKit;
 			sourceTree = "<group>";
 		};
-		9AC87A2118A24B5900203322 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9AC87A3218A24CB300203322 /* Security.framework */,
-				9AC87A2218A24B5900203322 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9AC87A2418A24B5900203322 /* LiferayNativityClientTests */ = {
-			isa = PBXGroup;
-			children = (
-				9AC87A2A18A24B5900203322 /* LiferayNativityClientTests.m */,
-				9AC87A2518A24B5900203322 /* Supporting Files */,
-			);
-			path = LiferayNativityClientTests;
-			sourceTree = "<group>";
-		};
-		9AC87A2518A24B5900203322 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9AC87A2618A24B5900203322 /* LiferayNativityClientTests-Info.plist */,
-				9AC87A2718A24B5900203322 /* InfoPlist.strings */,
-				9AC87A2C18A24B5900203322 /* LiferayNativityClientTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		9AC879DE18A247F700203322 /* Headers */ = {
+		9AC87A3618A24F3E00203322 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC87A0C18A2487300203322 /* LiferayNativityClient.h in Headers */,
-				9AC87A1618A24AC400203322 /* GCDAsyncSocket.h in Headers */,
-				9AC87A1A18A24ACD00203322 /* JSONKit.h in Headers */,
+				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
+				9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */,
+				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9AC879DF18A247F700203322 /* LiferayNativityClient */ = {
+		9A8D60C418A250FE0011A0C0 /* LiferayNativityClientTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9AC87A0418A247F700203322 /* Build configuration list for PBXNativeTarget "LiferayNativityClient" */;
+			buildConfigurationList = 9A8D60D218A250FE0011A0C0 /* Build configuration list for PBXNativeTarget "LiferayNativityClientTests" */;
 			buildPhases = (
-				9AC879DC18A247F700203322 /* Sources */,
-				9AC879DD18A247F700203322 /* Frameworks */,
-				9AC879DE18A247F700203322 /* Headers */,
+				9A8D60C118A250FE0011A0C0 /* Sources */,
+				9A8D60C218A250FE0011A0C0 /* Frameworks */,
+				9A8D60C318A250FE0011A0C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A8D60D118A250FE0011A0C0 /* PBXTargetDependency */,
+			);
+			name = LiferayNativityClientTests;
+			productName = LiferayNativityClientTests;
+			productReference = 9A8D60C518A250FE0011A0C0 /* LiferayNativityClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9AC87A3818A24F3E00203322 /* LiferayNativityClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AC87A5C18A24F3E00203322 /* Build configuration list for PBXNativeTarget "LiferayNativityClient" */;
+			buildPhases = (
+				9AC87A3418A24F3E00203322 /* Sources */,
+				9AC87A3518A24F3E00203322 /* Frameworks */,
+				9AC87A3618A24F3E00203322 /* Headers */,
+				9AC87A3718A24F3E00203322 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -186,26 +204,8 @@
 			);
 			name = LiferayNativityClient;
 			productName = LiferayNativityClient;
-			productReference = 9AC879E018A247F700203322 /* LiferayNativityClient.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
-		};
-		9AC87A1F18A24B5900203322 /* LiferayNativityClientTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9AC87A2F18A24B5900203322 /* Build configuration list for PBXNativeTarget "LiferayNativityClientTests" */;
-			buildPhases = (
-				9AC87A1C18A24B5900203322 /* Sources */,
-				9AC87A1D18A24B5900203322 /* Frameworks */,
-				9AC87A1E18A24B5900203322 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9AC87A2E18A24B5900203322 /* PBXTargetDependency */,
-			);
-			name = LiferayNativityClientTests;
-			productName = LiferayNativityClientTests;
-			productReference = 9AC87A2018A24B5900203322 /* LiferayNativityClientTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productReference = 9AC87A3918A24F3E00203322 /* LiferayNativityClient.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -216,8 +216,8 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Charles Francoise";
 				TargetAttributes = {
-					9AC87A1F18A24B5900203322 = {
-						TestTargetID = 9AC879DF18A247F700203322;
+					9A8D60C418A250FE0011A0C0 = {
+						TestTargetID = 9AC87A3818A24F3E00203322;
 					};
 				};
 			};
@@ -233,57 +233,64 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9AC879DF18A247F700203322 /* LiferayNativityClient */,
-				9AC87A1F18A24B5900203322 /* LiferayNativityClientTests */,
+				9AC87A3818A24F3E00203322 /* LiferayNativityClient */,
+				9A8D60C418A250FE0011A0C0 /* LiferayNativityClientTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9AC87A1E18A24B5900203322 /* Resources */ = {
+		9A8D60C318A250FE0011A0C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC87A2918A24B5900203322 /* InfoPlist.strings in Resources */,
+				9A8D60CC18A250FE0011A0C0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AC87A3718A24F3E00203322 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9AC879DC18A247F700203322 /* Sources */ = {
+		9A8D60C118A250FE0011A0C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC87A1718A24AC400203322 /* GCDAsyncSocket.m in Sources */,
-				9AC87A0D18A2487300203322 /* LiferayNativityClient.m in Sources */,
-				9AC87A1B18A24ACD00203322 /* JSONKit.m in Sources */,
+				9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AC87A1C18A24B5900203322 /* Sources */ = {
+		9AC87A3418A24F3E00203322 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC87A2B18A24B5900203322 /* LiferayNativityClientTests.m in Sources */,
+				9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */,
+				9A8D60DA18A251150011A0C0 /* LiferayNativityClient.m in Sources */,
+				9A8D60D618A251150011A0C0 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9AC87A2E18A24B5900203322 /* PBXTargetDependency */ = {
+		9A8D60D118A250FE0011A0C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9AC879DF18A247F700203322 /* LiferayNativityClient */;
-			targetProxy = 9AC87A2D18A24B5900203322 /* PBXContainerItemProxy */;
+			target = 9AC87A3818A24F3E00203322 /* LiferayNativityClient */;
+			targetProxy = 9A8D60D018A250FE0011A0C0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9AC87A2718A24B5900203322 /* InfoPlist.strings */ = {
+		9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9AC87A2818A24B5900203322 /* en */,
+				9A8D60CB18A250FE0011A0C0 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -291,6 +298,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9A8D60D318A250FE0011A0C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LiferayNativityClientTests/LiferayNativityClientTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LiferayNativityClientTests/LiferayNativityClientTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9A8D60D418A250FE0011A0C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LiferayNativityClientTests/LiferayNativityClientTests-Prefix.pch";
+				INFOPLIST_FILE = "LiferayNativityClientTests/LiferayNativityClientTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		9AC87A0218A247F700203322 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -359,63 +406,57 @@
 			};
 			name = Release;
 		};
-		9AC87A0518A247F700203322 /* Debug */ = {
+		9AC87A5D18A24F3E00203322 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		9AC87A0618A247F700203322 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		9AC87A3018A24B5900203322 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LiferayNativityClientTests/LiferayNativityClientTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "LiferayNativityClient/LiferayNativityClient-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "LiferayNativityClientTests/LiferayNativityClientTests-Info.plist";
+				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
-		9AC87A3118A24B5900203322 /* Release */ = {
+		9AC87A5E18A24F3E00203322 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LiferayNativityClientTests/LiferayNativityClientTests-Prefix.pch";
-				INFOPLIST_FILE = "LiferayNativityClientTests/LiferayNativityClientTests-Info.plist";
+				GCC_PREFIX_HEADER = "LiferayNativityClient/LiferayNativityClient-Prefix.pch";
+				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9A8D60D218A250FE0011A0C0 /* Build configuration list for PBXNativeTarget "LiferayNativityClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A8D60D318A250FE0011A0C0 /* Debug */,
+				9A8D60D418A250FE0011A0C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9AC879DB18A247F700203322 /* Build configuration list for PBXProject "LiferayNativityClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -425,22 +466,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9AC87A0418A247F700203322 /* Build configuration list for PBXNativeTarget "LiferayNativityClient" */ = {
+		9AC87A5C18A24F3E00203322 /* Build configuration list for PBXNativeTarget "LiferayNativityClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9AC87A0518A247F700203322 /* Debug */,
-				9AC87A0618A247F700203322 /* Release */,
+				9AC87A5D18A24F3E00203322 /* Debug */,
+				9AC87A5E18A24F3E00203322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		9AC87A2F18A24B5900203322 /* Build configuration list for PBXNativeTarget "LiferayNativityClientTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9AC87A3018A24B5900203322 /* Debug */,
-				9AC87A3118A24B5900203322 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
