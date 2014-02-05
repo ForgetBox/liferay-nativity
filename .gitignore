@@ -28,3 +28,5 @@ windows/LiferayNativityShellExtensions/LiferayNativityWindowsUtil/Release
 windows/LiferayNativityShellExtensions/LiferayNativityWindowsUtil/com_liferay_nativity*
 windows/LiferayNativityShellExtensions/NativityTest/Debug
 windows/LiferayNativityShellExtensions/NativityTest/Release
+
+.DS_Store
