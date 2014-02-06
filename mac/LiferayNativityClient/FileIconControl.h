@@ -16,6 +16,16 @@
 
 - (id)initWithNativityControl:(NativityControl*)nativityControl;
 
+- (void)enableFileIcons;
+- (void)disableFileIcons;
 
+- (long)registerIcon:(NSString*)iconPath;
+- (void)unregisterIcon:(long)iconId;
+
+- (void)setIcon:(long)iconId forPath:(NSString*)path;
+- (void)setIcons:(NSDictionary*)iconIdsForPaths;
+- (void)removeIconForPath:(NSString*)path;
+- (void)removeIconsForPaths:(NSArray*)paths;
+- (void)removeIconsForAllPaths;
 
 @end

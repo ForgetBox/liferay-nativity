@@ -32,6 +32,8 @@
 static const int _commandSocketPort = 33001;
 static const int _callbackSocketPort = 33002;
 
+static NativityControl* _sharedInstance = nil;
+
 @implementation NativityControl
 {
     dispatch_queue_t _commandQueue;
@@ -43,8 +45,6 @@ static const int _callbackSocketPort = 33002;
     
     NSData* _responseData;
 }
-
-static NativityControl* _sharedInstance = nil;
 
 + (id)sharedInstance
 {
