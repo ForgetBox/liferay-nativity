@@ -31,7 +31,7 @@
 - (BOOL)connect;
 - (BOOL)disconnect;
 - (NSData*)sendData:(NSData*)data;
-- (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
+- (id)sendMessageWithCommand:(NSString*)command andValue:(id)value;
 
 - (BOOL)load;
 - (BOOL)unload;

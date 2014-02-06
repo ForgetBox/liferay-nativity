@@ -29,16 +29,19 @@
 
 #import "JSONKit.h"
 
-static const int _commandSocketPort = 33001;
+static const int _commandSocketPort = 55999;
 static const int _callbackSocketPort = 33002;
 
 @implementation NativityControl
 {
     dispatch_queue_t _commandQueue;
     GCDAsyncSocket* _commandSocket;
+    dispatch_semaphore_t _commandSemaphore;
     
     dispatch_queue_t _callbackQueue;
     GCDAsyncSocket* _callbackSocket;
+    
+    NSData* _responseData;
 }
 
 static NativityControl* _sharedInstance = nil;
@@ -118,9 +121,12 @@ static NativityControl* _sharedInstance = nil;
     {
         _commandQueue = dispatch_queue_create("command queue", NULL);
         _commandSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_commandQueue];
+        _commandSemaphore = dispatch_semaphore_create(0);
+        _commandResponses = [[NSMutableArray alloc] initWithCapacity:5];
         
         _callbackQueue = dispatch_queue_create("callback queue", NULL);
         _callbackSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_callbackQueue];
+        
         
         _connected = NO;
     }
@@ -138,6 +144,10 @@ static NativityControl* _sharedInstance = nil;
 	[_callbackSocket disconnect];
     [_callbackSocket release];
     dispatch_release(_callbackQueue);
+    
+    dispatch_release(_commandSemaphore);
+    
+    [_responseData release];
     
     [super dealloc];
 }
@@ -195,17 +205,31 @@ static NativityControl* _sharedInstance = nil;
 - (NSData*)sendData:(NSData*)data
 {
     [_commandSocket writeData:data withTimeout:-1 tag:0];
+    [_commandSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
     
-    return nil;
+    long wait = dispatch_semaphore_wait(_commandSemaphore, DISPATCH_TIME_FOREVER);
+    if (wait == 0)
+    {
+        NSData* responseData = _responseData;
+        _responseData = nil;
+        return [responseData autorelease];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
-- (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
+- (id)sendMessageWithCommand:(NSString*)command andValue:(id)value;
 {
     NSDictionary* messageDictionary = @{@"command" : command, @"value" : value};
     NSMutableData* messageData = [NSMutableData dataWithData:[messageDictionary JSONData]];
-    [messageData appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [messageData appendData:[GCDAsyncSocket CRLFData]];
     
-    return [self sendData:messageData];
+    NSData* replyData = [self sendData:messageData];
+    
+    id ret = [[replyData subdataWithRange:NSMakeRange(0, replyData.length - 2)] objectFromJSONData];
+    return ret;
 }
 
 - (BOOL)load
@@ -271,12 +295,25 @@ static NativityControl* _sharedInstance = nil;
 
 - (void)socket:(GCDAsyncSocket*)socket didConnectToHost:(NSString*)host port:(UInt16)port
 {
-	[socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    if (socket == _callbackSocket)
+    {
+        [socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    }
 }
 
 - (void)socket:(GCDAsyncSocket*)socket didReadData:(NSData*)data withTag:(long)tag
 {
-	[socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    if (socket == _commandSocket)
+    {
+        _responseData = [data retain];
+        
+        dispatch_semaphore_signal(_commandSemaphore);
+    }
+    
+    if (socket == _callbackSocket)
+    {
+        [socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    }
 }
 
 - (NSTimeInterval)socket:(GCDAsyncSocket*)socket shouldTimeoutReadWithTag:(long)tag elapsed:(NSTimeInterval)elapsed bytesDone:(NSUInteger)length
