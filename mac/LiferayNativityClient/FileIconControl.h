@@ -12,8 +12,6 @@
 
 @interface FileIconControl : NSObject
 
-+ (id)sharedInstance;
-
 - (id)initWithNativityControl:(NativityControl*)nativityControl;
 
 - (void)enableFileIcons;

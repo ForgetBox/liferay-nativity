@@ -14,23 +14,9 @@
 
 #import "DDLog.h"
 
-static FileIconControl* _sharedInstance = nil;
-
 @implementation FileIconControl
 {
     NativityControl* _nativityControl;
-}
-
-+ (id)sharedInstance
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (_sharedInstance == nil)
-        {
-            _sharedInstance = [[FileIconControl alloc] initWithNativityControl:[NativityControl sharedInstance]];
-        }
-    });
-    return _sharedInstance;
 }
 
 - (id)initWithNativityControl:(NativityControl*)nativityControl

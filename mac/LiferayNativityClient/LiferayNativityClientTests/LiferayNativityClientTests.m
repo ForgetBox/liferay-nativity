@@ -35,10 +35,28 @@
     [super tearDown];
 }
 
-- (void)testSetFilterPath
+- (void)testFileIcons
 {
     NativityControl* nativityControl = [NativityControl sharedInstance];
-    [nativityControl setFilterPath:@"/Users/chrales"];
+    [nativityControl setFilterPath:@"/Users/chrales/Work/lima/overlay-test"];
+    
+    FileIconControl* fileIconControl = [[[FileIconControl alloc] initWithNativityControl:nativityControl] autorelease];
+    
+    [fileIconControl enableFileIcons];
+    
+    long iconId = [fileIconControl registerIcon:@"/Users/chrales/Work/lima/overlay-test/test_icon.icns"];
+    
+    [fileIconControl setIcon:iconId forPath:@"/Users/chrales/Work/lima/overlay-test/test.db"];
+    
+    [fileIconControl disableFileIcons];
+    
+    [fileIconControl enableFileIcons];
+    
+    [fileIconControl removeIconForPath:@"/Users/chrales/Work/lima/overlay-test/test.db"];
+    
+    [fileIconControl unregisterIcon:iconId];
+    
+    [fileIconControl disableFileIcons];
 }
 
 @end

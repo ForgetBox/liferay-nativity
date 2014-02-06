@@ -168,7 +168,7 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 - (void)execEnableFileIconsCmd:(NSData*)cmdData replyTo:(GCDAsyncSocket*)sock
 {
-	NSNumber* enabled = (NSNumber*)cmdData;
+	BOOL enabled = [(NSNumber*)cmdData boolValue];
 
 	[[ContentManager sharedInstance] enableFileIcons:enabled];
 

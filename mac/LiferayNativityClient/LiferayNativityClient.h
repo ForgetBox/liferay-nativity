@@ -18,3 +18,4 @@
  */
 
 #import "NativityControl.h"
+#import "FileIconControl.h"
