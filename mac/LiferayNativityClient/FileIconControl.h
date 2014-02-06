@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class NativityControl;
+
 @interface FileIconControl : NSObject
+
++ (id)sharedInstance;
+
+- (id)initWithNativityControl:(NativityControl*)nativityControl;
+
+
 
 @end

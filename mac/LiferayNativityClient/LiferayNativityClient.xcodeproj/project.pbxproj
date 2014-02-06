@@ -17,6 +17,8 @@
 		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60DE18A256F00011A0C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3218A24CB300203322 /* Security.framework */; };
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
+		9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */; };
+		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
 		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDDED18A2749B0073FD9B /* NativityControl.m */; };
 		9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDE1B18A27C5E0073FD9B /* DDASLLogger.h */; };
@@ -52,6 +54,8 @@
 		9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiferayNativityClientTests.m; sourceTree = "<group>"; };
 		9A8D60CF18A250FE0011A0C0 /* LiferayNativityClientTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiferayNativityClientTests-Prefix.pch"; sourceTree = "<group>"; };
 		9A8D60DC18A251E00011A0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIconControl.h; sourceTree = SOURCE_ROOT; };
+		9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIconControl.m; sourceTree = SOURCE_ROOT; };
 		9AC879E318A247F700203322 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC879E618A247F700203322 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AC87A0A18A2487300203322 /* LiferayNativityClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiferayNativityClient.h; sourceTree = SOURCE_ROOT; };
@@ -128,10 +132,21 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9AAB90F518A3DAA30088F5BC /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */,
+				9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */,
+			);
+			name = modules;
+			path = LiferayNativityClient;
+			sourceTree = "<group>";
+		};
 		9AC879D718A247F700203322 = {
 			isa = PBXGroup;
 			children = (
 				9AC879E918A247F700203322 /* Source */,
+				9AAB90F518A3DAA30088F5BC /* modules */,
 				9AC879E218A247F700203322 /* External Frameworks And Libraries */,
 				9A8D60C718A250FE0011A0C0 /* LiferayNativityClientTests */,
 				9A8D60DB18A251D00011A0C0 /* Resources */,
@@ -166,9 +181,9 @@
 				9AC87A0E18A24A8300203322 /* GCDAsyncSocket */,
 				9ADBDDF018A27BA10073FD9B /* Lumberjack */,
 				9AC87A0A18A2487300203322 /* LiferayNativityClient.h */,
+				9A574D3918A302D2003CF108 /* Constants.h */,
 				9ADBDDEC18A2749B0073FD9B /* NativityControl.h */,
 				9ADBDDED18A2749B0073FD9B /* NativityControl.m */,
-				9A574D3918A302D2003CF108 /* Constants.h */,
 			);
 			name = Source;
 			path = LiferayNativityClient;
@@ -226,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
+				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
 				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
@@ -349,6 +365,7 @@
 				9ADBDE3B18A287F60073FD9B /* reloadscripts.applescript in Sources */,
 				9ADBDE3C18A287F60073FD9B /* unload.applescript in Sources */,
 				9A8D60D618A251150011A0C0 /* JSONKit.m in Sources */,
+				9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
