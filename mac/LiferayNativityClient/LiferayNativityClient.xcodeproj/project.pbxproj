@@ -17,6 +17,8 @@
 		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60DE18A256F00011A0C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3218A24CB300203322 /* Security.framework */; };
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
+		9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */; };
+		9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */; };
 		9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
 		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +56,8 @@
 		9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiferayNativityClientTests.m; sourceTree = "<group>"; };
 		9A8D60CF18A250FE0011A0C0 /* LiferayNativityClientTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiferayNativityClientTests-Prefix.pch"; sourceTree = "<group>"; };
 		9A8D60DC18A251E00011A0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuCallback.h; sourceTree = SOURCE_ROOT; };
+		9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuCallback.m; sourceTree = SOURCE_ROOT; };
 		9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIconControl.h; sourceTree = SOURCE_ROOT; };
 		9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIconControl.m; sourceTree = SOURCE_ROOT; };
 		9AC879E318A247F700203322 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -137,6 +141,8 @@
 			children = (
 				9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */,
 				9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */,
+				9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */,
+				9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */,
 			);
 			name = modules;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
 				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
 				9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */,
+				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
 				9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */,
 				9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */,
 			);
@@ -359,6 +366,7 @@
 				9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */,
 				9ADBDE2618A27C5E0073FD9B /* DDTTYLogger.m in Sources */,
 				9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */,
+				9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */,
 				9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */,
 				9ADBDE3818A287F60073FD9B /* installscripts.applescript in Sources */,
 				9ADBDE3B18A287F60073FD9B /* reloadscripts.applescript in Sources */,
