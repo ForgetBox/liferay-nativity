@@ -206,13 +206,16 @@ static NativityControl* _sharedInstance = nil;
 {
     if (!_connected)
     {
-        DDLogDebug(@"Liferay Nativity is not connected");
+        DDLogWarn(@"Liferay Nativity is not connected");
         return nil;
     }
     
     NSMutableData* messageData = [NSMutableData dataWithData:data];
     [messageData appendData:[GCDAsyncSocket CRLFData]];
     [_commandSocket writeData:messageData withTimeout:-1 tag:0];
+    
+    DDLogDebug(@"Sent on socket %d: %@", _commandSocketPort, [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
+    
     [_commandSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
     
     long wait = dispatch_semaphore_wait(_commandSemaphore, DISPATCH_TIME_FOREVER);
@@ -221,11 +224,14 @@ static NativityControl* _sharedInstance = nil;
         NSData* responseData = [_responseData subdataWithRange:NSMakeRange(0, _responseData.length - 2)];
         [_responseData release];
         _responseData = nil;
+        
+        DDLogDebug(@"Received on socket %d: %@", _commandSocketPort, [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease]);
+        
         return responseData;
     }
     else
     {
-        DDLogDebug(@"Request timed out");
+        DDLogError(@"Request timed out");
         return nil;
     }
 }
@@ -329,3 +335,4 @@ static NativityControl* _sharedInstance = nil;
 }
 
 @end
+
