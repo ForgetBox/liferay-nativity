@@ -21,6 +21,8 @@
 
 #import "Constants.h"
 
+#import "CommandListener.h"
+
 #import "DDLog.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
@@ -44,6 +46,7 @@ static NativityControl* _sharedInstance = nil;
     GCDAsyncSocket* _callbackSocket;
     
     NSData* _responseData;
+    NSMutableDictionary* _commandListeners;
 }
 
 + (id)sharedInstance
@@ -127,6 +130,7 @@ static NativityControl* _sharedInstance = nil;
         _callbackQueue = dispatch_queue_create("callback queue", NULL);
         _callbackSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_callbackQueue];
         
+        _commandListeners = [[NSMutableDictionary alloc] init];
         
         _connected = NO;
     }
@@ -148,8 +152,19 @@ static NativityControl* _sharedInstance = nil;
     dispatch_release(_commandSemaphore);
     
     [_responseData release];
+    [_commandListeners release];
     
     [super dealloc];
+}
+
+- (void)addListener:(id<CommandListener>)listener forCommand:(NSString *)command
+{
+    if (_commandListeners[command] == nil)
+    {
+        _commandListeners[command] = [NSMutableArray arrayWithCapacity:1];
+    }
+    
+    [_commandListeners[command] addObject:listener];
 }
 
 - (BOOL)connect
@@ -325,6 +340,18 @@ static NativityControl* _sharedInstance = nil;
     
     if (socket == _callbackSocket)
     {
+        NSDictionary* messageDict = [[data subdataWithRange:NSMakeRange(0, data.length - 2)] objectFromJSONData];
+        
+        NSString* command = messageDict[@"command"];
+        NSArray* listeners = _commandListeners[command];
+        if (listeners != nil)
+        {
+            for (id<CommandListener> listener in listeners)
+            {
+                [listener onCommand:command withValue:messageDict[@"value"]];
+            }
+        }
+        
         [socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
     }
 }

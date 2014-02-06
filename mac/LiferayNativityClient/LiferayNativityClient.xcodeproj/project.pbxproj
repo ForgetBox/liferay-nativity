@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A60DE2E18A4338E00B62550 /* CommandListener.h */; };
 		9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A2218A24B5900203322 /* XCTest.framework */; };
 		9A8D60CC18A250FE0011A0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */; };
 		9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		9A574D3918A302D2003CF108 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
+		9A60DE2E18A4338E00B62550 /* CommandListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandListener.h; sourceTree = SOURCE_ROOT; };
 		9A8D60C518A250FE0011A0C0 /* LiferayNativityClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiferayNativityClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8D60C918A250FE0011A0C0 /* LiferayNativityClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LiferayNativityClientTests-Info.plist"; sourceTree = "<group>"; };
 		9A8D60CB18A250FE0011A0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				9A574D3918A302D2003CF108 /* Constants.h */,
 				9ADBDDEC18A2749B0073FD9B /* NativityControl.h */,
 				9ADBDDED18A2749B0073FD9B /* NativityControl.m */,
+				9A60DE2E18A4338E00B62550 /* CommandListener.h */,
 			);
 			name = Source;
 			path = LiferayNativityClient;
@@ -249,6 +252,7 @@
 				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
 				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
+				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
 				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
 				9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */,
 				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,

@@ -19,3 +19,4 @@
 
 #import "NativityControl.h"
 #import "FileIconControl.h"
+#import "ContextMenuCallback.h"

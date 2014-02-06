@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ContextMenuCallback : NSObject
+#import "CommandListener.h"
+
+@class NativityControl;
+
+@interface ContextMenuCallback : NSObject <CommandListener>
+
+- (id)initWithNativityControl:(NativityControl*)nativityControl;
 
 @end

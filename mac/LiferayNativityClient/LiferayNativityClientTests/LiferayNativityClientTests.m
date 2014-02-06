@@ -59,4 +59,17 @@
     [fileIconControl disableFileIcons];
 }
 
+- (void)testMenuCallback
+{
+    NativityControl* nativityControl = [NativityControl sharedInstance];
+    [nativityControl setFilterPath:@"/Users/chrales/Work/lima/overlay-test"];
+    
+    ContextMenuCallback* contextMenuCallback = [[ContextMenuCallback alloc] initWithNativityControl:nativityControl];
+    
+    while (YES)
+    {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantFuture]];
+    }
+}
+
 @end

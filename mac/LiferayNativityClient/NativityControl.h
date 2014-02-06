@@ -21,6 +21,8 @@
 
 #import "GCDAsyncSocket.h"
 
+@protocol CommandListener;
+
 @interface NativityControl : NSObject <GCDAsyncSocketDelegate>
 
 @property (nonatomic, readonly) BOOL loaded;
@@ -30,10 +32,13 @@
 
 - (id)init;
 
+- (void)addListener:(id<CommandListener>)listener forCommand:(NSString*)command;
+
 - (BOOL)connect;
 - (BOOL)disconnect;
 - (NSData*)sendData:(NSData*)data;
 - (id)sendMessageWithCommand:(NSString*)command andValue:(id)value;
+- (void)replyWithCommand:(NSString*)command andValue:(id)value;
 
 - (BOOL)load;
 - (BOOL)unload;
