@@ -28,6 +28,8 @@
 
 + (id)sharedInstance;
 
+- (id)init;
+
 - (BOOL)connect;
 - (BOOL)disconnect;
 - (NSData*)sendData:(NSData*)data;

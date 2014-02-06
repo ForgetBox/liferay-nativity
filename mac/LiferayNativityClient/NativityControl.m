@@ -29,7 +29,7 @@
 
 #import "JSONKit.h"
 
-static const int _commandSocketPort = 55999;
+static const int _commandSocketPort = 33001;
 static const int _callbackSocketPort = 33002;
 
 @implementation NativityControl
@@ -122,7 +122,7 @@ static NativityControl* _sharedInstance = nil;
         _commandQueue = dispatch_queue_create("command queue", NULL);
         _commandSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_commandQueue];
         _commandSemaphore = dispatch_semaphore_create(0);
-        _commandResponses = [[NSMutableArray alloc] initWithCapacity:5];
+        _responseData = nil;
         
         _callbackQueue = dispatch_queue_create("callback queue", NULL);
         _callbackSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_callbackQueue];
@@ -204,32 +204,39 @@ static NativityControl* _sharedInstance = nil;
 
 - (NSData*)sendData:(NSData*)data
 {
-    [_commandSocket writeData:data withTimeout:-1 tag:0];
+    if (!_connected)
+    {
+        DDLogDebug(@"Liferay Nativity is not connected");
+        return nil;
+    }
+    
+    NSMutableData* messageData = [NSMutableData dataWithData:data];
+    [messageData appendData:[GCDAsyncSocket CRLFData]];
+    [_commandSocket writeData:messageData withTimeout:-1 tag:0];
     [_commandSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
     
     long wait = dispatch_semaphore_wait(_commandSemaphore, DISPATCH_TIME_FOREVER);
     if (wait == 0)
     {
-        NSData* responseData = _responseData;
+        NSData* responseData = [_responseData subdataWithRange:NSMakeRange(0, _responseData.length - 2)];
+        [_responseData release];
         _responseData = nil;
-        return [responseData autorelease];
+        return responseData;
     }
     else
     {
+        DDLogDebug(@"Request timed out");
         return nil;
     }
 }
 
-- (id)sendMessageWithCommand:(NSString*)command andValue:(id)value;
+- (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
 {
     NSDictionary* messageDictionary = @{@"command" : command, @"value" : value};
-    NSMutableData* messageData = [NSMutableData dataWithData:[messageDictionary JSONData]];
-    [messageData appendData:[GCDAsyncSocket CRLFData]];
     
-    NSData* replyData = [self sendData:messageData];
+    NSData* replyData = [self sendData:[messageDictionary JSONData]];
     
-    id ret = [[replyData subdataWithRange:NSMakeRange(0, replyData.length - 2)] objectFromJSONData];
-    return ret;
+    return replyData;
 }
 
 - (BOOL)load
