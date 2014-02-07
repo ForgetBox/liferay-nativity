@@ -22,21 +22,15 @@ static NSString* CLEAR_FILE_ICON = @"clearFileIcon";
 
 static NSString* ENABLE_FILE_ICONS = @"enableFileIcons";
 
-static NSString* FILES = @"files";
-
 static NSString* FIRE_CONTEXT_MENU_ACTION = @"contextMenuAction";
 
 static NSString* GET_CONTEXT_MENU_ITEMS = @"getContextMenuList";
 
 static NSString* GET_FILE_ICON_ID = @"getFileIconId";
 
-static NSString* ID = @"id";
-
 static NSString* MENU_INDEX = @"menuIndex";
 
 static NSString* MENU_ITEMS = @"menuItems";
-
-static NSString* MENU_TEXT = @"menuText";
 
 static NSString* REFRESH_FILES = @"refreshFiles";
 
@@ -51,5 +45,3 @@ static NSString* SET_FILE_ICONS = @"setFileIcons";
 static NSString* SET_FILTER_PATH = @"setFilterPath";
 
 static NSString* UNREGISTER_ICON = @"unregisterIcon";
-
-static NSString* UPDATE_FILE_ICON = @"updateFileIcon";
