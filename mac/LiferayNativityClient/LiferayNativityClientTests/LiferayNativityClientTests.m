@@ -21,6 +21,8 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    srandomdev();
+    
     NativityControl* nativityControl = [NativityControl sharedInstance];
     XCTAssert([nativityControl load], @"Could not load Nativity");
     XCTAssert([nativityControl loaded], @"Nativity not loaded during setup");

@@ -12,9 +12,29 @@
 
 @implementation TestContextMenuCallback
 
-- (NSArray *)getMenuItemsForPaths:(NSArray *)paths
+NSArray* generateRandomMenu(NSUInteger itemCount)
 {
-    return @[[ContextMenuItem menuItemWithTitle:@"Hello World"]];
+    NSMutableArray* array = [NSMutableArray arrayWithCapacity:itemCount];
+    for (NSUInteger i = 0; i < itemCount; i++)
+    {
+        ContextMenuItem* menuItem = [ContextMenuItem menuItemWithTitle:[NSString stringWithFormat:@"Item %ld", i]];
+        menuItem.enabled = random() % 2;
+        if (itemCount > 1)
+        {
+            NSArray* children = generateRandomMenu(random() % ((itemCount / 2) + 1));
+            for (ContextMenuItem* child in children)
+            {
+                [menuItem addChild:child];
+            }
+        }
+        [array addObject:menuItem];
+    }
+    return array;
+}
+
+- (NSArray*)getMenuItemsForPaths:(NSArray*)paths
+{
+    return generateRandomMenu(4);
 }
 
 @end
