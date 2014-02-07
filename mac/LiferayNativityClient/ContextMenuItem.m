@@ -122,6 +122,14 @@
     }
 }
 
+- (void)dealloc
+{
+    [_children release];
+    [_action release];
+    
+    [super dealloc];
+}
+
 - (NSUInteger)numberOfChildren
 {
     return _children.count;

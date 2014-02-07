@@ -19,6 +19,10 @@ NSArray* generateRandomMenu(NSUInteger itemCount)
     {
         ContextMenuItem* menuItem = [ContextMenuItem menuItemWithTitle:[NSString stringWithFormat:@"Item %ld", i]];
         menuItem.enabled = random() % 2;
+        menuItem.action = ^(NSArray* paths)
+        {
+            NSLog(@"User clicked %@", menuItem.title);
+        };
         if (itemCount > 1)
         {
             NSArray* children = generateRandomMenu(random() % ((itemCount / 2) + 1));

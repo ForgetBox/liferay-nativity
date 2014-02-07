@@ -10,12 +10,15 @@
 
 #import "JSONKit.h"
 
+typedef void (^ActionBlock) (NSArray*);
+
 @interface ContextMenuItem : NSObject
 
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, assign) BOOL enabled;
 @property (nonatomic, retain) NSString* helpText;
 @property (nonatomic, readonly) NSUUID* uuid;
+@property (nonatomic, copy) ActionBlock action;
 
 + (id)menuItemWithTitle:(NSString*)title;
 + (id)menuItemWithJSONData:(NSData*)jsonData;
@@ -34,5 +37,7 @@
 - (void)removeChild:(ContextMenuItem*)childItem;
 - (void)removeChildAtIndex:(NSUInteger)index;
 - (void)removeAllChildren;
+
+- (void)setAction:(void (^)(NSArray* paths))action;
 
 @end
