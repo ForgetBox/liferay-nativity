@@ -16,4 +16,6 @@
 
 - (id)initWithNativityControl:(NativityControl*)nativityControl;
 
+- (NSArray*)getMenuItemsForPaths:(NSArray*)paths;
+
 @end

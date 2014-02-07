@@ -8,6 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+#import "JSONKit.h"
+
 @interface ContextMenuItem : NSObject
+
+@property (nonatomic, retain) NSString* title;
+@property (nonatomic, assign) BOOL enabled;
+@property (nonatomic, retain) NSString* helpText;
+@property (nonatomic, readonly) NSUUID* uuid;
+
++ (id)menuItemWithTitle:(NSString*)title;
++ (id)menuItemWithJSONData:(NSData*)jsonData;
++ (id)menuItemWithJSONString:(NSString*)jsonString;
++ (id)separatorMenuItem;
+
+- (id)initWithTitle:(NSString*)title;
+- (id)initWithJSONData:(NSData*)jsonData;
+- (id)initWithJSONString:(NSString*)jsonString;
+
+- (NSDictionary*)asDictionary;
+
+- (NSUInteger)numberOfChildren;
+- (ContextMenuItem*)childAtIndex:(NSUInteger)index;
+- (void)addChild:(ContextMenuItem*)childItem;
+- (void)removeChild:(ContextMenuItem*)childItem;
+- (void)removeChildAtIndex:(NSUInteger)index;
+- (void)removeAllChildren;
 
 @end

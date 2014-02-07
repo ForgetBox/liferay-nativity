@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "LiferayNativityClient.h"
 
+#import "TestContextMenuCallback.h"
+
 @interface LiferayNativityClientTests : XCTestCase
 
 @end
@@ -64,7 +66,7 @@
     NativityControl* nativityControl = [NativityControl sharedInstance];
     [nativityControl setFilterPath:@"/Users/chrales/Work/lima/overlay-test"];
     
-    ContextMenuCallback* contextMenuCallback = [[ContextMenuCallback alloc] initWithNativityControl:nativityControl];
+    TestContextMenuCallback* callback = [[TestContextMenuCallback alloc] initWithNativityControl:nativityControl];
     
     while (YES)
     {

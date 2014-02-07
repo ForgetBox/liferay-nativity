@@ -43,9 +43,11 @@
 - (id)initWithJSONData:(NSData*)jsonData
 {
     NSDictionary* messageDict = [jsonData objectFromJSONData];
-    if ((messageDict != nil) && (messageDict[@"command"] != nil) && (messageDict[@"value"]))
+    NSString* command = messageDict[@"command"];
+    id value = messageDict[@"value"];
+    if ((messageDict != nil) && (command != nil) && (value != nil))
     {
-        return [self initWithCommand:messageDict[@"command"] andValue:messageDict[@"value"]];
+        return [self initWithCommand:command andValue:value];
     }
     else
     {
@@ -56,9 +58,11 @@
 - (id)initWithJSONString:(NSString*)jsonString
 {
     NSDictionary* messageDict = [jsonString objectFromJSONString];
-    if ((messageDict != nil) && (messageDict[@"command"] != nil) && (messageDict[@"value"]))
+    NSString* command = messageDict[@"command"];
+    id value = messageDict[@"value"];
+    if ((messageDict != nil) && (command != nil) && (value != nil))
     {
-        return [self initWithCommand:messageDict[@"command"] andValue:messageDict[@"value"]];
+        return [self initWithCommand:command andValue:value];
     }
     else
     {
@@ -76,7 +80,7 @@
 
 - (NSData*)JSONData
 {
-    return [SELF_AS_DICTIONARY JSONDataWithOptions:JKSerializeOptionNone error:NULL];
+    return [SELF_AS_DICTIONARY JSONData];
 }
 
 - (NSData*)JSONDataWithOptions:(JKSerializeOptionFlags)serializeOptions error:(NSError **)error
@@ -84,11 +88,9 @@
     return [SELF_AS_DICTIONARY JSONDataWithOptions:serializeOptions error:error];
 }
 
-// NSString returning methods...
-
 - (NSString*)JSONString
 {
-    return [SELF_AS_DICTIONARY JSONStringWithOptions:JKSerializeOptionNone error:NULL];
+    return [SELF_AS_DICTIONARY JSONString];
 }
 
 - (NSString*)JSONStringWithOptions:(JKSerializeOptionFlags)serializeOptions error:(NSError **)error

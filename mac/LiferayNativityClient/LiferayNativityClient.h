@@ -22,3 +22,4 @@
 #import "CommandListener.h"
 #import "FileIconControl.h"
 #import "ContextMenuCallback.h"
+#import "ContextMenuItem.h"

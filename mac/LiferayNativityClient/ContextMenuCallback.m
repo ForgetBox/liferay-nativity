@@ -11,7 +11,11 @@
 #import "Constants.h"
 #import "NativityControl.h"
 #import "NativityMessage.h"
+#import "ContextMenuItem.h"
 
+#import "DDLog.h" 
+
+#import "NSArray+FilterMapReduce.h"
 
 @implementation ContextMenuCallback
 {
@@ -36,9 +40,28 @@
     [super dealloc];
 }
 
-- (NativityMessage*)onCommand:(NSString *)command withValue:(NSData *)value
+- (NativityMessage*)onCommand:(NSString*)command withValue:(id)value
 {
+    if ([command isEqualToString:GET_CONTEXT_MENU_ITEMS])
+    {
+        NSArray* paths = value;
+        NSArray* menuItems = [self getMenuItemsForPaths:paths];
+        
+        NSArray* messageValue = [menuItems map:^id(ContextMenuItem* item) {
+            return [item asDictionary];
+        }];
+        
+        return [NativityMessage messageWithCommand:MENU_ITEMS andValue:messageValue];
+    }
+    
     return nil;
+}
+
+- (NSArray*)getMenuItemsForPaths:(NSArray*)paths
+{
+    DDLogWarn(@"-[ContextMenuCallback getMenuItemsForPaths:] should be reimplemented in your subclass.");
+    
+    return @[];
 }
 
 @end

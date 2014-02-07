@@ -13,6 +13,6 @@
 @protocol CommandListener <NSObject>
 
 @required
-- (NativityMessage*)onCommand:(NSString*)command withValue:(NSData*)value;
+- (NativityMessage*)onCommand:(NSString*)command withValue:(id)value;
 
 @end

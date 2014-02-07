@@ -355,11 +355,14 @@ static NativityControl* _sharedInstance = nil;
             {
                 NativityMessage* reply = [listener onCommand:command withValue:message.value];
                 
-                NSMutableData* replyData = [NSMutableData dataWithData:[reply JSONData]];
-                [replyData appendData:[GCDAsyncSocket CRLFData]];
-                [_callbackSocket writeData:messageData withTimeout:-1 tag:0];
-                
-                DDLogDebug(@"Sent on socket %d: %@", _callbackSocketPort, [[[NSString alloc] initWithData:[reply JSONData] encoding:NSUTF8StringEncoding] autorelease]);
+                if (reply != nil)
+                {
+                    NSMutableData* replyData = [NSMutableData dataWithData:[reply JSONData]];
+                    [replyData appendData:[GCDAsyncSocket CRLFData]];
+                    [_callbackSocket writeData:replyData withTimeout:-1 tag:0];
+                    
+                    DDLogDebug(@"Sent on socket %d: %@", _callbackSocketPort, [[[NSString alloc] initWithData:[reply JSONData] encoding:NSUTF8StringEncoding] autorelease]);
+                }
             }
         }
         

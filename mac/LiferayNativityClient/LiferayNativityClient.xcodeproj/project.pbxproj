@@ -24,6 +24,11 @@
 		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
 		9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3618A4D88B00572B3F /* NativityMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AB64C3918A4D88B00572B3F /* NativityMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C3718A4D88B00572B3F /* NativityMessage.m */; };
+		9AB64C3D18A516BE00572B3F /* NSArray+FilterMapReduce.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3B18A516BE00572B3F /* NSArray+FilterMapReduce.h */; };
+		9AB64C3E18A516BE00572B3F /* NSArray+FilterMapReduce.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C3C18A516BE00572B3F /* NSArray+FilterMapReduce.m */; };
+		9AB64C4118A5173F00572B3F /* ContextMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3F18A5173F00572B3F /* ContextMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AB64C4218A5173F00572B3F /* ContextMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C4018A5173F00572B3F /* ContextMenuItem.m */; };
+		9AB64C4518A52B9100572B3F /* TestContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C4418A52B9100572B3F /* TestContextMenuCallback.m */; };
 		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDDED18A2749B0073FD9B /* NativityControl.m */; };
 		9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDE1B18A27C5E0073FD9B /* DDASLLogger.h */; };
@@ -66,6 +71,12 @@
 		9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIconControl.m; sourceTree = SOURCE_ROOT; };
 		9AB64C3618A4D88B00572B3F /* NativityMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativityMessage.h; sourceTree = SOURCE_ROOT; };
 		9AB64C3718A4D88B00572B3F /* NativityMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativityMessage.m; sourceTree = SOURCE_ROOT; };
+		9AB64C3B18A516BE00572B3F /* NSArray+FilterMapReduce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FilterMapReduce.h"; sourceTree = SOURCE_ROOT; };
+		9AB64C3C18A516BE00572B3F /* NSArray+FilterMapReduce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FilterMapReduce.m"; sourceTree = SOURCE_ROOT; };
+		9AB64C3F18A5173F00572B3F /* ContextMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuItem.h; sourceTree = SOURCE_ROOT; };
+		9AB64C4018A5173F00572B3F /* ContextMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuItem.m; sourceTree = SOURCE_ROOT; };
+		9AB64C4318A52B9100572B3F /* TestContextMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestContextMenuCallback.h; sourceTree = "<group>"; };
+		9AB64C4418A52B9100572B3F /* TestContextMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestContextMenuCallback.m; sourceTree = "<group>"; };
 		9AC879E318A247F700203322 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC879E618A247F700203322 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AC87A0A18A2487300203322 /* LiferayNativityClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiferayNativityClient.h; sourceTree = SOURCE_ROOT; };
@@ -119,6 +130,8 @@
 			children = (
 				9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */,
 				9A8D60C818A250FE0011A0C0 /* Supporting Files */,
+				9AB64C4318A52B9100572B3F /* TestContextMenuCallback.h */,
+				9AB64C4418A52B9100572B3F /* TestContextMenuCallback.m */,
 			);
 			path = LiferayNativityClientTests;
 			sourceTree = "<group>";
@@ -165,8 +178,19 @@
 			children = (
 				9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */,
 				9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */,
+				9AB64C3F18A5173F00572B3F /* ContextMenuItem.h */,
+				9AB64C4018A5173F00572B3F /* ContextMenuItem.m */,
 			);
 			name = ContextMenu;
+			sourceTree = "<group>";
+		};
+		9AB64C3A18A516B200572B3F /* FilterMapReduce */ = {
+			isa = PBXGroup;
+			children = (
+				9AB64C3B18A516BE00572B3F /* NSArray+FilterMapReduce.h */,
+				9AB64C3C18A516BE00572B3F /* NSArray+FilterMapReduce.m */,
+			);
+			name = FilterMapReduce;
 			sourceTree = "<group>";
 		};
 		9AC879D718A247F700203322 = {
@@ -203,6 +227,7 @@
 		9AC879E918A247F700203322 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9AB64C3A18A516B200572B3F /* FilterMapReduce */,
 				9AC87A0F18A24A8D00203322 /* JSONKit */,
 				9AC87A0E18A24A8300203322 /* GCDAsyncSocket */,
 				9ADBDDF018A27BA10073FD9B /* Lumberjack */,
@@ -272,10 +297,12 @@
 			files = (
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
 				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
+				9AB64C3D18A516BE00572B3F /* NSArray+FilterMapReduce.h in Headers */,
 				9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */,
-				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
 				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
+				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
 				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
+				9AB64C4118A5173F00572B3F /* ContextMenuItem.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
 				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
 				9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */,
@@ -379,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */,
+				9AB64C4518A52B9100572B3F /* TestContextMenuCallback.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +418,7 @@
 				9ADBDE3718A287F60073FD9B /* getbundleversion.applescript in Sources */,
 				9ADBDE3A18A287F60073FD9B /* loaded.applescript in Sources */,
 				9ADBDE3918A287F60073FD9B /* load.applescript in Sources */,
+				9AB64C4218A5173F00572B3F /* ContextMenuItem.m in Sources */,
 				9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */,
 				9ADBDE2618A27C5E0073FD9B /* DDTTYLogger.m in Sources */,
 				9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */,
@@ -397,6 +426,7 @@
 				9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */,
 				9ADBDE3818A287F60073FD9B /* installscripts.applescript in Sources */,
 				9AB64C3918A4D88B00572B3F /* NativityMessage.m in Sources */,
+				9AB64C3E18A516BE00572B3F /* NSArray+FilterMapReduce.m in Sources */,
 				9ADBDE3B18A287F60073FD9B /* reloadscripts.applescript in Sources */,
 				9ADBDE3C18A287F60073FD9B /* unload.applescript in Sources */,
 				9A8D60D618A251150011A0C0 /* JSONKit.m in Sources */,
