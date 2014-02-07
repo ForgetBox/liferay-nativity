@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A60DE2E18A4338E00B62550 /* CommandListener.h */; };
+		9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A60DE2E18A4338E00B62550 /* CommandListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A2218A24B5900203322 /* XCTest.framework */; };
 		9A8D60CC18A250FE0011A0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */; };
 		9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D60CD18A250FE0011A0C0 /* LiferayNativityClientTests.m */; };
@@ -18,11 +18,11 @@
 		9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC87A0A18A2487300203322 /* LiferayNativityClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60DE18A256F00011A0C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A3218A24CB300203322 /* Security.framework */; };
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
-		9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */; };
+		9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */; };
 		9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
-		9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3618A4D88B00572B3F /* NativityMessage.h */; };
+		9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3618A4D88B00572B3F /* NativityMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AB64C3918A4D88B00572B3F /* NativityMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C3718A4D88B00572B3F /* NativityMessage.m */; };
 		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDDED18A2749B0073FD9B /* NativityControl.m */; };
@@ -271,14 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
-				9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */,
 				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
-				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
-				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
+				9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */,
 				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
+				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
+				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
+				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
 				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
 				9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */,
-				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
 				9A8D60D718A251150011A0C0 /* GCDAsyncSocket.h in Headers */,
 				9ADBDE2118A27C5E0073FD9B /* DDASLLogger.h in Headers */,
 			);

@@ -18,5 +18,7 @@
  */
 
 #import "NativityControl.h"
+#import "NativityMessage.h"
+#import "CommandListener.h"
 #import "FileIconControl.h"
 #import "ContextMenuCallback.h"
