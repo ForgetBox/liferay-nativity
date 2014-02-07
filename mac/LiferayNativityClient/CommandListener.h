@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class NativityMessage;
+
 @protocol CommandListener <NSObject>
 
 @required
-- (void)onCommand:(NSString*)command withValue:(NSData*)value;
+- (NativityMessage*)onCommand:(NSString*)command withValue:(NSData*)value;
 
 @end

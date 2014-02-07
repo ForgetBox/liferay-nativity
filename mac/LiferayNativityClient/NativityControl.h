@@ -22,6 +22,7 @@
 #import "GCDAsyncSocket.h"
 
 @protocol CommandListener;
+@class NativityMessage;
 
 @interface NativityControl : NSObject <GCDAsyncSocketDelegate>
 
@@ -32,13 +33,14 @@
 
 - (id)init;
 
-- (void)addListener:(id<CommandListener>)listener forCommand:(NSString*)command;
-
 - (BOOL)connect;
 - (BOOL)disconnect;
+
 - (NSData*)sendData:(NSData*)data;
-- (id)sendMessageWithCommand:(NSString*)command andValue:(id)value;
-- (void)replyWithCommand:(NSString*)command andValue:(id)value;
+- (NSData*)sendMessage:(NativityMessage*)message;
+- (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
+
+- (void)addListener:(id<CommandListener>)listener forCommand:(NSString*)command;
 
 - (BOOL)load;
 - (BOOL)unload;

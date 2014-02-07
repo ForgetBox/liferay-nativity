@@ -8,9 +8,10 @@
 
 #import "ContextMenuCallback.h"
 
-#import "NativityControl.h"
-
 #import "Constants.h"
+#import "NativityControl.h"
+#import "NativityMessage.h"
+
 
 @implementation ContextMenuCallback
 {
@@ -35,8 +36,9 @@
     [super dealloc];
 }
 
-- (void)onCommand:(NSString *)command withValue:(NSData *)value
+- (NativityMessage*)onCommand:(NSString *)command withValue:(NSData *)value
 {
+    return nil;
 }
 
 @end

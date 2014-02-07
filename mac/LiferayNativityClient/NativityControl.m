@@ -20,8 +20,8 @@
 #import "NativityControl.h"
 
 #import "Constants.h"
-
 #import "CommandListener.h"
+#import "NativityMessage.h"
 
 #import "DDLog.h"
 #import "DDASLLogger.h"
@@ -251,13 +251,14 @@ static NativityControl* _sharedInstance = nil;
     }
 }
 
+- (NSData*)sendMessage:(NativityMessage*)message
+{
+    return [self sendData:[message JSONData]];
+}
+
 - (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
 {
-    NSDictionary* messageDictionary = @{@"command" : command, @"value" : value};
-    
-    NSData* replyData = [self sendData:[messageDictionary JSONData]];
-    
-    return replyData;
+    return [self sendMessage:[NativityMessage messageWithCommand:command andValue:value]];
 }
 
 - (BOOL)load
@@ -340,15 +341,25 @@ static NativityControl* _sharedInstance = nil;
     
     if (socket == _callbackSocket)
     {
-        NSDictionary* messageDict = [[data subdataWithRange:NSMakeRange(0, data.length - 2)] objectFromJSONData];
+        NSData* messageData =[data subdataWithRange:NSMakeRange(0, data.length - 2)];
         
-        NSString* command = messageDict[@"command"];
+        DDLogDebug(@"Received on socket %d: %@", _commandSocketPort, [[[NSString alloc] initWithData:messageData encoding:NSUTF8StringEncoding] autorelease]);
+        
+        NativityMessage* message = [NativityMessage messageWithJSONData:messageData];
+        
+        NSString* command = message.command;
         NSArray* listeners = _commandListeners[command];
         if (listeners != nil)
         {
             for (id<CommandListener> listener in listeners)
             {
-                [listener onCommand:command withValue:messageDict[@"value"]];
+                NativityMessage* reply = [listener onCommand:command withValue:message.value];
+                
+                NSMutableData* replyData = [NSMutableData dataWithData:[reply JSONData]];
+                [replyData appendData:[GCDAsyncSocket CRLFData]];
+                [_callbackSocket writeData:messageData withTimeout:-1 tag:0];
+                
+                DDLogDebug(@"Sent on socket %d: %@", _callbackSocketPort, [[[NSString alloc] initWithData:[reply JSONData] encoding:NSUTF8StringEncoding] autorelease]);
             }
         }
         
