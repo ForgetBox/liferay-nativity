@@ -86,7 +86,9 @@
         if (action != nil)
         {
             DDLogVerbose(@"Firing action uuid: %@ for: %@", uuid, commandDict[@"files"]);
-            action(commandDict[@"files"]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                action(commandDict[@"files"]);
+            });
         }
     }
     
