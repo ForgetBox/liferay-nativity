@@ -27,8 +27,12 @@ static BOOL installed = NO;
 	Class hookedClass = NSClassFromString(className);
 	Method oldMethod = class_getClassMethod(hookedClass, oldSelector);
 	Method newMethod = class_getClassMethod(hookedClass, newSelector);
+	
+	Class classClass = object_getClass(hookedClass);
+	class_addMethod(classClass, oldSelector, class_getMethodImplementation(classClass, oldSelector), method_getTypeEncoding(oldMethod));
+	class_addMethod(classClass, newSelector, class_getMethodImplementation(classClass, newSelector), method_getTypeEncoding(newMethod));
 
-	method_exchangeImplementations(newMethod, oldMethod);
+	method_exchangeImplementations(class_getClassMethod(hookedClass, oldSelector), class_getClassMethod(hookedClass, newSelector));
 }
 
 + (void)hookMethod:(SEL)oldSelector inClass:(NSString*)className toCallToTheNewMethod:(SEL)newSelector
@@ -36,8 +40,11 @@ static BOOL installed = NO;
 	Class hookedClass = NSClassFromString(className);
 	Method oldMethod = class_getInstanceMethod(hookedClass, oldSelector);
 	Method newMethod = class_getInstanceMethod(hookedClass, newSelector);
-
-	method_exchangeImplementations(newMethod, oldMethod);
+	
+	class_addMethod(hookedClass, oldSelector, class_getMethodImplementation(hookedClass, oldSelector), method_getTypeEncoding(oldMethod));
+	class_addMethod(hookedClass, newSelector, class_getMethodImplementation(hookedClass, newSelector), method_getTypeEncoding(newMethod));
+	
+	method_exchangeImplementations(class_getInstanceMethod(hookedClass, oldSelector), class_getInstanceMethod(hookedClass, newSelector));
 }
 
 + (void)install
