@@ -698,6 +698,9 @@ struct TFENode {
     struct OpaqueNodeRef *fNodeRef;
 };
 
+struct TNSRef {
+	id fRef;
+};
 
 @class TViewOptionsWindowController;
 
@@ -795,6 +798,44 @@ struct TIconRef {
 - (void)accessibilityPerformAction:(id)arg1;
 @property NSView *view; // @synthesize view=_view;
 @property(retain) NSImage *thumbnail; // @synthesize thumbnail=_thumbnail;
+
+@end
+
+@interface TListRowView : NSTableRowView
+{
+@public
+	struct TFENode _node;
+	TListViewController* _listViewController;
+	struct TNSRef _selectionView;
+	BOOL _isDropTarget;
+}
+
+- (void)openNode;
+- (id)listViewController;
+- (void)setListViewController:(id)arg1;
+- (void)setIsDropTarget:(BOOL)arg1;
+- (id)disclosureTriangleButton;
+- (id)isRowBeforeSelected;
+- (BOOL)isRowAfterSelected;
+- (void)forceDisclosureTriangleBackgroundStyle;
+- (void)updateCellSelectedStateAppearance;
+- (BOOL)isDropTarget;
+- (void)dealloc;
+- (void)layout;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)setNeedsLayout:(char)arg1;
+- (void)updateLayer;
+- (long long)selectionHighlightStyle;
+- (struct TFENode)node;
+- (void)setSelected:(char)arg1;
+- (void)setNode:(struct TFENode)arg1;
+- (struct CGRect)selectionFrame;
+
+@end
+
+@interface TDimmableIconImageView : NSImageView
+
+- (void)drawRect:(struct CGRect)arg1;
 
 @end
 

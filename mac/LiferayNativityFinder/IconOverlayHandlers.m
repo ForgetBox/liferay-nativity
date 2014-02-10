@@ -40,6 +40,31 @@
 	}
 }
 
+- (void)IconOverlayHandlers_drawRect:(struct CGRect)arg1
+{
+	[self IconOverlayHandlers_drawRect:arg1];
+	
+	TDimmableIconImageView* realSelf = (TDimmableIconImageView*)self;
+	TListRowView* listRowView = (TListRowView*)realSelf.superview.superview;
+	
+	FINode* node;
+	object_getInstanceVariable(listRowView, "_node", &node);
+	
+	NSURL* url = [node previewItemURL];
+	
+	NSNumber* imageIndex = [[ContentManager sharedInstance] iconByPath:[url path]];
+	
+	if ([imageIndex intValue] > 0)
+	{
+		NSImage* image = [[IconCache sharedInstance] getIcon:imageIndex];
+		
+		if (image != nil)
+		{
+			[image drawInRect:arg1 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:TRUE hints:nil];
+		}
+	}
+}
+
 - (void)IconOverlayHandlers_drawImage:(id)arg1
 {
 	TIconViewCell* realSelf = (TIconViewCell*)self;
