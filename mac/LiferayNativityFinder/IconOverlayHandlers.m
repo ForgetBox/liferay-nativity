@@ -77,26 +77,29 @@
 	if ([imageIndex intValue] > 0)
 	{
 		NSImage* icon = [arg1 _nsImage];
-
-		[icon lockFocus];
-
-		CGContextRef myContext = [[NSGraphicsContext currentContext] graphicsPort];
-
+		
 		NSImage* iconimage = [[IconCache sharedInstance] getIcon:[NSNumber numberWithInt:[imageIndex intValue]]];
-
+		
+		[icon lockFocus];
+//
+//		CGContextRef myContext = [[NSGraphicsContext currentContext] graphicsPort];
+//
 		if (iconimage != nil)
 		{
-			CGImageSourceRef source;
-			NSData* data = [iconimage TIFFRepresentation];
-
-			source = CGImageSourceCreateWithData((CFDataRef)data, NULL);
-			CGImageRef maskRef = CGImageSourceCreateImageAtIndex(source, 0, NULL);
-			CGContextDrawImage(myContext, CGRectMake(0, 0, [icon size].width, [icon size].height), maskRef);
-			CFRelease(source);
-			CFRelease(maskRef);
+//			CGImageSourceRef source;
+//			NSData* data = [iconimage TIFFRepresentation];
+//
+//			source = CGImageSourceCreateWithData((CFDataRef)data, NULL);
+//			CGImageRef maskRef = CGImageSourceCreateImageAtIndex(source, 0, NULL);
+//			CGContextDrawImage(myContext, CGRectMake(0, 0, [icon size].width, [icon size].height), maskRef);
+//			CFRelease(source);
+//			CFRelease(maskRef);
+		
+			[iconimage drawInRect:CGRectMake(0, 0, [icon size].width, [icon size].height) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:TRUE hints:nil];
 		}
-
+//
 		[icon unlockFocus];
+
 
 		IKImageWrapper* imgWrapper = [[IKImageWrapper alloc] initWithNSImage:icon];
 
