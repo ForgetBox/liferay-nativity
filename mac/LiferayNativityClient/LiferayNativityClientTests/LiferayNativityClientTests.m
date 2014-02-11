@@ -68,7 +68,11 @@
     NativityControl* nativityControl = [NativityControl sharedInstance];
     [nativityControl setFilterPath:@"/Users/chrales/Work/lima/overlay-test"];
     
+    FileIconControl* fileIconControl = [[[FileIconControl alloc] initWithNativityControl:nativityControl] autorelease];
+    long iconId = [fileIconControl registerIcon:@"/Users/chrales/Work/lima/overlay-test/menu-item-image.png"];
+    
     TestContextMenuCallback* callback = [[TestContextMenuCallback alloc] initWithNativityControl:nativityControl];
+    callback.imageId = iconId;
     
     while (YES)
     {

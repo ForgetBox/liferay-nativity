@@ -20,8 +20,6 @@
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
 		9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */; };
-		9A9B568918AA4B250014750F /* menu-item-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9B568718AA4B250014750F /* menu-item-image.png */; };
-		9A9B568A18AA4B250014750F /* menu-item-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9B568818AA4B250014750F /* menu-item-image@2x.png */; };
 		9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
 		9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3618A4D88B00572B3F /* NativityMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,8 +67,6 @@
 		9A8D60DC18A251E00011A0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuCallback.h; sourceTree = SOURCE_ROOT; };
 		9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuCallback.m; sourceTree = SOURCE_ROOT; };
-		9A9B568718AA4B250014750F /* menu-item-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-item-image.png"; sourceTree = "<group>"; };
-		9A9B568818AA4B250014750F /* menu-item-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-item-image@2x.png"; sourceTree = "<group>"; };
 		9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIconControl.h; sourceTree = SOURCE_ROOT; };
 		9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIconControl.m; sourceTree = SOURCE_ROOT; };
 		9AB64C3618A4D88B00572B3F /* NativityMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativityMessage.h; sourceTree = SOURCE_ROOT; };
@@ -143,8 +139,6 @@
 		9A8D60C818A250FE0011A0C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9A9B568718AA4B250014750F /* menu-item-image.png */,
-				9A9B568818AA4B250014750F /* menu-item-image@2x.png */,
 				9A8D60C918A250FE0011A0C0 /* LiferayNativityClientTests-Info.plist */,
 				9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */,
 				9A8D60CF18A250FE0011A0C0 /* LiferayNativityClientTests-Prefix.pch */,
@@ -393,9 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A9B568A18AA4B250014750F /* menu-item-image@2x.png in Resources */,
 				9A8D60CC18A250FE0011A0C0 /* InfoPlist.strings in Resources */,
-				9A9B568918AA4B250014750F /* menu-item-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@
 #import "MenuManager.h"
 #import "Finder/Finder.h"
 #import "RequestManager.h"
+#import "IconCache.h"
 
 @implementation MenuManager
 
@@ -49,6 +50,12 @@ static MenuManager* sharedInstance = nil;
 		BOOL enabled = [[menuItemDictionary objectForKey:@"enabled"] boolValue];
 		NSString* uuid = [menuItemDictionary objectForKey:@"uuid"];
 		NSArray* childrenSubMenuItems = (NSArray*)[menuItemDictionary objectForKey:@"contextMenuItems"];
+		NSNumber* imageId = menuItemDictionary[@"image"];
+		NSImage* itemImage = nil;
+		if (imageId != nil)
+		{
+			itemImage = [[IconCache sharedInstance] getIcon:imageId];
+		}
 
 		if ([submenuTitle isEqualToString:@"_SEPARATOR_"])
 		{
@@ -57,12 +64,16 @@ static MenuManager* sharedInstance = nil;
 		else if (childrenSubMenuItems != nil && [childrenSubMenuItems count] != 0)
 		{
 			NSMenuItem* submenuItem = [menu addItemWithTitle:submenuTitle action:nil keyEquivalent:@""];
+			if (itemImage != nil)
+			{
+				submenuItem.image = itemImage;
+			}
 
 			[self addChildrenSubMenuItems:submenuItem withChildren:childrenSubMenuItems forFiles:files];
 		}
 		else
 		{
-			[self createActionMenuItemIn:menu withTitle:submenuTitle withIndex:i enabled:enabled withUuid:uuid forFiles:files];
+			[self createActionMenuItemIn:menu withTitle:submenuTitle withIndex:i image:itemImage enabled:enabled withUuid:uuid forFiles:files];
 		}
 	}
 
@@ -133,16 +144,26 @@ static MenuManager* sharedInstance = nil;
 		BOOL enabled = [[menuItemDictionary objectForKey:@"enabled"] boolValue];
 		NSString* uuid = [menuItemDictionary objectForKey:@"uuid"];
 		NSArray* childrenSubMenuItems = (NSArray*)[menuItemDictionary objectForKey:@"contextMenuItems"];
-
+		NSNumber* imageId = menuItemDictionary[@"image"];
+		NSImage* itemImage = nil;
+		if (imageId != nil)
+		{
+			itemImage = [[IconCache sharedInstance] getIcon:imageId];
+		}
+		
 		if (childrenSubMenuItems != nil && [childrenSubMenuItems count] != 0)
 		{
 			NSMenuItem* mainMenuItem = [menu insertItemWithTitle:mainMenuTitle action:nil keyEquivalent:@"" atIndex:menuIndex];
+			if (itemImage != nil)
+			{
+				mainMenuItem.image = itemImage;
+			}
 
 			[self addChildrenSubMenuItems:mainMenuItem withChildren:childrenSubMenuItems forFiles:files];
 		}
 		else
 		{
-			[self createActionMenuItemIn:menu withTitle:mainMenuTitle withIndex:menuIndex enabled:enabled withUuid:uuid forFiles:files];
+			[self createActionMenuItemIn:menu withTitle:mainMenuTitle withIndex:menuIndex image:itemImage enabled:enabled withUuid:uuid forFiles:files];
 		}
 		
 		prevMenuIndex = menuIndex;
@@ -155,13 +176,18 @@ static MenuManager* sharedInstance = nil;
 	}
 }
 
-- (void)createActionMenuItemIn:(NSMenu*)menu withTitle:(NSString*)title withIndex:(NSInteger*)index enabled:(BOOL)enabled withUuid:(NSString*)uuid forFiles:(NSArray*)files
+- (void)createActionMenuItemIn:(NSMenu*)menu withTitle:(NSString*)title withIndex:(NSInteger*)index image:(NSImage*)image enabled:(BOOL)enabled withUuid:(NSString*)uuid forFiles:(NSArray*)files
 {
 	NSMenuItem* mainMenuItem = [menu insertItemWithTitle:title action:@selector(menuItemClicked:) keyEquivalent:@"" atIndex:index];
 
 	if (enabled)
 	{
 		[mainMenuItem setTarget:self];
+	}
+	
+	if (image != nil)
+	{
+		mainMenuItem.image = image;
 	}
 
 	NSDictionary* menuActionDictionary = [[NSMutableDictionary alloc] init];
