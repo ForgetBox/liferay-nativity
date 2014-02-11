@@ -318,6 +318,28 @@ static NativityControl* _sharedInstance = nil;
     [self sendMessageWithCommand:SET_FILTER_PATH andValue:filterPath];
 }
 
+- (long)registerImage:(NSString*)imagePath
+{
+    NSData* iconIdData = [self sendMessageWithCommand:REGISTER_ICON andValue:imagePath];
+    
+    if (iconIdData == nil || iconIdData.length == 0)
+    {
+        DDLogError(@"Could not register image at path: \"%@\"", imagePath);
+        return -1;
+    }
+    
+    char bytes[iconIdData.length];
+    [iconIdData getBytes:bytes];
+    
+    long iconId = strtol(bytes, NULL, 10);
+    return iconId;
+}
+
+- (void)unregisterImage:(long)imageId
+{
+    [self sendMessageWithCommand:UNREGISTER_ICON andValue:@(imageId)];
+}
+
 #pragma mark
 #pragma mark GCDAsyncSocketDelegate methods
 

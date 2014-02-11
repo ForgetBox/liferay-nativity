@@ -48,7 +48,7 @@
     
     [fileIconControl enableFileIcons];
     
-    long iconId = [fileIconControl registerIcon:@"/Users/chrales/Work/lima/overlay-test/test_icon.icns"];
+    long iconId = [nativityControl registerImage:@"/Users/chrales/Work/lima/overlay-test/test_icon.icns"];
     
     [fileIconControl setIcon:iconId forPath:@"/Users/chrales/Work/lima/overlay-test/test.db"];
     
@@ -58,7 +58,7 @@
     
     [fileIconControl removeIconForPath:@"/Users/chrales/Work/lima/overlay-test/test.db"];
     
-    [fileIconControl unregisterIcon:iconId];
+    [nativityControl unregisterImage:iconId];
     
     [fileIconControl disableFileIcons];
 }
@@ -67,9 +67,7 @@
 {
     NativityControl* nativityControl = [NativityControl sharedInstance];
     [nativityControl setFilterPath:@"/Users/chrales/Work/lima/overlay-test"];
-    
-    FileIconControl* fileIconControl = [[[FileIconControl alloc] initWithNativityControl:nativityControl] autorelease];
-    long iconId = [fileIconControl registerIcon:@"/Users/chrales/Work/lima/overlay-test/menu-item-image.png"];
+    long iconId = [nativityControl registerImage:@"/Users/chrales/Work/lima/overlay-test/menu-item-image.png"];
     
     TestContextMenuCallback* callback = [[TestContextMenuCallback alloc] initWithNativityControl:nativityControl];
     callback.imageId = iconId;

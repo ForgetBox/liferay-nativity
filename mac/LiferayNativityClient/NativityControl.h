@@ -46,5 +46,7 @@
 - (BOOL)unload;
 
 - (void)setFilterPath:(NSString*)filterPath;
+- (long)registerImage:(NSString*)imagePath;
+- (void)unregisterImage:(long)imageId;
 
 @end

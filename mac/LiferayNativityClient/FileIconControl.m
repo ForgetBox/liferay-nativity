@@ -46,28 +46,6 @@
     [_nativityControl sendMessageWithCommand:ENABLE_FILE_ICONS andValue:@NO];
 }
 
-- (long)registerIcon:(NSString*)iconPath
-{
-    NSData* iconIdData = [_nativityControl sendMessageWithCommand:REGISTER_ICON andValue:iconPath];
-    
-    if (iconIdData == nil || iconIdData.length == 0)
-    {
-        DDLogError(@"Could not register icon at path: \"%@\"", iconPath);
-        return -1;
-    }
-    
-    char bytes[iconIdData.length];
-    [iconIdData getBytes:bytes];
-    
-    long iconId = strtol(bytes, NULL, 10);
-    return iconId;
-}
-
-- (void)unregisterIcon:(long)iconId
-{
-    [_nativityControl sendMessageWithCommand:UNREGISTER_ICON andValue:@(iconId)];
-}
-
 - (void)setIcon:(long)iconId forPath:(NSString*)path
 {
     [self setIcons:@{path : @(iconId)}];
