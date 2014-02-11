@@ -116,7 +116,6 @@ static BOOL installed = NO;
 	[self hookMethod:@selector(configureWithNodes:browserController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(ContextMenuHandlers_configureWithNodes:browserController:container:)]; // 10.8
 	
 	[self hookMethod:@selector(configureFromMenuNeedsUpdate:clickedView:container:event:selectedNodes:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(ContextMenuHandlers_configureFromMenuNeedsUpdate:clickedView:container:event:selectedNodes:)]; // 10.9
-
 }
 
 @end

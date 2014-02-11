@@ -35,7 +35,14 @@
     if (self != nil)
     {
         _command = [command retain];
-        _value = [value retain];
+        if (value != nil)
+        {
+            _value = [value retain];
+        }
+        else
+        {
+            _value = [NSNull null];
+        }
     }
     return self;
 }

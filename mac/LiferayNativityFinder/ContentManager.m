@@ -96,22 +96,30 @@ static ContentManager* sharedInstance = nil;
 	[self repaintAllWindows];
 }
 
+- (void)addToolbarItem
+{
+	NSArray* windows = [[NSApplication sharedApplication] windows];
+	
+	for (NSWindow* window in windows)
+	{
+		
+	}
+}
+
 - (void)repaintAllWindows
 {
 	NSArray* windows = [[NSApplication sharedApplication] windows];
-	NSUInteger windowCount = windows.count;
 	
-	for (int i = 0; i < windowCount; ++i)
+	MenuManager* menuManager = [MenuManager sharedInstance];
+	RequestManager* requestManager = [RequestManager sharedInstance];
+	
+	for (NSWindow* window in windows)
 	{
-		NSWindow* window = [windows objectAtIndex:i];
 
 		if (![window isVisible])
 		{
 			continue;
 		}
-
-		MenuManager* menuManager = [MenuManager sharedInstance];
-		RequestManager* requestManager = [RequestManager sharedInstance];
 
 		if ([[window className] isEqualToString:@"TBrowserWindow"])
 		{

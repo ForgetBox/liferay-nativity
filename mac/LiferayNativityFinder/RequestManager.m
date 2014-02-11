@@ -156,6 +156,10 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 	{
 		[self execSetFilterPathCmd:value replyTo:sock];
 	}
+	else if ([command isEqualToString:@"addToolbarItem"])
+	{
+		[self execAddToolbarItem:value replyTo:sock];
+	}
 	else
 	{
 		NSLog(@"LiferayNativityFinder: failed to find command: %@", command);
@@ -227,6 +231,13 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 	[[IconCache sharedInstance] unregisterIcon:iconId];
 
+	[self replyString:@"1" toSocket:sock];
+}
+
+- (void)execAddToolbarItem:(NSData*)cmdData replyTo:(GCDAsyncSocket*)sock
+{
+	[[ContentManager sharedInstance] addToolbarItem];
+	
 	[self replyString:@"1" toSocket:sock];
 }
 

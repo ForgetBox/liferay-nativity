@@ -20,6 +20,8 @@
 		9A8D60DF18A256F60011A0C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC879E318A247F700203322 /* Cocoa.framework */; };
 		9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */; };
+		9A9B568E18AA92640014750F /* ToolbarItemControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A9B568C18AA92630014750F /* ToolbarItemControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A9B568F18AA92640014750F /* ToolbarItemControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B568D18AA92640014750F /* ToolbarItemControl.m */; };
 		9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
 		9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3618A4D88B00572B3F /* NativityMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +69,8 @@
 		9A8D60DC18A251E00011A0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuCallback.h; sourceTree = SOURCE_ROOT; };
 		9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuCallback.m; sourceTree = SOURCE_ROOT; };
+		9A9B568C18AA92630014750F /* ToolbarItemControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarItemControl.h; sourceTree = SOURCE_ROOT; };
+		9A9B568D18AA92640014750F /* ToolbarItemControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarItemControl.m; sourceTree = SOURCE_ROOT; };
 		9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIconControl.h; sourceTree = SOURCE_ROOT; };
 		9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIconControl.m; sourceTree = SOURCE_ROOT; };
 		9AB64C3618A4D88B00572B3F /* NativityMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativityMessage.h; sourceTree = SOURCE_ROOT; };
@@ -155,9 +159,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9A9B568B18AA920B0014750F /* ToolbarItem */ = {
+			isa = PBXGroup;
+			children = (
+				9A9B568C18AA92630014750F /* ToolbarItemControl.h */,
+				9A9B568D18AA92640014750F /* ToolbarItemControl.m */,
+			);
+			name = ToolbarItem;
+			sourceTree = "<group>";
+		};
 		9AAB90F518A3DAA30088F5BC /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				9A9B568B18AA920B0014750F /* ToolbarItem */,
 				9AB64C3518A4D84D00572B3F /* ContextMenu */,
 				9AB64C3418A4D83700572B3F /* FileIcon */,
 			);
@@ -301,6 +315,7 @@
 				9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */,
 				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
 				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
+				9A9B568E18AA92640014750F /* ToolbarItemControl.h in Headers */,
 				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
 				9AB64C4118A5173F00572B3F /* ContextMenuItem.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
@@ -420,6 +435,7 @@
 				9ADBDE3918A287F60073FD9B /* load.applescript in Sources */,
 				9AB64C4218A5173F00572B3F /* ContextMenuItem.m in Sources */,
 				9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */,
+				9A9B568F18AA92640014750F /* ToolbarItemControl.m in Sources */,
 				9ADBDE2618A27C5E0073FD9B /* DDTTYLogger.m in Sources */,
 				9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */,
 				9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */,

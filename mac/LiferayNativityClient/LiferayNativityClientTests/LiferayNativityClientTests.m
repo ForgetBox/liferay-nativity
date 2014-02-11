@@ -78,4 +78,18 @@
     }
 }
 
+- (void)testToolbarItem
+{
+    NativityControl* nativityControl = [NativityControl sharedInstance];
+    [nativityControl setFilterPath:@"/Users/chrales/Work/lima/overlay-test"];
+    
+    ToolbarItemControl* toolbarItemControl = [[[ToolbarItemControl alloc] initWithNativityControl:nativityControl] autorelease];
+    [toolbarItemControl addToolbarItem];
+    
+    while (YES)
+    {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:.01]];
+    }
+}
+
 @end

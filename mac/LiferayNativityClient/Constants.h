@@ -45,3 +45,5 @@ static NSString* SET_FILE_ICONS = @"setFileIcons";
 static NSString* SET_FILTER_PATH = @"setFilterPath";
 
 static NSString* UNREGISTER_ICON = @"unregisterIcon";
+
+static NSString* ADD_TOOLBAR_ITEM = @"addToolbarItem";

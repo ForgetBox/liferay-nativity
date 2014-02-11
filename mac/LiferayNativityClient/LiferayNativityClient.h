@@ -23,3 +23,4 @@
 #import "FileIconControl.h"
 #import "ContextMenuCallback.h"
 #import "ContextMenuItem.h"
+#import "ToolbarItemControl.h"

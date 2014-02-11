@@ -28,4 +28,6 @@
 - (void)removeIcons:(NSArray*)paths;
 - (void)setIcons:(NSDictionary*)iconDictionary filterByFolder:(NSString*)filterFolder;
 
+- (void)addToolbarItem;
+
 @end
