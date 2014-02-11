@@ -99,8 +99,9 @@ static ContentManager* sharedInstance = nil;
 - (void)repaintAllWindows
 {
 	NSArray* windows = [[NSApplication sharedApplication] windows];
-
-	for (int i = 0; i < [windows count]; ++i)
+	NSUInteger windowCount = windows.count;
+	
+	for (int i = 0; i < windowCount; ++i)
 	{
 		NSWindow* window = [windows objectAtIndex:i];
 
@@ -176,9 +177,9 @@ static ContentManager* sharedInstance = nil;
 
 					return;
 				}
-
+				
 				NSObject* browserView = [browserViewController browserView];
-
+				
 				[browserView setNeedsDisplay:YES];
 			}
 		}
