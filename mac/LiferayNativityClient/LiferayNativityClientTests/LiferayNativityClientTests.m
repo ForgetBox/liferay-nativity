@@ -33,7 +33,7 @@
 {
     NativityControl* nativityControl = [NativityControl sharedInstance];
     XCTAssert([nativityControl loaded], @"Nativity not loaded during teardown");
-    [nativityControl disconnect];
+    XCTAssert([nativityControl disconnect], @"Could not disconnect from Nativity");
     XCTAssert([nativityControl unload], @"Could not unload Nativity");
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
