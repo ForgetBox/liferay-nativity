@@ -50,6 +50,7 @@
         _helpText = nil;
         _uuid = [[NSUUID alloc] init];
         _children = [[NSMutableArray alloc] init];
+        _menuIndex = -1;
     }
     return self;
 }
@@ -113,6 +114,16 @@
                     [_children addObject:[ContextMenuItem menuItemWithDictionary:childDict]];
                 }
             }
+            
+            NSNumber* index = menuItemDict[@"index"];
+            if (index == nil)
+            {
+                _menuIndex = [index integerValue];
+            }
+            else
+            {
+                _menuIndex = -1;
+            }
         }
         return self;
     }
@@ -162,13 +173,24 @@
 
 - (NSDictionary*)asDictionary
 {
-    return @{ @"title" : _title,
-              @"enabled" : @(_enabled),
-              @"helpText" : [NSNull null],
-              @"uuid" : [_uuid UUIDString],
-              @"contextMenuItems" : [_children map:^id(ContextMenuItem* item){ return [item asDictionary]; }],
-              @"menuIndex" : @(_menuIndex)
-            };
+    NSMutableDictionary* ret = [NSMutableDictionary dictionaryWithCapacity:6];
+    ret[@"title"] = _title;
+    ret[@"enabled"] = @(_enabled);
+    ret[@"helpText"] = (_helpText == nil) ? [NSNull null] : _helpText;
+    ret[@"uuid"] = [_uuid UUIDString];
+    ret[@"contextMenuItems"] = [_children map:^id(ContextMenuItem* item){ return [item asDictionary]; }];
+    
+    if (_menuIndex != -1)
+    {
+        ret[@"index"] = @(_menuIndex);
+    }
+    
+    if (_imageId != -1)
+    {
+        ret[@"image"] = @(_imageId);
+    }
+    
+    return ret;
 }
 
 @end

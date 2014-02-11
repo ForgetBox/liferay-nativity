@@ -12,4 +12,6 @@
 
 @interface TestContextMenuCallback : ContextMenuCallback
 
+@property (nonatomic, assign) long imageId;
+
 @end

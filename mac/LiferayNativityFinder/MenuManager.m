@@ -89,7 +89,7 @@ static MenuManager* sharedInstance = nil;
 
 	for (NSDictionary* menuItemDictionary in menuItemsArray)
 	{
-		NSNumber* index = menuItemDictionary[@"menuIndex"];
+		NSNumber* index = menuItemDictionary[@"index"];
 		NSInteger menuIndex;
 		if (index == nil)
 		{
@@ -115,20 +115,6 @@ static MenuManager* sharedInstance = nil;
 				[menu insertItem:[NSMenuItem separatorItem] atIndex:prevMenuIndex + 1];
 				menuIndex++;
 			}
-		}
-		
-		for (NSUInteger i = 0; i < menuIndex; i++)
-		{
-			if ([menu itemAtIndex:i].isAlternate)
-			{
-				prevMenuIndex++;
-				menuIndex++;
-			}
-		}
-		
-		
-		if (prevMenuIndex + 1 != menuIndex)
-		{
 			BOOL hasSeparatorBefore = [[menu itemAtIndex:menuIndex - 1] isSeparatorItem];
 			if (!hasSeparatorBefore)
 			{

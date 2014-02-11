@@ -17,8 +17,9 @@ typedef void (^ActionBlock) (NSArray*);
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, assign) BOOL enabled;
 @property (nonatomic, retain) NSString* helpText;
-@property (nonatomic, assign) NSInteger menuIndex;
 @property (nonatomic, readonly) NSUUID* uuid;
+@property (nonatomic, assign) NSInteger menuIndex;
+@property (nonatomic, assign) long imageId;
 @property (nonatomic, copy) ActionBlock action;
 
 + (id)menuItemWithTitle:(NSString*)title;
