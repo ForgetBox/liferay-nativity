@@ -12,21 +12,22 @@
 
 @implementation TestContextMenuCallback
 
-NSArray* generateRandomMenu(NSUInteger itemCount, long imageId)
+- (NSArray*)generateRandomMenu:(NSUInteger)itemCount
 {
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:itemCount];
     for (NSUInteger i = 0; i < itemCount; i++)
     {
         ContextMenuItem* menuItem = [ContextMenuItem menuItemWithTitle:[NSString stringWithFormat:@"Item %ld", i]];
         menuItem.enabled = random() % 2;
-        menuItem.imageId = imageId;
+        menuItem.imageId = _imageId;
         menuItem.action = ^(NSArray* paths)
         {
             NSLog(@"User clicked %@", menuItem.title);
+            _hasClicked = YES;
         };
         if (itemCount > 1)
         {
-            NSArray* children = generateRandomMenu(random() % ((itemCount / 2) + 1), imageId);
+            NSArray* children = [self generateRandomMenu:(random() % ((itemCount / 2) + 1))];
             for (ContextMenuItem* child in children)
             {
                 [menuItem addChild:child];
@@ -40,7 +41,17 @@ NSArray* generateRandomMenu(NSUInteger itemCount, long imageId)
 
 - (NSArray*)getMenuItemsForPaths:(NSArray*)paths
 {
-    return generateRandomMenu(4, _imageId);
+    return [self generateRandomMenu:4];
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self != nil)
+    {
+        _hasClicked = NO;
+    }
+    return self;
 }
 
 @end

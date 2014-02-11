@@ -72,9 +72,9 @@
     TestContextMenuCallback* callback = [[TestContextMenuCallback alloc] initWithNativityControl:nativityControl];
     callback.imageId = iconId;
     
-    while (YES)
+    while (!callback.hasClicked)
     {
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantFuture]];
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:.01]];
     }
 }
 

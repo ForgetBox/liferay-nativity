@@ -13,5 +13,6 @@
 @interface TestContextMenuCallback : ContextMenuCallback
 
 @property (nonatomic, assign) long imageId;
+@property (nonatomic, assign) BOOL hasClicked;
 
 @end
