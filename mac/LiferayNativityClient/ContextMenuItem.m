@@ -166,7 +166,8 @@
               @"enabled" : @(_enabled),
               @"helpText" : [NSNull null],
               @"uuid" : [_uuid UUIDString],
-              @"contextMenuItems" : [_children map:^id(ContextMenuItem* item){ return [item asDictionary]; }]
+              @"contextMenuItems" : [_children map:^id(ContextMenuItem* item){ return [item asDictionary]; }],
+              @"menuIndex" : @(_menuIndex)
             };
 }
 

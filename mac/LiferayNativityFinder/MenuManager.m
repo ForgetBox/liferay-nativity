@@ -85,18 +85,57 @@ static MenuManager* sharedInstance = nil;
 		return;
 	}
 
-	NSInteger menuIndex = 4;
+	NSInteger prevMenuIndex = -1;
 
-	BOOL hasSeparatorBefore = [[menu itemAtIndex:menuIndex - 1] isSeparatorItem];
-
-	if (!hasSeparatorBefore)
+	for (NSDictionary* menuItemDictionary in menuItemsArray)
 	{
-		[menu insertItem:[NSMenuItem separatorItem] atIndex:menuIndex];
-	}
-
-	for (int i = 0; i < [menuItemsArray count]; ++i)
-	{
-		NSDictionary* menuItemDictionary = [menuItemsArray objectAtIndex:i];
+		NSNumber* index = menuItemDictionary[@"menuIndex"];
+		NSInteger menuIndex;
+		if (index == nil)
+		{
+			if (prevMenuIndex == -1)
+			{
+				menuIndex = 4;
+			}
+			else
+			{
+				menuIndex = prevMenuIndex + 1;
+			}
+		}
+		else
+		{
+			menuIndex = [index integerValue];
+		}
+		
+		if (prevMenuIndex + 1 != menuIndex)
+		{
+			BOOL hasSeparatorAfter = [[menu itemAtIndex:prevMenuIndex  + 1] isSeparatorItem];
+			if (!hasSeparatorAfter)
+			{
+				[menu insertItem:[NSMenuItem separatorItem] atIndex:prevMenuIndex + 1];
+				menuIndex++;
+			}
+		}
+		
+		for (NSUInteger i = 0; i < menuIndex; i++)
+		{
+			if ([menu itemAtIndex:i].isAlternate)
+			{
+				prevMenuIndex++;
+				menuIndex++;
+			}
+		}
+		
+		
+		if (prevMenuIndex + 1 != menuIndex)
+		{
+			BOOL hasSeparatorBefore = [[menu itemAtIndex:menuIndex - 1] isSeparatorItem];
+			if (!hasSeparatorBefore)
+			{
+				[menu insertItem:[NSMenuItem separatorItem] atIndex:menuIndex];
+				menuIndex++;
+			}
+		}
 
 		NSString* mainMenuTitle = [menuItemDictionary objectForKey:@"title"];
 
@@ -104,8 +143,6 @@ static MenuManager* sharedInstance = nil;
 		{
 			continue;
 		}
-
-		menuIndex++;
 
 		BOOL enabled = [[menuItemDictionary objectForKey:@"enabled"] boolValue];
 		NSString* uuid = [menuItemDictionary objectForKey:@"uuid"];
@@ -121,13 +158,14 @@ static MenuManager* sharedInstance = nil;
 		{
 			[self createActionMenuItemIn:menu withTitle:mainMenuTitle withIndex:menuIndex enabled:enabled withUuid:uuid forFiles:files];
 		}
+		
+		prevMenuIndex = menuIndex;
 	}
-
-	BOOL hasSeparatorAfter = [[menu itemAtIndex:menuIndex + 1] isSeparatorItem];
-
+	
+	BOOL hasSeparatorAfter = [[menu itemAtIndex:prevMenuIndex  + 1] isSeparatorItem];
 	if (!hasSeparatorAfter)
 	{
-		[menu insertItem:[NSMenuItem separatorItem] atIndex:menuIndex + 1];
+		[menu insertItem:[NSMenuItem separatorItem] atIndex:prevMenuIndex + 1];
 	}
 }
 
