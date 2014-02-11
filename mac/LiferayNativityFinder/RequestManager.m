@@ -325,7 +325,6 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 - (void)socket:(GCDAsyncSocket*)socket didAcceptNewSocket:(GCDAsyncSocket*)newSocket
 {
-
 	if (socket == _listenSocket)
 	{
 		[_connectedListenSockets addObject:newSocket];
@@ -375,8 +374,6 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 	if ([_connectedListenSockets containsObject:socket])
 	{
 		[_connectedListenSockets removeObject:socket];
-
-		[[ContentManager sharedInstance] enableFileIcons:false];
 	}
 
 	if ([_connectedCallbackSockets containsObject:socket])
