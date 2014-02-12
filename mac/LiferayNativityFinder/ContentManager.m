@@ -18,6 +18,8 @@
 #import "MenuManager.h"
 #import "RequestManager.h"
 
+#import "IconCache.h"
+
 static ContentManager* sharedInstance = nil;
 
 @implementation ContentManager
@@ -102,7 +104,24 @@ static ContentManager* sharedInstance = nil;
 	
 	for (NSWindow* window in windows)
 	{
-		
+		if ([[window className] isEqualToString:@"TBrowserWindow"])
+		{
+			NSObject* themeFrame = [[window contentView] superview];
+			NSToolbar* toolbar = [themeFrame _toolbar];
+			
+			NSToolbarItem* item = [[NSToolbarItem alloc] initWithItemIdentifier:@"com.forgetbox.lima.LIMA"];
+			item.label = @"Lima";
+			item.image = [[IconCache sharedInstance] getIcon:@(1)];
+			
+			NSPopUpButton* button = [[NSPopUpButton alloc] init];
+			button.image = item.image;
+			item.view = button;
+			
+			NSOperationQueue* queue = [NSOperationQueue mainQueue];
+			[queue addOperationWithBlock:^{
+				[toolbar insertItemWithItemIdentifier:item.itemIdentifier atIndex:5];
+			}];
+		}
 	}
 }
 

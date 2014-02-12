@@ -21,6 +21,11 @@
 		8C99F6941622D145002D2135 /* IconCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C99F6931622D145002D2135 /* IconCache.m */; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
+		9A21903918ABA99800AA49CC /* ClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903218ABA99800AA49CC /* ClassDescription.m */; };
+		9A21903A18ABA99800AA49CC /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903418ABA99800AA49CC /* LibraryManager.m */; };
+		9A21903B18ABA99800AA49CC /* TypeEncodingFuncs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */; };
+		9A21903C18ABA99800AA49CC /* StructOrUnionDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903818ABA99800AA49CC /* StructOrUnionDescription.m */; };
+		9A21903F18ABB3B800AA49CC /* ToolbarButtonHandlers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903E18ABB3B800AA49CC /* ToolbarButtonHandlers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,16 @@
 		8C99F6931622D145002D2135 /* IconCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconCache.m; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* LiferayNativityFinder.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiferayNativityFinder.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A21903118ABA99800AA49CC /* ClassDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDescription.h; path = ../../../../headerdump/headerdump/ClassDescription.h; sourceTree = "<group>"; };
+		9A21903218ABA99800AA49CC /* ClassDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDescription.m; path = ../../../../headerdump/headerdump/ClassDescription.m; sourceTree = "<group>"; };
+		9A21903318ABA99800AA49CC /* LibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryManager.h; path = ../../../../headerdump/headerdump/LibraryManager.h; sourceTree = "<group>"; };
+		9A21903418ABA99800AA49CC /* LibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryManager.m; path = ../../../../headerdump/headerdump/LibraryManager.m; sourceTree = "<group>"; };
+		9A21903518ABA99800AA49CC /* TypeEncodingFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeEncodingFuncs.h; path = ../../../../headerdump/headerdump/TypeEncodingFuncs.h; sourceTree = "<group>"; };
+		9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeEncodingFuncs.m; path = ../../../../headerdump/headerdump/TypeEncodingFuncs.m; sourceTree = "<group>"; };
+		9A21903718ABA99800AA49CC /* StructOrUnionDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StructOrUnionDescription.h; path = ../../../../headerdump/headerdump/StructOrUnionDescription.h; sourceTree = "<group>"; };
+		9A21903818ABA99800AA49CC /* StructOrUnionDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StructOrUnionDescription.m; path = ../../../../headerdump/headerdump/StructOrUnionDescription.m; sourceTree = "<group>"; };
+		9A21903D18ABB3B800AA49CC /* ToolbarButtonHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButtonHandlers.h; sourceTree = "<group>"; };
+		9A21903E18ABB3B800AA49CC /* ToolbarButtonHandlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButtonHandlers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +117,7 @@
 		08FB77AFFE84173DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9A21903018ABA98900AA49CC /* headerdump */,
 				0B2BF60A176A43DB001246CD /* Finder */,
 				0B08BAC21759627700C8351E /* GCDAsyncSocket */,
 				0BFAF21916F8E6910017EA7E /* JSONKit */,
@@ -119,6 +135,8 @@
 				8C99F6931622D145002D2135 /* IconCache.m */,
 				692C18AA1666392700BF6A53 /* MenuManager.h */,
 				692C18AB1666392700BF6A53 /* MenuManager.m */,
+				9A21903D18ABB3B800AA49CC /* ToolbarButtonHandlers.h */,
+				9A21903E18ABB3B800AA49CC /* ToolbarButtonHandlers.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -155,6 +173,21 @@
 				8D576316048677EA00EA77CD /* LiferayNativityFinder.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9A21903018ABA98900AA49CC /* headerdump */ = {
+			isa = PBXGroup;
+			children = (
+				9A21903118ABA99800AA49CC /* ClassDescription.h */,
+				9A21903218ABA99800AA49CC /* ClassDescription.m */,
+				9A21903318ABA99800AA49CC /* LibraryManager.h */,
+				9A21903418ABA99800AA49CC /* LibraryManager.m */,
+				9A21903518ABA99800AA49CC /* TypeEncodingFuncs.h */,
+				9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */,
+				9A21903718ABA99800AA49CC /* StructOrUnionDescription.h */,
+				9A21903818ABA99800AA49CC /* StructOrUnionDescription.m */,
+			);
+			name = headerdump;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A21903C18ABA99800AA49CC /* StructOrUnionDescription.m in Sources */,
 				0B13ECAE173C687400548DA1 /* GCDAsyncSocket.m in Sources */,
 				8C37DD9F161593BD00016A95 /* FinderHook.m in Sources */,
 				8C99F6941622D145002D2135 /* IconCache.m in Sources */,
@@ -230,6 +264,10 @@
 				692C18A9166617F500BF6A53 /* IconOverlayHandlers.m in Sources */,
 				692C18AC1666392700BF6A53 /* MenuManager.m in Sources */,
 				0BFAF21C16F8E6C10017EA7E /* JSONKit.m in Sources */,
+				9A21903F18ABB3B800AA49CC /* ToolbarButtonHandlers.m in Sources */,
+				9A21903918ABA99800AA49CC /* ClassDescription.m in Sources */,
+				9A21903B18ABA99800AA49CC /* TypeEncodingFuncs.m in Sources */,
+				9A21903A18ABA99800AA49CC /* LibraryManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +296,13 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = LiferayNativityFinder;
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -275,8 +318,13 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = LiferayNativityFinder;
 				WRAPPER_EXTENSION = bundle;
 			};
