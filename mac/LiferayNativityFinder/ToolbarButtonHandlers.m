@@ -7,6 +7,8 @@
 //
 
 #import "ToolbarButtonHandlers.h"
+#import "IconCache.h"
+#import <AppKit/NSToolbarItem.h>
 
 @implementation NSObject (ToolbarButtonHandlers)
 
@@ -38,11 +40,44 @@
 
 - (id)ToolbarButtonHandlers__newItemFromItemIdentifier:(id)arg1 propertyListRepresentation:(id)arg2 requireImmediateLoad:(char)arg3 willBeInsertedIntoToolbar:(char)arg4
 {
-	id ret = [self ToolbarButtonHandlers__newItemFromItemIdentifier:arg1
-										 propertyListRepresentation:arg2
-											   requireImmediateLoad:arg3
-										  willBeInsertedIntoToolbar:arg4];
-	return ret;
+	if ([arg1 isEqualToString:@"com.forgetbox.lima.LIMA"])
+	{
+		__block BOOL found = NO;
+		[[self items] enumerateObjectsUsingBlock:^(NSToolbarItem* item, NSUInteger idx, BOOL *stop) {
+			if ([item.itemIdentifier isEqualToString:@"com.forgetbox.lima.LIMA"])
+			{
+				found = YES;
+				*stop = YES;
+			}
+		}];
+		
+		if (!found || !arg4)
+		{
+			NSToolbarItem* item = [[NSToolbarItem alloc] initWithItemIdentifier:@"com.forgetbox.lima.LIMA"];
+			item.paletteLabel = @"Lima";
+			item.toolTip = @"Lima";
+			
+			NSButton* templateButton = [[self delegate] toolbarButtonTemplate];
+			NSData* buttonArchive = [NSArchiver archivedDataWithRootObject:templateButton];
+			NSButton* button = [NSUnarchiver unarchiveObjectWithData:buttonArchive];
+			
+			button.image = [[IconCache sharedInstance] getIcon:@(1)];
+			[button sizeToFit];
+			item.view = button;
+			
+			return item;
+		}
+		
+		return nil;
+	}
+	else
+	{
+		id ret = [self ToolbarButtonHandlers__newItemFromItemIdentifier:arg1
+											 propertyListRepresentation:arg2
+												   requireImmediateLoad:arg3
+											  willBeInsertedIntoToolbar:arg4];
+		return ret;
+	}
 }
 
 - (void)ToolbarButtonHandlers__notifyView_MovedFromIndex:(long long)arg1 toIndex:(long long)arg2

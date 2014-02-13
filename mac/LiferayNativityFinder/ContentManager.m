@@ -100,22 +100,16 @@ static ContentManager* sharedInstance = nil;
 
 - (void)addToolbarItem
 {
-	NSArray* windows = [[NSApplication sharedApplication] windows];
+	NSApplication* application = [NSApplication sharedApplication];
+	NSArray* windows = application.windows;
 	
 	for (NSWindow* window in windows)
 	{
-		if ([[window className] isEqualToString:@"TBrowserWindow"])
+		if ([window.className isEqualToString:@"TBrowserWindow"])
 		{
-			NSObject* themeFrame = [[window contentView] superview];
-			NSToolbar* toolbar = [themeFrame _toolbar];
+			NSToolbar* toolbar = [[window browserWindowController] toolbar];
 			
 			NSToolbarItem* item = [[NSToolbarItem alloc] initWithItemIdentifier:@"com.forgetbox.lima.LIMA"];
-			item.label = @"Lima";
-			item.image = [[IconCache sharedInstance] getIcon:@(1)];
-			
-			NSPopUpButton* button = [[NSPopUpButton alloc] init];
-			button.image = item.image;
-			item.view = button;
 			
 			NSOperationQueue* queue = [NSOperationQueue mainQueue];
 			[queue addOperationWithBlock:^{
@@ -123,6 +117,8 @@ static ContentManager* sharedInstance = nil;
 			}];
 		}
 	}
+	
+	NSLog(@"All done!");
 }
 
 - (void)repaintAllWindows
