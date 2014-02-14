@@ -1018,6 +1018,91 @@ struct TIconRef {
 + (void)handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 windowController:(id)arg5 addPlugIns:(BOOL)arg6;
 @end
 
+@interface TToolbar : NSToolbar
+{
+}
+
+- (char)_allowsSizeMode:(unsigned long long)arg1;
+
+@end
+
+
+
+struct ToolbarItemInfo;
+
+@interface TToolbarController : NSController
+{
+}
+
++ (const struct ToolbarItemInfo *)itemEntryFromKind:(unsigned int)arg1;
++ (id)identifierFromKind:(unsigned int)arg1;
++ (unsigned int)kindFromIdentifier:(id)arg1;
++ (unsigned int)kindFromPercentEscapedString:(id)arg1;
+
+- (void)upgradeNSToolbarPrefs:(char)arg1;
+- (void)myCancelButtonAction:(id)arg1;
+- (void)fixUpFlexibleSpacersForItems:(id)arg1;
+- (id)toolbarItemForKind:(unsigned int)arg1 withPropertyList:(id)arg2 willBeInsertedIntoToolbar:(char)arg3;
+- (char)searchFieldIsVisible;
+- (void)configurationAddItem:(unsigned int)arg1 afterItem:(unsigned int)arg2;
+- (void)configurationMoveItem:(unsigned int)arg1 beforeAdjacentItem:(unsigned int)arg2;
+- (void)windowSplitterViewUpdated;
+- (char)makeSearchFieldFirstResponder;
+- (id)currentSearchFieldSuggestion;
+- (id)searchSuggestions;
+- (id)backForwardView;
+- (id)viewSwitcherView;
+- (id)viewSwitcherMenu;
+- (id)pathView;
+- (id)pathMenu;
+- (id)arrangeView;
+- (id)historySearchTemplate;
+- (id)toolbarButtonTemplate;
+- (id)shareView;
+- (id)arrangeMenu;
+- (id)actionView;
+- (id)shareMenu;
+- (id)quickLookView;
+- (id)browserWindowController;
+- (id)initWithBrowserWindowController:(id)arg1;
+- (void)setBrowserWindowController:(id)arg1;
+- (id)actionMenu;
+- (id)searchView;
+- (id)toolbar;
+- (id)toolbarDefaultItemIdentifiers:(id)arg1;
+- (id)toolbarAllowedItemIdentifiers:(id)arg1;
+- (void)toolbarWillAddItem:(id)arg1;
+- (void)toolbarDidRemoveItem:(id)arg1;
+- (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 withPropertyListRepresentation:(id)arg3 willBeInsertedIntoToolbar:(char)arg4;
+- (void)toolbarDidReorderItem:(id)arg1;
+- (id)toolbar:(id)arg1 itemsFromPasteboard:(id)arg2;
+- (void)aboutToTearDown:(id)arg1;
+- (void)bindViewSwitcher;
+- (void)unbindViewSwitcher;
+- (id)activeContainer;
+- (void)searchTextChanged:(id)arg1;
+- (void)backForwardClicked:(id)arg1;
+- (void)setSearchFieldText:(id)arg1;
+
+@end
+
+
+
+@interface TToolbarItem : NSToolbarItem
+{
+    TToolbarController* _controller;
+    char _forceStandardSize;
+}
+
+
+- (id)initWithItemIdentifier:(id)arg1 entry:(const struct ToolbarItemInfo *)arg2 controller:(id)arg3 propertyList:(id)arg4 willBeInsertedIntoToolbar:(char)arg5;
+- (void)toolbarControllerAboutToTearDown:(id)arg1;
+- (void)dealloc;
+- (struct CGSize)minSize;
+- (void)validate;
+
+@end
+
 
 
 

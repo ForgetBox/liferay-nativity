@@ -85,7 +85,6 @@
     long iconId = [nativityControl registerImage:@"/Users/chrales/Work/lima/overlay-test/menu-item-image.png"];
     
     ToolbarItemControl* toolbarItemControl = [[[ToolbarItemControl alloc] initWithNativityControl:nativityControl] autorelease];
-    [toolbarItemControl addToolbarItem];
     
     while (YES)
     {

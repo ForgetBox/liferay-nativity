@@ -47,3 +47,9 @@ static NSString* SET_FILTER_PATH = @"setFilterPath";
 static NSString* UNREGISTER_ICON = @"unregisterIcon";
 
 static NSString* ADD_TOOLBAR_ITEM = @"addToolbarItem";
+
+static NSString* FIRE_TOOLBAR_ITEM_ACTION = @"toolbarItemAction";
+
+static NSString* FIRE_TOOLBAR_MENU_ACTION = @"toolbarMenuAction";
+
+static NSString* GET_TOOLBAR_MENU_ITEMS = @"getToolbarMenuList";

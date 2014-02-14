@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1006FF18AE66C2001BB55A /* ToolbarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1006FD18AE66C2001BB55A /* ToolbarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A10070018AE66C2001BB55A /* ToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1006FE18AE66C2001BB55A /* ToolbarItem.m */; };
+		9A10070C18AE8846001BB55A /* ToolbarMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A10070A18AE8846001BB55A /* ToolbarMenuCallback.h */; };
+		9A10070D18AE8846001BB55A /* ToolbarMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A10070B18AE8846001BB55A /* ToolbarMenuCallback.m */; };
 		9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A60DE2E18A4338E00B62550 /* CommandListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A2218A24B5900203322 /* XCTest.framework */; };
 		9A8D60CC18A250FE0011A0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D60CA18A250FE0011A0C0 /* InfoPlist.strings */; };
@@ -28,8 +32,8 @@
 		9AB64C3918A4D88B00572B3F /* NativityMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C3718A4D88B00572B3F /* NativityMessage.m */; };
 		9AB64C3D18A516BE00572B3F /* NSArray+FilterMapReduce.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3B18A516BE00572B3F /* NSArray+FilterMapReduce.h */; };
 		9AB64C3E18A516BE00572B3F /* NSArray+FilterMapReduce.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C3C18A516BE00572B3F /* NSArray+FilterMapReduce.m */; };
-		9AB64C4118A5173F00572B3F /* ContextMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3F18A5173F00572B3F /* ContextMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9AB64C4218A5173F00572B3F /* ContextMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C4018A5173F00572B3F /* ContextMenuItem.m */; };
+		9AB64C4118A5173F00572B3F /* MenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3F18A5173F00572B3F /* MenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AB64C4218A5173F00572B3F /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C4018A5173F00572B3F /* MenuItem.m */; };
 		9AB64C4518A52B9100572B3F /* TestContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB64C4418A52B9100572B3F /* TestContextMenuCallback.m */; };
 		9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADBDDEC18A2749B0073FD9B /* NativityControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBDDED18A2749B0073FD9B /* NativityControl.m */; };
@@ -59,6 +63,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A1006FD18AE66C2001BB55A /* ToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarItem.h; sourceTree = SOURCE_ROOT; };
+		9A1006FE18AE66C2001BB55A /* ToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarItem.m; sourceTree = SOURCE_ROOT; };
+		9A10070918AE743E001BB55A /* ActionBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionBlock.h; sourceTree = SOURCE_ROOT; };
+		9A10070A18AE8846001BB55A /* ToolbarMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarMenuCallback.h; sourceTree = SOURCE_ROOT; };
+		9A10070B18AE8846001BB55A /* ToolbarMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarMenuCallback.m; sourceTree = SOURCE_ROOT; };
 		9A574D3918A302D2003CF108 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
 		9A60DE2E18A4338E00B62550 /* CommandListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandListener.h; sourceTree = SOURCE_ROOT; };
 		9A8D60C518A250FE0011A0C0 /* LiferayNativityClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiferayNativityClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,8 +86,8 @@
 		9AB64C3718A4D88B00572B3F /* NativityMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativityMessage.m; sourceTree = SOURCE_ROOT; };
 		9AB64C3B18A516BE00572B3F /* NSArray+FilterMapReduce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FilterMapReduce.h"; sourceTree = SOURCE_ROOT; };
 		9AB64C3C18A516BE00572B3F /* NSArray+FilterMapReduce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FilterMapReduce.m"; sourceTree = SOURCE_ROOT; };
-		9AB64C3F18A5173F00572B3F /* ContextMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuItem.h; sourceTree = SOURCE_ROOT; };
-		9AB64C4018A5173F00572B3F /* ContextMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuItem.m; sourceTree = SOURCE_ROOT; };
+		9AB64C3F18A5173F00572B3F /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = SOURCE_ROOT; };
+		9AB64C4018A5173F00572B3F /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = SOURCE_ROOT; };
 		9AB64C4318A52B9100572B3F /* TestContextMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestContextMenuCallback.h; sourceTree = "<group>"; };
 		9AB64C4418A52B9100572B3F /* TestContextMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestContextMenuCallback.m; sourceTree = "<group>"; };
 		9AC879E318A247F700203322 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -164,6 +173,10 @@
 			children = (
 				9A9B568C18AA92630014750F /* ToolbarItemControl.h */,
 				9A9B568D18AA92640014750F /* ToolbarItemControl.m */,
+				9A1006FD18AE66C2001BB55A /* ToolbarItem.h */,
+				9A1006FE18AE66C2001BB55A /* ToolbarItem.m */,
+				9A10070A18AE8846001BB55A /* ToolbarMenuCallback.h */,
+				9A10070B18AE8846001BB55A /* ToolbarMenuCallback.m */,
 			);
 			name = ToolbarItem;
 			sourceTree = "<group>";
@@ -171,6 +184,9 @@
 		9AAB90F518A3DAA30088F5BC /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				9A10070918AE743E001BB55A /* ActionBlock.h */,
+				9AB64C3F18A5173F00572B3F /* MenuItem.h */,
+				9AB64C4018A5173F00572B3F /* MenuItem.m */,
 				9A9B568B18AA920B0014750F /* ToolbarItem */,
 				9AB64C3518A4D84D00572B3F /* ContextMenu */,
 				9AB64C3418A4D83700572B3F /* FileIcon */,
@@ -192,8 +208,6 @@
 			children = (
 				9A8FCD7918A401AF004B4673 /* ContextMenuCallback.h */,
 				9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */,
-				9AB64C3F18A5173F00572B3F /* ContextMenuItem.h */,
-				9AB64C4018A5173F00572B3F /* ContextMenuItem.m */,
 			);
 			name = ContextMenu;
 			sourceTree = "<group>";
@@ -309,6 +323,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A10070C18AE8846001BB55A /* ToolbarMenuCallback.h in Headers */,
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
 				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
 				9AB64C3D18A516BE00572B3F /* NSArray+FilterMapReduce.h in Headers */,
@@ -316,8 +331,9 @@
 				9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */,
 				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
 				9A9B568E18AA92640014750F /* ToolbarItemControl.h in Headers */,
+				9A1006FF18AE66C2001BB55A /* ToolbarItem.h in Headers */,
 				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
-				9AB64C4118A5173F00572B3F /* ContextMenuItem.h in Headers */,
+				9AB64C4118A5173F00572B3F /* MenuItem.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,
 				9ADBDE2318A27C5E0073FD9B /* DDLog.h in Headers */,
 				9ADBDE2518A27C5E0073FD9B /* DDTTYLogger.h in Headers */,
@@ -433,12 +449,14 @@
 				9ADBDE3718A287F60073FD9B /* getbundleversion.applescript in Sources */,
 				9ADBDE3A18A287F60073FD9B /* loaded.applescript in Sources */,
 				9ADBDE3918A287F60073FD9B /* load.applescript in Sources */,
-				9AB64C4218A5173F00572B3F /* ContextMenuItem.m in Sources */,
+				9AB64C4218A5173F00572B3F /* MenuItem.m in Sources */,
 				9ADBDE2218A27C5E0073FD9B /* DDASLLogger.m in Sources */,
 				9A9B568F18AA92640014750F /* ToolbarItemControl.m in Sources */,
 				9ADBDE2618A27C5E0073FD9B /* DDTTYLogger.m in Sources */,
 				9ADBDDEF18A2749B0073FD9B /* NativityControl.m in Sources */,
+				9A10070D18AE8846001BB55A /* ToolbarMenuCallback.m in Sources */,
 				9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */,
+				9A10070018AE66C2001BB55A /* ToolbarItem.m in Sources */,
 				9A8D60D818A251150011A0C0 /* GCDAsyncSocket.m in Sources */,
 				9ADBDE3818A287F60073FD9B /* installscripts.applescript in Sources */,
 				9AB64C3918A4D88B00572B3F /* NativityMessage.m in Sources */,

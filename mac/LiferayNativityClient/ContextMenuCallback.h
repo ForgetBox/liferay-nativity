@@ -11,7 +11,7 @@
 #import "CommandListener.h"
 
 @class NativityControl;
-@class ContextMenuItem;
+@class MenuItem;
 
 @interface ContextMenuCallback : NSObject <CommandListener>
 

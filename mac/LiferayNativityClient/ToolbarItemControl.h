@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class NativityControl;
+#import "CommandListener.h"
 
-@interface ToolbarItemControl : NSObject
+@class NativityControl;
+@class ToolbarItem;
+
+@interface ToolbarItemControl : NSObject <CommandListener>
 
 - (id)initWithNativityControl:(NativityControl*)nativityControl;
 
-- (void)addToolbarItem;
+- (void)addToolbarItem:(ToolbarItem*)item;
 
 @end

@@ -41,6 +41,7 @@
 - (NSData*)sendMessageWithCommand:(NSString*)command andValue:(id)value;
 
 - (void)addListener:(id<CommandListener>)listener forCommand:(NSString*)command;
+- (void)removeListener:(id<CommandListener>)listener forCommand:(NSString*)command;
 
 - (BOOL)load;
 - (BOOL)unload;

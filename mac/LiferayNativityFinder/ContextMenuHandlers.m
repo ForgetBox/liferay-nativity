@@ -14,6 +14,7 @@
 
 #import "ContextMenuHandlers.h"
 #import "MenuManager.h"
+#import "Finder.h"
 
 @implementation NSObject (ContextMenuHandlers)
 

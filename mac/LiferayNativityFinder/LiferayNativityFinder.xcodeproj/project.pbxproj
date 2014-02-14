@@ -24,8 +24,8 @@
 		9A21903918ABA99800AA49CC /* ClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903218ABA99800AA49CC /* ClassDescription.m */; };
 		9A21903A18ABA99800AA49CC /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903418ABA99800AA49CC /* LibraryManager.m */; };
 		9A21903B18ABA99800AA49CC /* TypeEncodingFuncs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */; };
-		9A21903C18ABA99800AA49CC /* StructOrUnionDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903818ABA99800AA49CC /* StructOrUnionDescription.m */; };
-		9A21903F18ABB3B800AA49CC /* ToolbarButtonHandlers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903E18ABB3B800AA49CC /* ToolbarButtonHandlers.m */; };
+		9A21903C18ABA99800AA49CC /* StructDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903818ABA99800AA49CC /* StructDescription.m */; };
+		9A21903F18ABB3B800AA49CC /* ToolbarItemHandlers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903E18ABB3B800AA49CC /* ToolbarItemHandlers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,10 +61,10 @@
 		9A21903418ABA99800AA49CC /* LibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryManager.m; path = ../../../../headerdump/headerdump/LibraryManager.m; sourceTree = "<group>"; };
 		9A21903518ABA99800AA49CC /* TypeEncodingFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeEncodingFuncs.h; path = ../../../../headerdump/headerdump/TypeEncodingFuncs.h; sourceTree = "<group>"; };
 		9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeEncodingFuncs.m; path = ../../../../headerdump/headerdump/TypeEncodingFuncs.m; sourceTree = "<group>"; };
-		9A21903718ABA99800AA49CC /* StructOrUnionDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StructOrUnionDescription.h; path = ../../../../headerdump/headerdump/StructOrUnionDescription.h; sourceTree = "<group>"; };
-		9A21903818ABA99800AA49CC /* StructOrUnionDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StructOrUnionDescription.m; path = ../../../../headerdump/headerdump/StructOrUnionDescription.m; sourceTree = "<group>"; };
-		9A21903D18ABB3B800AA49CC /* ToolbarButtonHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButtonHandlers.h; sourceTree = "<group>"; };
-		9A21903E18ABB3B800AA49CC /* ToolbarButtonHandlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButtonHandlers.m; sourceTree = "<group>"; };
+		9A21903718ABA99800AA49CC /* StructDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StructDescription.h; path = ../../../../headerdump/headerdump/StructDescription.h; sourceTree = "<group>"; };
+		9A21903818ABA99800AA49CC /* StructDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StructDescription.m; path = ../../../../headerdump/headerdump/StructDescription.m; sourceTree = "<group>"; };
+		9A21903D18ABB3B800AA49CC /* ToolbarItemHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarItemHandlers.h; sourceTree = "<group>"; };
+		9A21903E18ABB3B800AA49CC /* ToolbarItemHandlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarItemHandlers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +135,8 @@
 				8C99F6931622D145002D2135 /* IconCache.m */,
 				692C18AA1666392700BF6A53 /* MenuManager.h */,
 				692C18AB1666392700BF6A53 /* MenuManager.m */,
-				9A21903D18ABB3B800AA49CC /* ToolbarButtonHandlers.h */,
-				9A21903E18ABB3B800AA49CC /* ToolbarButtonHandlers.m */,
+				9A21903D18ABB3B800AA49CC /* ToolbarItemHandlers.h */,
+				9A21903E18ABB3B800AA49CC /* ToolbarItemHandlers.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -184,8 +184,8 @@
 				9A21903418ABA99800AA49CC /* LibraryManager.m */,
 				9A21903518ABA99800AA49CC /* TypeEncodingFuncs.h */,
 				9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */,
-				9A21903718ABA99800AA49CC /* StructOrUnionDescription.h */,
-				9A21903818ABA99800AA49CC /* StructOrUnionDescription.m */,
+				9A21903718ABA99800AA49CC /* StructDescription.h */,
+				9A21903818ABA99800AA49CC /* StructDescription.m */,
 			);
 			name = headerdump;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A21903C18ABA99800AA49CC /* StructOrUnionDescription.m in Sources */,
+				9A21903C18ABA99800AA49CC /* StructDescription.m in Sources */,
 				0B13ECAE173C687400548DA1 /* GCDAsyncSocket.m in Sources */,
 				8C37DD9F161593BD00016A95 /* FinderHook.m in Sources */,
 				8C99F6941622D145002D2135 /* IconCache.m in Sources */,
@@ -264,7 +264,7 @@
 				692C18A9166617F500BF6A53 /* IconOverlayHandlers.m in Sources */,
 				692C18AC1666392700BF6A53 /* MenuManager.m in Sources */,
 				0BFAF21C16F8E6C10017EA7E /* JSONKit.m in Sources */,
-				9A21903F18ABB3B800AA49CC /* ToolbarButtonHandlers.m in Sources */,
+				9A21903F18ABB3B800AA49CC /* ToolbarItemHandlers.m in Sources */,
 				9A21903918ABA99800AA49CC /* ClassDescription.m in Sources */,
 				9A21903B18ABA99800AA49CC /* TypeEncodingFuncs.m in Sources */,
 				9A21903A18ABA99800AA49CC /* LibraryManager.m in Sources */,

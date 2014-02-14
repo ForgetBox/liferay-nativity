@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "JSONKit.h"
+#import "ActionBlock.h"
 
-typedef void (^ActionBlock) (NSArray*);
-
-@interface ContextMenuItem : NSObject
+@interface MenuItem : NSObject
 
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, assign) BOOL enabled;
@@ -23,20 +22,16 @@ typedef void (^ActionBlock) (NSArray*);
 @property (nonatomic, copy) ActionBlock action;
 
 + (id)menuItemWithTitle:(NSString*)title;
-+ (id)menuItemWithJSONData:(NSData*)jsonData;
-+ (id)menuItemWithJSONString:(NSString*)jsonString;
 + (id)separatorMenuItem;
 
 - (id)initWithTitle:(NSString*)title;
-- (id)initWithJSONData:(NSData*)jsonData;
-- (id)initWithJSONString:(NSString*)jsonString;
 
 - (NSDictionary*)asDictionary;
 
 - (NSUInteger)numberOfChildren;
-- (ContextMenuItem*)childAtIndex:(NSUInteger)index;
-- (void)addChild:(ContextMenuItem*)childItem;
-- (void)removeChild:(ContextMenuItem*)childItem;
+- (MenuItem*)childAtIndex:(NSUInteger)index;
+- (void)addChild:(MenuItem*)childItem;
+- (void)removeChild:(MenuItem*)childItem;
 - (void)removeChildAtIndex:(NSUInteger)index;
 - (void)removeAllChildren;
 

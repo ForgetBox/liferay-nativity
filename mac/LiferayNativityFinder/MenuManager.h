@@ -14,7 +14,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class TContextMenu;
+@class NSMenu;
 struct TFENodeVector;
 
 @interface MenuManager : NSObject
@@ -23,7 +23,7 @@ struct TFENodeVector;
 
 + (MenuManager*)sharedInstance;
 
-- (void)addItemsToMenu:(TContextMenu*)menu forFiles:(NSArray*)files;
+- (void)addItemsToMenu:(NSMenu*)menu forFiles:(NSArray*)files;
 - (NSArray*)pathsForNodes:(const struct TFENodeVector*)nodes;
 
 @end

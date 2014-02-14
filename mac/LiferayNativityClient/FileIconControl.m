@@ -48,12 +48,12 @@
 
 - (void)setIcon:(long)iconId forPath:(NSString*)path
 {
-    [self setIcons:@{path : @(iconId)}];
+    [self setIcons:@[@(iconId)] forPaths:@[path]];
 }
 
-- (void)setIcons:(NSDictionary*)iconIdsForPaths
+- (void)setIcons:(NSArray *)iconIds forPaths:(NSArray *)paths
 {
-    [_nativityControl sendMessageWithCommand:SET_FILE_ICONS andValue:iconIdsForPaths];
+    [_nativityControl sendMessageWithCommand:SET_FILE_ICONS andValue:[NSDictionary dictionaryWithObjects:iconIds forKeys:paths]];
 }
 
 - (void)removeIconForPath:(NSString*)path

@@ -11,7 +11,7 @@
 #import "Constants.h"
 #import "NativityControl.h"
 #import "NativityMessage.h"
-#import "ContextMenuItem.h"
+#import "MenuItem.h"
 
 #import "DDLog.h" 
 
@@ -38,13 +38,16 @@
 
 - (void)dealloc
 {
+    [_nativityControl removeListener:self forCommand:GET_CONTEXT_MENU_ITEMS];
+    [_nativityControl removeListener:self forCommand:FIRE_CONTEXT_MENU_ACTION];
+    
     [_nativityControl release];
     [_menuItemActions release];
     
     [super dealloc];
 }
 
-- (void)registerActions:(ContextMenuItem*)menuItem
+- (void)registerActionForItem:(MenuItem*)menuItem
 {
     if (menuItem.action != nil)
     {
@@ -67,12 +70,12 @@
         NSArray* paths = value;
         NSArray* menuItems = [self getMenuItemsForPaths:paths];
         
-        for (ContextMenuItem* item in menuItems)
+        for (MenuItem* item in menuItems)
         {
-            [self registerActions:item];
+            [self registerActionForItem:item];
         }
         
-        NSArray* messageValue = [menuItems map:^id(ContextMenuItem* item) {
+        NSArray* messageValue = [menuItems map:^id(MenuItem* item) {
             return [item asDictionary];
         }];
         

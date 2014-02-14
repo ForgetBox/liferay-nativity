@@ -8,7 +8,7 @@
 
 #import "TestContextMenuCallback.h"
 
-#import "ContextMenuItem.h"
+#import "MenuItem.h"
 
 @implementation TestContextMenuCallback
 
@@ -17,7 +17,7 @@
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:itemCount];
     for (NSUInteger i = 0; i < itemCount; i++)
     {
-        ContextMenuItem* menuItem = [ContextMenuItem menuItemWithTitle:[NSString stringWithFormat:@"Item %ld", i]];
+        MenuItem* menuItem = [MenuItem menuItemWithTitle:[NSString stringWithFormat:@"Item %ld", i]];
         menuItem.enabled = random() % 2;
         menuItem.imageId = _imageId;
         menuItem.action = ^(NSArray* paths)
@@ -28,7 +28,7 @@
         if (itemCount > 1)
         {
             NSArray* children = [self generateRandomMenu:(random() % ((itemCount / 2) + 1))];
-            for (ContextMenuItem* child in children)
+            for (MenuItem* child in children)
             {
                 [menuItem addChild:child];
             }

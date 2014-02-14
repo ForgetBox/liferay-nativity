@@ -118,13 +118,13 @@ static BOOL installed = NO;
 	[self hookMethod:@selector(configureFromMenuNeedsUpdate:clickedView:container:event:selectedNodes:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(ContextMenuHandlers_configureFromMenuNeedsUpdate:clickedView:container:event:selectedNodes:)]; // 10.9
 	
 	// Debug
-	[self hookMethod:@selector(toolbarWillAddItem:) inClass:@"TToolbarController" toCallToTheNewMethod:@selector(ToolbarButtonHandlers_toolbarWillAddItem:)];
-	[self hookMethod:@selector(toolbarDidRemoveItem:) inClass:@"TToolbarController" toCallToTheNewMethod:@selector(ToolbarButtonHandlers_toolbarDidRemoveItem:)];
-	[self hookMethod:@selector(toolbarAllowedItemIdentifiers:) inClass:@"TToolbarController" toCallToTheNewMethod:@selector(ToolbarButtonHandlers_toolbarAllowedItemIdentifiers:)];
+	[self hookMethod:@selector(toolbarWillAddItem:) inClass:@"TToolbarController" toCallToTheNewMethod:@selector(ToolbarItemHandlers_toolbarWillAddItem:)];
+	[self hookMethod:@selector(toolbarDidRemoveItem:) inClass:@"TToolbarController" toCallToTheNewMethod:@selector(ToolbarItemHandlers_toolbarDidRemoveItem:)];
+	[self hookMethod:@selector(toolbarAllowedItemIdentifiers:) inClass:@"TToolbarController" toCallToTheNewMethod:@selector(ToolbarItemHandlers_toolbarAllowedItemIdentifiers:)];
 	
-	[self hookMethod:@selector(setSizeMode:) inClass:@"TToolbar" toCallToTheNewMethod:@selector(ToolbarButtonHandlers_setSizeMode:)];
-	[self hookMethod:@selector(_newItemFromItemIdentifier:propertyListRepresentation:requireImmediateLoad:willBeInsertedIntoToolbar:) inClass:@"TToolbar" toCallToTheNewMethod:@selector(ToolbarButtonHandlers__newItemFromItemIdentifier:propertyListRepresentation:requireImmediateLoad:willBeInsertedIntoToolbar:)];
-    [self hookMethod:@selector(_notifyView_MovedFromIndex:toIndex:) inClass:@"TToolbar" toCallToTheNewMethod:@selector(ToolbarButtonHandlers__notifyView_MovedFromIndex:toIndex:)];
+	[self hookMethod:@selector(setSizeMode:) inClass:@"TToolbar" toCallToTheNewMethod:@selector(ToolbarItemHandlers_setSizeMode:)];
+	[self hookMethod:@selector(_newItemFromItemIdentifier:propertyListRepresentation:requireImmediateLoad:willBeInsertedIntoToolbar:) inClass:@"TToolbar" toCallToTheNewMethod:@selector(ToolbarItemHandlers__newItemFromItemIdentifier:propertyListRepresentation:requireImmediateLoad:willBeInsertedIntoToolbar:)];
+    [self hookMethod:@selector(_notifyView_MovedFromIndex:toIndex:) inClass:@"TToolbar" toCallToTheNewMethod:@selector(ToolbarItemHandlers__notifyView_MovedFromIndex:toIndex:)];
 }
 
 @end

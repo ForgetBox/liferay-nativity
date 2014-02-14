@@ -18,7 +18,7 @@
 - (void)disableFileIcons;
 
 - (void)setIcon:(long)iconId forPath:(NSString*)path;
-- (void)setIcons:(NSDictionary*)iconIdsForPaths;
+- (void)setIcons:(NSArray*)iconIds forPaths:(NSArray*)paths;
 - (void)removeIconForPath:(NSString*)path;
 - (void)removeIconsForPaths:(NSArray*)paths;
 - (void)removeIconsForAllPaths;

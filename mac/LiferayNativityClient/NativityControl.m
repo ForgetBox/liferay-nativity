@@ -167,6 +167,14 @@ static NativityControl* _sharedInstance = nil;
     [_commandListeners[command] addObject:listener];
 }
 
+- (void)removeListener:(id<CommandListener>)listener forCommand:(NSString *)command
+{
+    if (_commandListeners[command] != nil)
+    {
+        [_commandListeners[command] removeObject:listener];
+    }
+}
+
 - (BOOL)connect
 {
     NSError* error;
