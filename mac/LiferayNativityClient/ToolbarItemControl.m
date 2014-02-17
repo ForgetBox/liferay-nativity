@@ -24,6 +24,7 @@
 {
     NativityControl* _nativityControl;
     NSMutableDictionary* _items;
+    NSMutableDictionary* _menuActions;
 }
 
 - (id)initWithNativityControl:(NativityControl*)nativityControl
@@ -33,9 +34,10 @@
     {
         _nativityControl = [nativityControl retain];
         _items = [[NSMutableDictionary alloc] init];
+        _menuActions = [[NSMutableDictionary alloc] init];
         
         [_nativityControl addListener:self forCommand:GET_TOOLBAR_MENU_ITEMS];
-        [_nativityControl addListener:self forCommand:FIRE_TOOLBAR_ITEM_ACTION];
+        [_nativityControl addListener:self forCommand:FIRE_TOOLBAR_MENU_ACTION];
     }
     return self;
 }
@@ -43,27 +45,37 @@
 - (void)dealloc
 {
     [_nativityControl removeListener:self forCommand:GET_TOOLBAR_MENU_ITEMS];
-    [_nativityControl removeListener:self forCommand:FIRE_TOOLBAR_ITEM_ACTION];
+    [_nativityControl removeListener:self forCommand:FIRE_TOOLBAR_MENU_ACTION];
     
     [_nativityControl release];
     [_items release];
+    [_menuActions release];
     
     [super dealloc];
 }
 
 - (void)registerActionForItem:(MenuItem*)menuItem withIdentifier:(NSString*)identifier
 {
+    NSMutableDictionary* actions = _menuActions[identifier];
+    if (actions == nil)
+    {
+        actions = [NSMutableDictionary dictionary];
+        _menuActions[identifier] = actions;
+    }
     
+    actions[menuItem.uuid] = menuItem.action;
 }
 
 - (NativityMessage *)onCommand:(NSString *)command withValue:(id)value
 {
     if ([command isEqualToString:GET_TOOLBAR_MENU_ITEMS])
     {
+        [_menuActions removeAllObjects];
+        
         NSDictionary* commandDict = value;
         
-        NSString* identifier = value[@"identifier"];
-        NSArray* paths = value[@"paths"];
+        NSString* identifier = commandDict[@"identifier"];
+        NSArray* paths = commandDict[@"paths"];
         ToolbarItem* item = _items[identifier];
         if (item.callback != nil)
         {
@@ -84,14 +96,24 @@
     else if ([command isEqualToString:FIRE_TOOLBAR_MENU_ACTION])
     {
         NSDictionary* commandDict = value;
-        NSString* uuid = commandDict[@"uuid"];
-        ActionBlock action = _menuItemActions[uuid];
-        if (action != nil)
+        NSString* identifier = commandDict[@"identifier"];
+        ToolbarItem* item = _items[identifier];
+        if (item != nil)
         {
-            DDLogVerbose(@"Firing action uuid: %@ for: %@", uuid, commandDict[@"files"]);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                action(commandDict[@"files"]);
-            });
+            ToolbarMenuCallback* callback = item.callback;
+            if (callback)
+            {
+                NSUUID* uuid = commandDict[@"uuid"];
+                ActionBlock action = _menuActions[identifier][uuid];
+                if (action != NULL)
+                {
+                    NSArray* files = commandDict[@"files"];
+                    DDLogVerbose(@"Firing toolbar menu action: %@ uuid: %@ for: %@", identifier, uuid, files);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        action(files);
+                    });
+                }
+            }
         }
     }
     

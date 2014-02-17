@@ -7,8 +7,9 @@
 //
 
 #import "ToolbarItemHandlers.h"
-#import "IconCache.h"
-#import <objc/objc-runtime.h>
+#import "ToolbarManager.h"
+
+#import <objc/message.h>
 
 @implementation NSObject (ToolbarItemHandlers)
 
@@ -27,7 +28,9 @@
 - (NSArray*)ToolbarItemHandlers_toolbarAllowedItemIdentifiers:(id)arg1
 {
 	NSMutableArray* arr = [NSMutableArray arrayWithArray:[self ToolbarItemHandlers_toolbarAllowedItemIdentifiers:arg1]];
-	[arr addObject:@"com.forgetbox.lima.LIMA"];
+	ToolbarManager* toolbarManager = [ToolbarManager sharedInstance];
+	[arr addObjectsFromArray:toolbarManager.itemIdentifiers];
+	
 	return arr;
 }
 
@@ -40,44 +43,37 @@
 
 - (id)ToolbarItemHandlers__newItemFromItemIdentifier:(id)arg1 propertyListRepresentation:(id)arg2 requireImmediateLoad:(char)arg3 willBeInsertedIntoToolbar:(char)arg4
 {
-	if ([arg1 isEqualToString:@"com.forgetbox.lima.LIMA"])
+	ToolbarManager* toolbarManager = [ToolbarManager sharedInstance];
+	if ([toolbarManager.itemIdentifiers containsObject:arg1])
 	{
 		TToolbar* realSelf = (TToolbar*)self;
 		
 		__block BOOL found = NO;
 		[realSelf.items enumerateObjectsUsingBlock:^(NSToolbarItem* item, NSUInteger idx, BOOL *stop) {
-			if ([item.itemIdentifier isEqualToString:@"com.forgetbox.lima.LIMA"])
+			if ([item.itemIdentifier isEqualToString:arg1])
 			{
 				found = YES;
 				*stop = YES;
 			}
 		}];
 		
-		if (!found || !arg4)
+		if (found && !arg4)
 		{
-			TToolbarItem* item = objc_msgSend(objc_getClass("TToolbarItem"), @selector(alloc));
-			item = [item initWithItemIdentifier:arg1];
-			item.paletteLabel = @"Lima";
-			item.toolTip = @"Lima";
-			
-			NSButton* templateButton = [realSelf.delegate toolbarButtonTemplate];
-			NSPopUpButton* button = [[[NSPopUpButton alloc] initWithFrame:templateButton.frame pullsDown:YES] autorelease];
-			button.pullsDown = YES;
-			button.bezelStyle = templateButton.bezelStyle;
-			button.image = [[IconCache sharedInstance] getIcon:@(1)];
-			item.view = button;
-			
-			return [item autorelease];
+			NSToolbarItemConfigWrapper* wrapper = objc_msgSend(objc_getClass("NSToolbarItemConfigWrapper"), @selector(alloc));
+			[wrapper initWithWrappedItem:[toolbarManager toolbarItemForIdentifier:arg1 insertedIntoToolbar:realSelf]];
+			return wrapper;
 		}
-		
-		return nil;
+		else
+		{
+			return [toolbarManager toolbarItemForIdentifier:arg1 insertedIntoToolbar:realSelf];
+		}
 	}
 	else
 	{
 		id ret = [self ToolbarItemHandlers__newItemFromItemIdentifier:arg1
-											 propertyListRepresentation:arg2
-												   requireImmediateLoad:arg3
-											  willBeInsertedIntoToolbar:arg4];
+										   propertyListRepresentation:arg2
+												 requireImmediateLoad:arg3
+											willBeInsertedIntoToolbar:arg4];
 		return ret;
 	}
 }

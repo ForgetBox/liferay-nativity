@@ -85,6 +85,11 @@
     long iconId = [nativityControl registerImage:@"/Users/chrales/Work/lima/overlay-test/menu-item-image.png"];
     
     ToolbarItemControl* toolbarItemControl = [[[ToolbarItemControl alloc] initWithNativityControl:nativityControl] autorelease];
+    ToolbarItem* item = [ToolbarItem toolbarItemWithIdentifier:@"com.forgetbox.lima"];
+    item.title = @"Lima";
+    item.toolTip = @"Access Lima-related operations";
+    item.imageId = iconId;
+    [toolbarItemControl addToolbarItem:item];
     
     while (YES)
     {

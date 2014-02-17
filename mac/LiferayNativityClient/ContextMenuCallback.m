@@ -57,7 +57,7 @@
     NSUInteger childCount = menuItem.numberOfChildren;
     for (NSUInteger i = 0; i < childCount; i++)
     {
-        [self registerActions:[menuItem childAtIndex:i]];
+        [self registerActionForItem:[menuItem childAtIndex:i]];
     }
 }
 
@@ -88,9 +88,10 @@
         ActionBlock action = _menuItemActions[uuid];
         if (action != nil)
         {
-            DDLogVerbose(@"Firing action uuid: %@ for: %@", uuid, commandDict[@"files"]);
+            NSArray* files = commandDict[@"files"];
+            DDLogVerbose(@"Firing action uuid: %@ for: %@", uuid, files);
             dispatch_async(dispatch_get_main_queue(), ^{
-                action(commandDict[@"files"]);
+                action(files);
             });
         }
     }

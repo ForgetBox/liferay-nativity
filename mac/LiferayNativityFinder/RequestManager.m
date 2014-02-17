@@ -16,6 +16,7 @@
 #import "IconCache.h"
 #import "JSONKit.h"
 #import "RequestManager.h"
+#import "ToolbarManager.h"
 
 static RequestManager* sharedInstance = nil;
 
@@ -236,7 +237,9 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 - (void)execAddToolbarItem:(NSData*)cmdData replyTo:(GCDAsyncSocket*)sock
 {
-	[[ContentManager sharedInstance] addToolbarItem];
+	NSDictionary* toolbarItemDictionary = (NSDictionary*)cmdData;
+	
+	[[ToolbarManager sharedInstance] addToolbarItem:cmdData];
 	
 	[self replyString:@"1" toSocket:sock];
 }

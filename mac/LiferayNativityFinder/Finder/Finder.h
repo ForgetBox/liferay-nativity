@@ -1104,5 +1104,31 @@ struct ToolbarItemInfo;
 @end
 
 
+@interface NSToolbarItemConfigWrapper : NSToolbarItem
+{
+    NSToolbarItem* _wrappedItem;
+    NSImage* _activeImage;
+    NSImage* _inactiveImage;
+}
+
+
+- (void)dealloc;
+- (char)_wantsImageWrapperForInsertionIntoPaletteToolbar:(id)arg1;
+- (id)initWithWrappedItem:(id)arg1;
+- (char)_wantsCopyForInsertionIntoToolbar:(id)arg1 isPalette:(char)arg2;
+- (id)_applicableLabelsArrayForDisplayMode:(unsigned long long)arg1 isInPalette:(char)arg2;
+- (void)_collectItemRectsForLabels:(struct CGRect *)arg1 count:(unsigned long long)arg2 inBounds:(struct CGRect)arg3;
+- (void)_collectItemRectsForViews:(struct CGRect *)arg1 count:(unsigned long long)arg2 inBounds:(struct CGRect)arg3;
+- (char)_isEnabledAndHasEnabledSubitem;
+- (char)_applicableLabelIsEnabledAtIndex:(long long)arg1 forDisplayMode:(unsigned long long)arg2 isInPalette:(char)arg3;
+- (char)_viewIsEnabledAtIndex:(long long)arg1;
+- (id)_itemAtLabelIndex:(long long)arg1;
+- (id)_itemAtViewIndex:(long long)arg1;
+- (id)_buttonAtIndex:(unsigned long long)arg1;
+- (char)_participatesInDefiningMinimumGridWidthForCustomizationPalette;
+- (void)_updateWrapperImage;
+
+@end
+
 
 

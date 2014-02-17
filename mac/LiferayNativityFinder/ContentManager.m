@@ -23,7 +23,7 @@
 static ContentManager* sharedInstance = nil;
 
 @implementation ContentManager
-- init
+- (id)init
 {
 	self = [super init];
 
@@ -96,29 +96,6 @@ static ContentManager* sharedInstance = nil;
 	}
 
 	[self repaintAllWindows];
-}
-
-- (void)addToolbarItem
-{
-	NSApplication* application = [NSApplication sharedApplication];
-	NSArray* windows = application.windows;
-	
-	for (NSWindow* window in windows)
-	{
-		if ([window.className isEqualToString:@"TBrowserWindow"])
-		{
-			NSToolbar* toolbar = [[window browserWindowController] toolbar];
-			
-			NSToolbarItem* item = [[NSToolbarItem alloc] initWithItemIdentifier:@"com.forgetbox.lima.LIMA"];
-			
-			NSOperationQueue* queue = [NSOperationQueue mainQueue];
-			[queue addOperationWithBlock:^{
-				[toolbar insertItemWithItemIdentifier:item.itemIdentifier atIndex:5];
-			}];
-		}
-	}
-	
-	NSLog(@"All done!");
 }
 
 - (void)repaintAllWindows

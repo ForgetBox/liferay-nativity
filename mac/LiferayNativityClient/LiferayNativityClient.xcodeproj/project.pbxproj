@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A1006FF18AE66C2001BB55A /* ToolbarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1006FD18AE66C2001BB55A /* ToolbarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A10070018AE66C2001BB55A /* ToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1006FE18AE66C2001BB55A /* ToolbarItem.m */; };
-		9A10070C18AE8846001BB55A /* ToolbarMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A10070A18AE8846001BB55A /* ToolbarMenuCallback.h */; };
+		9A10070C18AE8846001BB55A /* ToolbarMenuCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A10070A18AE8846001BB55A /* ToolbarMenuCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A10070D18AE8846001BB55A /* ToolbarMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A10070B18AE8846001BB55A /* ToolbarMenuCallback.m */; };
 		9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A60DE2E18A4338E00B62550 /* CommandListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A8D60C618A250FE0011A0C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC87A2218A24B5900203322 /* XCTest.framework */; };
@@ -323,7 +323,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A10070C18AE8846001BB55A /* ToolbarMenuCallback.h in Headers */,
 				9A8D60D918A251150011A0C0 /* LiferayNativityClient.h in Headers */,
 				9ADBDDEE18A2749B0073FD9B /* NativityControl.h in Headers */,
 				9AB64C3D18A516BE00572B3F /* NSArray+FilterMapReduce.h in Headers */,
@@ -332,6 +331,7 @@
 				9A60DE2F18A4338E00B62550 /* CommandListener.h in Headers */,
 				9A9B568E18AA92640014750F /* ToolbarItemControl.h in Headers */,
 				9A1006FF18AE66C2001BB55A /* ToolbarItem.h in Headers */,
+				9A10070C18AE8846001BB55A /* ToolbarMenuCallback.h in Headers */,
 				9A8FCD7B18A401AF004B4673 /* ContextMenuCallback.h in Headers */,
 				9AB64C4118A5173F00572B3F /* MenuItem.h in Headers */,
 				9A8D60D518A251150011A0C0 /* JSONKit.h in Headers */,

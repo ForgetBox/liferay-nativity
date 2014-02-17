@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ActionBlock.h"
+
 @interface ToolbarMenuCallback : NSObject
 
 - (NSArray*)getMenuItemsForPaths:(NSArray*)paths;

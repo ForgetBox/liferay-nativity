@@ -45,8 +45,8 @@
 {
     NSMutableDictionary* ret = [NSMutableDictionary dictionaryWithCapacity:5];
     ret[@"identifier"] = _identifier;
-    ret[@"title"] = (_title == nil) ? _identifier : _title;
-    ret[@"toolTip"] = (_toolTip == nil) ? [NSNull null] : _toolTip;
+    ret[@"title"] = _title ?: _identifier;
+    ret[@"toolTip"] = _toolTip ?: [NSNull null];
     
     if (_imageId != -1)
     {

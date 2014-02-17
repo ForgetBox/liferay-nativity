@@ -18,6 +18,7 @@
 {
 	NSMutableDictionary* _fileNamesCache;
 	BOOL _fileIconsEnabled;
+    NSMutableArray* _toolbarItems;
 }
 
 + (ContentManager*)sharedInstance;
@@ -27,7 +28,5 @@
 - (void)removeAllIcons;
 - (void)removeIcons:(NSArray*)paths;
 - (void)setIcons:(NSDictionary*)iconDictionary filterByFolder:(NSString*)filterFolder;
-
-- (void)addToolbarItem;
 
 @end

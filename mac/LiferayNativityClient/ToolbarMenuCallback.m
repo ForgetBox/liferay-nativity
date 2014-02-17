@@ -8,6 +8,8 @@
 
 #import "ToolbarMenuCallback.h"
 
+#import "DDLog.h"
+
 @implementation ToolbarMenuCallback
 
 - (NSArray*)getMenuItemsForPaths:(NSArray*)paths
