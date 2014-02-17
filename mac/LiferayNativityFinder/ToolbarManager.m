@@ -15,6 +15,7 @@
 #import "Finder/Finder.h"
 
 #import "IconCache.h"
+#import "PopUpButton.h"
 
 static ToolbarManager* _sharedInstance = nil;
 
@@ -85,7 +86,7 @@ static ToolbarManager* _sharedInstance = nil;
 	item.toolTip = itemDictionary[@"toolTip"];
 	
 	NSButton* templateButton = [toolbar.delegate toolbarButtonTemplate];
-	NSPopUpButton* button = [[[NSPopUpButton alloc] initWithFrame:templateButton.frame pullsDown:YES] autorelease];
+	PopUpButton* button = [[[PopUpButton alloc] initWithFrame:templateButton.frame pullsDown:YES] autorelease];
 	button.autoenablesItems = NO;
 	button.bezelStyle = templateButton.bezelStyle;
 	
@@ -93,7 +94,8 @@ static ToolbarManager* _sharedInstance = nil;
 	NSMenuItem* menuItem = [[[NSMenuItem alloc] init] autorelease];
 	menuItem.title = @"";
 	[menuItem setEnabled:YES];
-	[menu insertItem:menuItem atIndex:0];
+	[menu addItem:menuItem];
+	
 	button.menu = menu;
 	[button selectItemAtIndex:0];
 	
