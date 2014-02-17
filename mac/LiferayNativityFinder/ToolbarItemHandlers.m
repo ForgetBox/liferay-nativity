@@ -48,19 +48,19 @@
 	{
 		TToolbar* realSelf = (TToolbar*)self;
 		
-		__block BOOL found = NO;
+		__block TToolbarItem* foundItem = nil;
 		[realSelf.items enumerateObjectsUsingBlock:^(NSToolbarItem* item, NSUInteger idx, BOOL *stop) {
 			if ([item.itemIdentifier isEqualToString:arg1])
 			{
-				found = YES;
+				foundItem = (TToolbarItem*)item;
 				*stop = YES;
 			}
 		}];
 		
-		if (found && !arg4)
+		if (foundItem != nil && !arg4)
 		{
 			NSToolbarItemConfigWrapper* wrapper = objc_msgSend(objc_getClass("NSToolbarItemConfigWrapper"), @selector(alloc));
-			[wrapper initWithWrappedItem:[toolbarManager toolbarItemForIdentifier:arg1 insertedIntoToolbar:realSelf]];
+			[wrapper initWithWrappedItem:foundItem];
 			return wrapper;
 		}
 		else
