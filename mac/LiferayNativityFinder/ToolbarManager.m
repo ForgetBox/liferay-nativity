@@ -18,6 +18,12 @@
 
 static ToolbarManager* _sharedInstance = nil;
 
+@interface ToolbarManager ()
+
+@property (atomic, assign) BOOL addOperationQueued;
+
+@end
+
 @implementation ToolbarManager
 {
 	NSMutableDictionary* _toolbarItems;
@@ -74,7 +80,7 @@ static ToolbarManager* _sharedInstance = nil;
 	
 	TToolbarItem* item = objc_msgSend(objc_getClass("TToolbarItem"), @selector(alloc));
 	item = [item initWithItemIdentifier:identifier];
-	//					item.label = itemDictionary[@"title"];
+	item.label = itemDictionary[@"title"];
 	item.paletteLabel = itemDictionary[@"title"];
 	item.toolTip = itemDictionary[@"toolTip"];
 	
@@ -110,35 +116,37 @@ static ToolbarManager* _sharedInstance = nil;
 
 - (void)addToolbarItems
 {
-	dispatch_async(dispatch_get_main_queue(), ^{
-		if (_itemsToAdd.count == 0)
-		{
-			return;
-		}
+	if (!self.addOperationQueued)
+	{
+		self. addOperationQueued = YES;
 		
-		NSApplication* application = [NSApplication sharedApplication];
-		NSArray* windows = application.windows;
-		
-		for (NSWindow* window in windows)
-		{
-			if ([window.className isEqualToString:@"TBrowserWindow"])
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSApplication* application = [NSApplication sharedApplication];
+			NSArray* windows = application.windows;
+			
+			for (NSWindow* window in windows)
 			{
-				TToolbar* toolbar = (TToolbar*)[[window browserWindowController] toolbar];
-				
-				for (NSDictionary* itemDictionary in _itemsToAdd)
+				if ([window.className isEqualToString:@"TBrowserWindow"])
 				{
-					NSString* identifier = itemDictionary[@"identifier"];
-					_toolbarItems[identifier] = itemDictionary;
-								  
-					[toolbar insertItemWithItemIdentifier:identifier atIndex:5];
+					TToolbar* toolbar = (TToolbar*)[[window browserWindowController] toolbar];
+					
+					for (NSDictionary* itemDictionary in _itemsToAdd)
+					{
+						NSString* identifier = itemDictionary[@"identifier"];
+						_toolbarItems[identifier] = itemDictionary;
+									  
+						[toolbar insertItemWithItemIdentifier:identifier atIndex:5];
+					}
+					
+					[_itemsToAdd removeAllObjects];
+					
+					break;
 				}
-				
-				[_itemsToAdd removeAllObjects];
-				
-				break;
 			}
-		}
-	});
+			
+			self.addOperationQueued = NO;
+		});
+	}
 }
 
 
