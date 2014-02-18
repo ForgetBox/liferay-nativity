@@ -18,6 +18,9 @@
 - (void)ToolbarItemHandlers_toolbarWillAddItem:(id)arg1
 {
 	[self ToolbarItemHandlers_toolbarWillAddItem:arg1];
+	
+	// Check if toolbar items are waiting and dispatch instructions
+	[[ToolbarManager sharedInstance] addToolbarItems];
 }
 
 - (void)ToolbarItemHandlers_toolbarDidRemoveItem:(id)arg1

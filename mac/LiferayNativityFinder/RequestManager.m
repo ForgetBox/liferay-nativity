@@ -311,7 +311,7 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 - (NSArray*)menuItemsForFiles:(NSArray*)files andToolbarItemIdentifier:(NSString *)identifier
 {
-	if (_filterFolder)
+	if (_filterFolder && files.count > 0)
 	{
 		NSString* file = [files objectAtIndex:0];
 		
