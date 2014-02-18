@@ -38,7 +38,7 @@ static MenuManager* sharedInstance = nil;
 	return [super init];
 }
 
-- (void)addChildrenSubMenuItems:(NSMenuItem*)parentMenuItem withChildren:(NSArray*)menuItemsDictionaries forFiles:(NSArray*)files
+- (void)addChildrenSubMenuItems:(NSMenuItem*)parentMenuItem withChildren:(NSArray*)menuItemsDictionaries forFiles:(NSArray*)files withToolbarIdentifier:(NSString*)identifier
 {
 	NSMenu* menu = [[NSMenu alloc] init];
 
@@ -69,11 +69,11 @@ static MenuManager* sharedInstance = nil;
 				submenuItem.image = itemImage;
 			}
 
-			[self addChildrenSubMenuItems:submenuItem withChildren:childrenSubMenuItems forFiles:files];
+			[self addChildrenSubMenuItems:submenuItem withChildren:childrenSubMenuItems forFiles:files withToolbarIdentifier:identifier];
 		}
 		else
 		{
-			[self createActionMenuItemIn:menu withTitle:submenuTitle withIndex:i image:itemImage enabled:enabled withUuid:uuid forFiles:files];
+			[self createActionMenuItemIn:menu withTitle:submenuTitle withIndex:i image:itemImage enabled:enabled withUuid:uuid withToolbarItemIdentifier:identifier forFiles:files];
 		}
 	}
 
@@ -84,7 +84,24 @@ static MenuManager* sharedInstance = nil;
 
 - (void)addItemsToMenu:(NSMenu*)menu forFiles:(NSArray*)files
 {
-	NSArray* menuItemsArray = [[RequestManager sharedInstance] menuItemsForFiles:files];
+	[self addItemsToMenu:menu forFiles:files withToolbarIdentifier:nil];
+}
+
+- (void)addItemsToMenu:(NSMenu*)menu forFiles:(NSArray*)files withToolbarIdentifier:(NSString*)identifier
+{
+	NSArray* menuItemsArray;
+	NSInteger prevMenuIndex;
+	
+	if (identifier == nil)
+	{
+		menuItemsArray = [[RequestManager sharedInstance] menuItemsForFiles:files];
+		prevMenuIndex = -1;
+	}
+	else
+	{
+		menuItemsArray = [[RequestManager sharedInstance] menuItemsForFiles:files andToolbarItemIdentifier:identifier];
+		prevMenuIndex = 0;
+	}
 
 	if (menuItemsArray == nil)
 	{
@@ -96,7 +113,6 @@ static MenuManager* sharedInstance = nil;
 		return;
 	}
 
-	NSInteger prevMenuIndex = -1;
 
 	for (NSDictionary* menuItemDictionary in menuItemsArray)
 	{
@@ -104,14 +120,7 @@ static MenuManager* sharedInstance = nil;
 		NSInteger menuIndex;
 		if (index == nil)
 		{
-			if (prevMenuIndex == -1)
-			{
-				menuIndex = 4;
-			}
-			else
-			{
-				menuIndex = prevMenuIndex + 1;
-			}
+			menuIndex = prevMenuIndex + 1;
 		}
 		else
 		{
@@ -159,24 +168,30 @@ static MenuManager* sharedInstance = nil;
 				mainMenuItem.image = itemImage;
 			}
 
-			[self addChildrenSubMenuItems:mainMenuItem withChildren:childrenSubMenuItems forFiles:files];
+			[self addChildrenSubMenuItems:mainMenuItem withChildren:childrenSubMenuItems forFiles:files withToolbarIdentifier:identifier];
 		}
 		else
 		{
-			[self createActionMenuItemIn:menu withTitle:mainMenuTitle withIndex:menuIndex image:itemImage enabled:enabled withUuid:uuid forFiles:files];
+			[self createActionMenuItemIn:menu
+							   withTitle:mainMenuTitle
+							   withIndex:menuIndex
+								   image:itemImage
+								 enabled:enabled
+								withUuid:uuid
+			   withToolbarItemIdentifier:identifier
+								forFiles:files];
 		}
 		
 		prevMenuIndex = menuIndex;
 	}
 	
-	BOOL hasSeparatorAfter = [[menu itemAtIndex:prevMenuIndex  + 1] isSeparatorItem];
-	if (!hasSeparatorAfter)
+	if ((menu.numberOfItems > (prevMenuIndex + 1)) && ![[menu itemAtIndex:prevMenuIndex  + 1] isSeparatorItem])
 	{
 		[menu insertItem:[NSMenuItem separatorItem] atIndex:prevMenuIndex + 1];
 	}
 }
 
-- (void)createActionMenuItemIn:(NSMenu*)menu withTitle:(NSString*)title withIndex:(NSInteger*)index image:(NSImage*)image enabled:(BOOL)enabled withUuid:(NSString*)uuid forFiles:(NSArray*)files
+- (void)createActionMenuItemIn:(NSMenu*)menu withTitle:(NSString*)title withIndex:(NSInteger*)index image:(NSImage*)image enabled:(BOOL)enabled withUuid:(NSString*)uuid withToolbarItemIdentifier:(NSString*)identifier forFiles:(NSArray*)files
 {
 	NSMenuItem* mainMenuItem = [menu insertItemWithTitle:title action:@selector(menuItemClicked:) keyEquivalent:@"" atIndex:index];
 
@@ -194,6 +209,11 @@ static MenuManager* sharedInstance = nil;
 	[menuActionDictionary setValue:uuid forKey:@"uuid"];
 	NSMutableArray* filesArray = [files copy];
 	[menuActionDictionary setValue:filesArray forKey:@"files"];
+	
+	if (identifier != nil)
+	{
+		[menuActionDictionary setValue:identifier forKey:@"identifier"];
+	}
 
 	[mainMenuItem setRepresentedObject:menuActionDictionary];
 

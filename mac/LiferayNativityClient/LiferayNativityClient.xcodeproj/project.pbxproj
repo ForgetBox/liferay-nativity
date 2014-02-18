@@ -26,6 +26,7 @@
 		9A8FCD7C18A401AF004B4673 /* ContextMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */; };
 		9A9B568E18AA92640014750F /* ToolbarItemControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A9B568C18AA92630014750F /* ToolbarItemControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A9B568F18AA92640014750F /* ToolbarItemControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B568D18AA92640014750F /* ToolbarItemControl.m */; };
+		9A9E621318B36DAE004870AE /* TestToolbarMenuCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E621218B36DAE004870AE /* TestToolbarMenuCallback.m */; };
 		9AAB90F818A3DD0A0088F5BC /* FileIconControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAB90F918A3DD0A0088F5BC /* FileIconControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */; };
 		9AB64C3818A4D88B00572B3F /* NativityMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB64C3618A4D88B00572B3F /* NativityMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +81,8 @@
 		9A8FCD7A18A401AF004B4673 /* ContextMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuCallback.m; sourceTree = SOURCE_ROOT; };
 		9A9B568C18AA92630014750F /* ToolbarItemControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarItemControl.h; sourceTree = SOURCE_ROOT; };
 		9A9B568D18AA92640014750F /* ToolbarItemControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarItemControl.m; sourceTree = SOURCE_ROOT; };
+		9A9E621118B36DAE004870AE /* TestToolbarMenuCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestToolbarMenuCallback.h; sourceTree = "<group>"; };
+		9A9E621218B36DAE004870AE /* TestToolbarMenuCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestToolbarMenuCallback.m; sourceTree = "<group>"; };
 		9AAB90F618A3DD0A0088F5BC /* FileIconControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIconControl.h; sourceTree = SOURCE_ROOT; };
 		9AAB90F718A3DD0A0088F5BC /* FileIconControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIconControl.m; sourceTree = SOURCE_ROOT; };
 		9AB64C3618A4D88B00572B3F /* NativityMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativityMessage.h; sourceTree = SOURCE_ROOT; };
@@ -145,6 +148,8 @@
 				9A8D60C818A250FE0011A0C0 /* Supporting Files */,
 				9AB64C4318A52B9100572B3F /* TestContextMenuCallback.h */,
 				9AB64C4418A52B9100572B3F /* TestContextMenuCallback.m */,
+				9A9E621118B36DAE004870AE /* TestToolbarMenuCallback.h */,
+				9A9E621218B36DAE004870AE /* TestToolbarMenuCallback.m */,
 			);
 			path = LiferayNativityClientTests;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9E621318B36DAE004870AE /* TestToolbarMenuCallback.m in Sources */,
 				9A8D60CE18A250FE0011A0C0 /* LiferayNativityClientTests.m in Sources */,
 				9AB64C4518A52B9100572B3F /* TestContextMenuCallback.m in Sources */,
 			);

@@ -87,6 +87,7 @@ static ToolbarManager* _sharedInstance = nil;
 	
 	NSButton* templateButton = [toolbar.delegate toolbarButtonTemplate];
 	PopUpButton* button = [[[PopUpButton alloc] initWithFrame:templateButton.frame pullsDown:YES] autorelease];
+	button.toolbarItem = item;
 	button.autoenablesItems = NO;
 	button.bezelStyle = templateButton.bezelStyle;
 	

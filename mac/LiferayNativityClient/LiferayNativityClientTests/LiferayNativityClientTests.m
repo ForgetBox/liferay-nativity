@@ -10,6 +10,7 @@
 #import "LiferayNativityClient.h"
 
 #import "TestContextMenuCallback.h"
+#import "TestToolbarMenuCallback.h"
 
 @interface LiferayNativityClientTests : XCTestCase
 
@@ -91,10 +92,16 @@
     item.imageId = iconId;
     [toolbarItemControl addToolbarItem:item];
     
-    while (YES)
+    TestToolbarMenuCallback* callback = [[TestToolbarMenuCallback alloc] init];
+    callback.imageId = iconId;
+    item.callback = callback;
+    
+    while (!callback.hasClicked)
     {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:.01]];
     }
+    
+    
 }
 
 @end

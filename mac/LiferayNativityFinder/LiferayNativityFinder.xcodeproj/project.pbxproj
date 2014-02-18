@@ -22,12 +22,8 @@
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 		9A09E54118B2205000B41491 /* ToolbarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A09E54018B2205000B41491 /* ToolbarManager.m */; };
-		9A21903918ABA99800AA49CC /* ClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903218ABA99800AA49CC /* ClassDescription.m */; };
-		9A21903A18ABA99800AA49CC /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903418ABA99800AA49CC /* LibraryManager.m */; };
-		9A21903B18ABA99800AA49CC /* TypeEncodingFuncs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */; };
-		9A21903C18ABA99800AA49CC /* StructDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903818ABA99800AA49CC /* StructDescription.m */; };
 		9A21903F18ABB3B800AA49CC /* ToolbarItemHandlers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A21903E18ABB3B800AA49CC /* ToolbarItemHandlers.m */; };
-		9A23513018B26AA4005ADCB0 /* PopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A23512F18B26AA4005ADCB0 /* PopUpButton.m */; };
+		9A23513018B26AA4005ADCB0 /* PopUpButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A23512F18B26AA4005ADCB0 /* PopUpButton.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,18 +55,10 @@
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A09E53F18B2205000B41491 /* ToolbarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarManager.h; sourceTree = "<group>"; };
 		9A09E54018B2205000B41491 /* ToolbarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarManager.m; sourceTree = "<group>"; };
-		9A21903118ABA99800AA49CC /* ClassDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDescription.h; path = ../../../../headerdump/headerdump/ClassDescription.h; sourceTree = "<group>"; };
-		9A21903218ABA99800AA49CC /* ClassDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDescription.m; path = ../../../../headerdump/headerdump/ClassDescription.m; sourceTree = "<group>"; };
-		9A21903318ABA99800AA49CC /* LibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryManager.h; path = ../../../../headerdump/headerdump/LibraryManager.h; sourceTree = "<group>"; };
-		9A21903418ABA99800AA49CC /* LibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryManager.m; path = ../../../../headerdump/headerdump/LibraryManager.m; sourceTree = "<group>"; };
-		9A21903518ABA99800AA49CC /* TypeEncodingFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeEncodingFuncs.h; path = ../../../../headerdump/headerdump/TypeEncodingFuncs.h; sourceTree = "<group>"; };
-		9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeEncodingFuncs.m; path = ../../../../headerdump/headerdump/TypeEncodingFuncs.m; sourceTree = "<group>"; };
-		9A21903718ABA99800AA49CC /* StructDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StructDescription.h; path = ../../../../headerdump/headerdump/StructDescription.h; sourceTree = "<group>"; };
-		9A21903818ABA99800AA49CC /* StructDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StructDescription.m; path = ../../../../headerdump/headerdump/StructDescription.m; sourceTree = "<group>"; };
 		9A21903D18ABB3B800AA49CC /* ToolbarItemHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarItemHandlers.h; sourceTree = "<group>"; };
 		9A21903E18ABB3B800AA49CC /* ToolbarItemHandlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarItemHandlers.m; sourceTree = "<group>"; };
 		9A23512E18B26AA4005ADCB0 /* PopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpButton.h; sourceTree = "<group>"; };
-		9A23512F18B26AA4005ADCB0 /* PopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpButton.m; sourceTree = "<group>"; };
+		9A23512F18B26AA4005ADCB0 /* PopUpButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PopUpButton.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +111,6 @@
 		08FB77AFFE84173DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				9A21903018ABA98900AA49CC /* headerdump */,
 				0B2BF60A176A43DB001246CD /* Finder */,
 				0B08BAC21759627700C8351E /* GCDAsyncSocket */,
 				0BFAF21916F8E6910017EA7E /* JSONKit */,
@@ -146,7 +133,7 @@
 				9A09E53F18B2205000B41491 /* ToolbarManager.h */,
 				9A09E54018B2205000B41491 /* ToolbarManager.m */,
 				9A23512E18B26AA4005ADCB0 /* PopUpButton.h */,
-				9A23512F18B26AA4005ADCB0 /* PopUpButton.m */,
+				9A23512F18B26AA4005ADCB0 /* PopUpButton.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -183,21 +170,6 @@
 				8D576316048677EA00EA77CD /* LiferayNativityFinder.bundle */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		9A21903018ABA98900AA49CC /* headerdump */ = {
-			isa = PBXGroup;
-			children = (
-				9A21903118ABA99800AA49CC /* ClassDescription.h */,
-				9A21903218ABA99800AA49CC /* ClassDescription.m */,
-				9A21903318ABA99800AA49CC /* LibraryManager.h */,
-				9A21903418ABA99800AA49CC /* LibraryManager.m */,
-				9A21903518ABA99800AA49CC /* TypeEncodingFuncs.h */,
-				9A21903618ABA99800AA49CC /* TypeEncodingFuncs.m */,
-				9A21903718ABA99800AA49CC /* StructDescription.h */,
-				9A21903818ABA99800AA49CC /* StructDescription.m */,
-			);
-			name = headerdump;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A21903C18ABA99800AA49CC /* StructDescription.m in Sources */,
 				0B13ECAE173C687400548DA1 /* GCDAsyncSocket.m in Sources */,
 				8C37DD9F161593BD00016A95 /* FinderHook.m in Sources */,
 				9A09E54118B2205000B41491 /* ToolbarManager.m in Sources */,
@@ -272,14 +243,11 @@
 				69948B361636D50E0093B6CE /* ContentManager.m in Sources */,
 				6993878616494C000044E4DF /* RequestManager.m in Sources */,
 				692C18A516660C4700BF6A53 /* ContextMenuHandlers.m in Sources */,
-				9A23513018B26AA4005ADCB0 /* PopUpButton.m in Sources */,
+				9A23513018B26AA4005ADCB0 /* PopUpButton.mm in Sources */,
 				692C18A9166617F500BF6A53 /* IconOverlayHandlers.m in Sources */,
 				692C18AC1666392700BF6A53 /* MenuManager.m in Sources */,
 				0BFAF21C16F8E6C10017EA7E /* JSONKit.m in Sources */,
 				9A21903F18ABB3B800AA49CC /* ToolbarItemHandlers.m in Sources */,
-				9A21903918ABA99800AA49CC /* ClassDescription.m in Sources */,
-				9A21903B18ABA99800AA49CC /* TypeEncodingFuncs.m in Sources */,
-				9A21903A18ABA99800AA49CC /* LibraryManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

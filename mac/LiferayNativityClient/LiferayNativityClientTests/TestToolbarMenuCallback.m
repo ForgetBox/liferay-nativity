@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Forgetbox. All rights reserved.
 //
 
-#import "TestContextMenuCallback.h"
+#import "TestToolbarMenuCallback.h"
 
 #import "MenuItem.h"
 
-@implementation TestContextMenuCallback
+@implementation TestToolbarMenuCallback
 
 - (NSArray*)generateRandomMenu:(NSUInteger)itemCount
 {
@@ -41,9 +41,7 @@
 
 - (NSArray*)getMenuItemsForPaths:(NSArray*)paths
 {
-    NSArray* ret = [self generateRandomMenu:4];
-    ((MenuItem*)ret[0]).menuIndex = 4;
-    return ret;
+    return [self generateRandomMenu:4];
 }
 
 - (id)init

@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class TToolbarItem;
+
 @interface PopUpButton : NSPopUpButton
+
+@property (nonatomic, assign) TToolbarItem* toolbarItem;
 
 @end

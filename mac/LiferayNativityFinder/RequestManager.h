@@ -40,6 +40,7 @@
 
 - (void)menuItemClicked:(NSDictionary*)actionDictionary;
 - (NSArray*)menuItemsForFiles:(NSArray*)files;
+- (NSArray*)menuItemsForFiles:(NSArray*)files andToolbarItemIdentifier:(NSString*)identifier;
 - (void)start;
 
 @end

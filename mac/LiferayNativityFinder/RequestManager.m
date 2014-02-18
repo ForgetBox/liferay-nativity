@@ -252,8 +252,16 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 	}
 
 	NSDictionary* menuExecDictionary = [[NSMutableDictionary alloc] init];
-
-	[menuExecDictionary setValue:@"contextMenuAction" forKey:@"command"];
+	
+	NSString* identifier = actionDictionary[@"identifier"];
+	if (identifier == nil)
+	{
+		[menuExecDictionary setValue:@"contextMenuAction" forKey:@"command"];
+	}
+	else
+	{
+		[menuExecDictionary setValue:@"toolbarMenuAction" forKey:@"command"];
+	}
 
 	[menuExecDictionary setValue:actionDictionary forKey:@"value"];
 
@@ -271,12 +279,7 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 - (NSArray*)menuItemsForFiles:(NSArray*)files
 {
-	if ([_connectedCallbackSockets count] == 0)
-	{
-		return nil;
-	}
-
-	if (_filterFolder)
+	if (_filterFolder && files.count > 0)
 	{
 		NSString* file = [files objectAtIndex:0];
 
@@ -293,6 +296,40 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 	NSString* jsonString = [menuQueryDictionary JSONString];
 	[menuQueryDictionary release];
+	
+	return [self menuItemsForQuery:jsonString];
+}
+
+- (NSArray*)menuItemsForFiles:(NSArray*)files andToolbarItemIdentifier:(NSString *)identifier
+{
+	if (_filterFolder)
+	{
+		NSString* file = [files objectAtIndex:0];
+		
+		if (![file hasPrefix:_filterFolder])
+		{
+			return nil;
+		}
+	}
+	
+	NSDictionary* menuQueryDictionary = [[NSMutableDictionary alloc] init];
+	
+	[menuQueryDictionary setValue:@"getToolbarMenuList" forKey:@"command"];
+	[menuQueryDictionary setValue:@{@"files" : files, @"identifier" : identifier} forKey:@"value"];
+	
+	NSString* jsonString = [menuQueryDictionary JSONString];
+	[menuQueryDictionary release];
+	
+	return [self menuItemsForQuery:jsonString];
+}
+
+- (NSArray*)menuItemsForQuery:(NSString*)jsonString
+{
+	if ([_connectedCallbackSockets count] == 0)
+	{
+		return nil;
+	}
+	
 	
 	[_callbackMsgs removeAllObjects];
 

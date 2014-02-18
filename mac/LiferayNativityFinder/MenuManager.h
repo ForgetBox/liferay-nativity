@@ -24,6 +24,7 @@ struct TFENodeVector;
 + (MenuManager*)sharedInstance;
 
 - (void)addItemsToMenu:(NSMenu*)menu forFiles:(NSArray*)files;
+- (void)addItemsToMenu:(NSMenu*)menu forFiles:(NSArray*)files withToolbarIdentifier:(NSString*)identifier;
 - (NSArray*)pathsForNodes:(const struct TFENodeVector*)nodes;
 
 @end

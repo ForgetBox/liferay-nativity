@@ -63,7 +63,13 @@
         _menuActions[identifier] = actions;
     }
     
-    actions[menuItem.uuid] = menuItem.action;
+    actions[menuItem.uuid.UUIDString] = menuItem.action;
+    
+    NSUInteger childCount = menuItem.numberOfChildren;
+    for (NSUInteger i = 0; i < childCount; i++)
+    {
+        [self registerActionForItem:[menuItem childAtIndex:i] withIdentifier:identifier];
+    }
 }
 
 - (NativityMessage *)onCommand:(NSString *)command withValue:(id)value
@@ -75,11 +81,11 @@
         NSDictionary* commandDict = value;
         
         NSString* identifier = commandDict[@"identifier"];
-        NSArray* paths = commandDict[@"paths"];
+        NSArray* files = commandDict[@"files"];
         ToolbarItem* item = _items[identifier];
         if (item.callback != nil)
         {
-            NSArray* menuItems = [item.callback getMenuItemsForPaths:paths];
+            NSArray* menuItems = [item.callback getMenuItemsForPaths:files];
             
             for (MenuItem* menuItem in menuItems)
             {
@@ -100,19 +106,15 @@
         ToolbarItem* item = _items[identifier];
         if (item != nil)
         {
-            ToolbarMenuCallback* callback = item.callback;
-            if (callback)
+            NSUUID* uuid = commandDict[@"uuid"];
+            ActionBlock action = _menuActions[identifier][uuid];
+            if (action != NULL)
             {
-                NSUUID* uuid = commandDict[@"uuid"];
-                ActionBlock action = _menuActions[identifier][uuid];
-                if (action != NULL)
-                {
-                    NSArray* files = commandDict[@"files"];
-                    DDLogVerbose(@"Firing toolbar menu action: %@ uuid: %@ for: %@", identifier, uuid, files);
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        action(files);
-                    });
-                }
+                NSArray* files = commandDict[@"files"];
+                DDLogVerbose(@"Firing toolbar menu action: %@ uuid: %@ for: %@", identifier, uuid, files);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    action(files);
+                });
             }
         }
     }
