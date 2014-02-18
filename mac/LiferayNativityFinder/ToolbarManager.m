@@ -122,6 +122,11 @@ static ToolbarManager* _sharedInstance = nil;
 
 - (void)addToolbarItems
 {
+	if (_itemsToAdd.count == 0)
+	{
+		return;
+	}
+	
 	if (!self.addOperationQueued)
 	{
 		self. addOperationQueued = YES;
@@ -157,6 +162,11 @@ static ToolbarManager* _sharedInstance = nil;
 
 - (void)removeToolbarItems:(NSArray *)identifiers
 {
+	if (identifiers.count == 0)
+	{
+		return;
+	}
+	
 	if (!self.removeOperationQueued)
 	{
 		self. removeOperationQueued = YES;
