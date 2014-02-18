@@ -57,11 +57,18 @@
 			}
 		}];
 		
-		if (foundItem != nil && !arg4)
+		if (foundItem != nil)
 		{
-			NSToolbarItemConfigWrapper* wrapper = objc_msgSend(objc_getClass("NSToolbarItemConfigWrapper"), @selector(alloc));
-			[wrapper initWithWrappedItem:foundItem];
-			return wrapper;
+			if (!arg4)
+			{
+				NSToolbarItemConfigWrapper* wrapper = objc_msgSend(objc_getClass("NSToolbarItemConfigWrapper"), @selector(alloc));
+				[wrapper initWithWrappedItem:foundItem];
+				return wrapper;
+			}
+			else
+			{
+				return nil;
+			}
 		}
 		else
 		{
