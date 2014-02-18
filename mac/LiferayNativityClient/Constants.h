@@ -48,6 +48,8 @@ static NSString* UNREGISTER_ICON = @"unregisterIcon";
 
 static NSString* ADD_TOOLBAR_ITEM = @"addToolbarItem";
 
+static NSString* REMOVE_TOOLBAR_ITEMS = @"removeToolbarItems";
+
 static NSString* FIRE_TOOLBAR_ITEM_ACTION = @"toolbarItemAction";
 
 static NSString* FIRE_TOOLBAR_MENU_ACTION = @"toolbarMenuAction";

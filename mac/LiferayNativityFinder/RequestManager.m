@@ -161,6 +161,10 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 	{
 		[self execAddToolbarItem:value replyTo:sock];
 	}
+	else if ([command isEqualToString:@"removeToolbarItems"])
+	{
+		[self execRemoveToolbarItems:value replyTo:sock];
+	}
 	else
 	{
 		NSLog(@"LiferayNativityFinder: failed to find command: %@", command);
@@ -237,9 +241,14 @@ static double maxMenuItemsRequestWaitMilliSec = 250;
 
 - (void)execAddToolbarItem:(NSData*)cmdData replyTo:(GCDAsyncSocket*)sock
 {
-	NSDictionary* toolbarItemDictionary = (NSDictionary*)cmdData;
+	[[ToolbarManager sharedInstance] addToolbarItem:(NSDictionary*)cmdData];
 	
-	[[ToolbarManager sharedInstance] addToolbarItem:cmdData];
+	[self replyString:@"1" toSocket:sock];
+}
+
+- (void)execRemoveToolbarItems:(NSData*)cmdData replyTo:(GCDAsyncSocket*)sock
+{
+	[[ToolbarManager sharedInstance] removeToolbarItems:(NSArray*)cmdData];
 	
 	[self replyString:@"1" toSocket:sock];
 }

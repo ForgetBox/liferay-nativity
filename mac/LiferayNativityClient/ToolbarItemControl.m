@@ -128,4 +128,17 @@
     [_nativityControl sendMessageWithCommand:ADD_TOOLBAR_ITEM andValue:[item asDictionary]];
 }
 
+- (void)removeToolbarItem:(NSString *)identifier
+{
+    if (_items[identifier] != nil)
+    {
+        [_nativityControl sendMessageWithCommand:REMOVE_TOOLBAR_ITEMS andValue:@[identifier]];
+    }
+}
+
+- (void)removeAllToolbarItems
+{
+    [_nativityControl sendMessageWithCommand:REMOVE_TOOLBAR_ITEMS andValue:_items.allKeys];
+}
+
 @end

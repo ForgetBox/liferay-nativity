@@ -16,6 +16,7 @@
 + (id)sharedInstance;
 
 - (void)addToolbarItem:(NSDictionary*)itemDictionary;
+- (void)removeToolbarItems:(NSArray*)identifiers;
 - (TToolbarItem*)toolbarItemForIdentifier:(NSString*)identifier insertedIntoToolbar:(TToolbar*)toolbar;
 - (NSArray*)itemIdentifiers;
 

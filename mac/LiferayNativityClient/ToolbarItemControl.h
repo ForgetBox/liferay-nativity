@@ -18,5 +18,7 @@
 - (id)initWithNativityControl:(NativityControl*)nativityControl;
 
 - (void)addToolbarItem:(ToolbarItem*)item;
+- (void)removeToolbarItem:(NSString*)identifier;
+- (void)removeAllToolbarItems;
 
 @end

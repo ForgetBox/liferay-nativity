@@ -101,7 +101,7 @@
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:.01]];
     }
     
-    
+    [toolbarItemControl removeAllToolbarItems];
 }
 
 @end

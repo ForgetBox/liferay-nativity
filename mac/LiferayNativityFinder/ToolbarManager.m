@@ -22,6 +22,7 @@ static ToolbarManager* _sharedInstance = nil;
 @interface ToolbarManager ()
 
 @property (atomic, assign) BOOL addOperationQueued;
+@property (atomic, assign) BOOL removeOperationQueued;
 
 @end
 
@@ -51,6 +52,8 @@ static ToolbarManager* _sharedInstance = nil;
 	{
 		_toolbarItems = [[NSMutableDictionary alloc] init];
 		_itemsToAdd = [[NSMutableArray alloc] init];
+		_addOperationQueued = NO;
+		_removeOperationQueued = NO;
 	}
 	return self;
 }
@@ -148,6 +151,48 @@ static ToolbarManager* _sharedInstance = nil;
 			}
 			
 			self.addOperationQueued = NO;
+		});
+	}
+}
+
+- (void)removeToolbarItems:(NSArray *)identifiers
+{
+	if (!self.removeOperationQueued)
+	{
+		self. removeOperationQueued = YES;
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSApplication* application = [NSApplication sharedApplication];
+			NSArray* windows = application.windows;
+			
+			for (NSWindow* window in windows)
+			{
+				if ([window.className isEqualToString:@"TBrowserWindow"])
+				{
+					TToolbar* toolbar = (TToolbar*)[[window browserWindowController] toolbar];
+					
+					for (NSString* identifier in identifiers)
+					{
+						__block NSUInteger itemIndex = NSNotFound;
+						[toolbar.items enumerateObjectsUsingBlock:^(NSToolbarItem* item, NSUInteger idx, BOOL *stop) {
+							if ([item.itemIdentifier isEqualToString:identifier])
+							{
+								itemIndex = idx;
+								*stop = YES;
+							}
+						}];
+						
+						if (itemIndex != NSNotFound)
+						{
+							[toolbar removeItemAtIndex:itemIndex];
+						}
+					}
+					
+					break;
+				}
+			}
+			
+			self.removeOperationQueued = NO;
 		});
 	}
 }
